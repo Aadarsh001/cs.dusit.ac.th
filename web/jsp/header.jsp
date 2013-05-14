@@ -3,7 +3,7 @@
     <h2></h2>
     <div id="cssmenu">
     <ul>
-        <li><a href=""><span>หน้าหลัก</span></a></li>
+        <li><a href="index"><span>หน้าหลัก</span></a></li>
         <li><a href=""><span>เกี่ยวกับหลักสูตร</span></a></li>
         <li class='has-sub'><a id=""><span>บุคลากร</span></a>
             <ul>
@@ -21,7 +21,7 @@
         <li><a href=""><span>วิจัยและบริการวิชาการ</span></a></li>
         <li><a href=""><span>ประกันคุณภาพ</span></a></li>
         <li><a href=""><span>เอกสารดาวน์โหลด</span></a></li>
-        <li><a href=""><span>ติดต่อ</span></a></li>
+        <li><a href="contact" target=""><span>ติดต่อ</span></a></li>
     </ul>
 </div>
 </div>
