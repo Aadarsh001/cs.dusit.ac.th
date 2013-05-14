@@ -29,6 +29,12 @@
     height: 60px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
+.login.ui-grid-b .login.ui-block-a , .login.ui-grid-b .login.ui-block-c{
+    width: 10px;
+}
+.ui-grid-b.login .login.ui-block-b{
+    width: 200px;
+}
 
 .frmemail {
     text-align: center;
@@ -84,12 +90,13 @@
 
 /* HEADER STRAT */
 
-.ui-header .ui-title{
+[data-role=header]{
     background-image: url(../images/header.png);
+    background-repeat: no-repeat;
 }
 
 
-#cssmenu{ position: absolute !important;width: 978px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 0  0 5px 5px;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+#cssmenu{ position: absolute !important;width: 978.1px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 0  0 5px 5px;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
     -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
     box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
 #cssmenu > ul {list-style:inside none; padding:0; margin:0;}
@@ -107,7 +114,7 @@
 #cssmenu ul li > ul{width:200px;}
 #cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
 #cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:rgb(255, 255, 255); text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); }
-#cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;background:#333333; background:-moz-linear-gradient(top, rgb(131, 131, 131) 0%, rgb(105, 105, 105) 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(131, 131, 131)), color-stop(100%,rgb(105, 105, 105))); background:-webkit-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-o-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-ms-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(131, 131, 131)', endColorstr='rgb(105, 105, 105)',GradientType=0 ); }
+#cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;background:rgb(105, 105, 105); background:-moz-linear-gradient(top, rgb(131, 131, 131) 0%, rgb(105, 105, 105) 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(131, 131, 131)), color-stop(100%,rgb(105, 105, 105))); background:-webkit-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-o-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-ms-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#828282', endColorstr='#494949',GradientType=0); }
 #cssmenu{border-color:rgb(128, 123, 123);}
 #cssmenu > ul > li > a{border-right:1px solid rgb(109, 109, 109); color:rgb(255, 255, 255);}
 #cssmenu > ul > li > a:after{border-color:#444;}

@@ -34,7 +34,7 @@
                     reader.readAsDataURL(ele.files[0]);
                 }
 //                var timerId = setInterval(function () {
-//                    if($('#myimage').width()==720&&$('#myimage').height()==260){
+//                    if($('#myimage').width()==720&&$('#myimage').height()==300){
 //                        clearInterval(timerId);
 //                    }else{
 //                        $('#image').val('');
