@@ -1,0 +1,38 @@
+DB{
+    db_name : comsci_website
+    db_user : comsci
+    db_pass : isyl]y[
+}
+content slideshow{
+    get{
+        -option show
+        -option all
+        -option some{
+            ->id_sli
+        }
+    }
+    post{
+        -option add{
+            ->title
+            ->image
+            ->link
+            ->sequence
+            ->startdate
+            ->enddate
+            ->status
+        }
+        -option edit{
+            ->id_sli
+            ->title
+            ->image
+            ->link
+            ->sequence
+            ->startdate
+            ->enddate
+            ->status
+        }
+        -option remove{
+            ->id_sli
+        }
+    }
+}

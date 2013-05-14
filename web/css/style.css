@@ -1,0 +1,118 @@
+/* ColumnRight START */
+
+.column.ui-grid-a .ui-block-a{
+    width:75%;
+    border: solid red 1px;
+}
+.column.ui-grid-a .ui-block-b{
+    width:24%;
+    margin-left: 1%; 
+    height: auto;
+/*    border-radius: 7px;
+    background-color: whitesmoke;*/
+    
+}
+
+#slide{
+    width: 100%;
+    height: 260px;
+}
+
+#date{
+    float: left;
+    width:79%;
+    margin-left: 1%; 
+    border-radius: 7px;
+    height: 40px;
+    background-color: rgb(213, 213, 213);
+    
+}
+#social{
+    background-image: url('../images/fblogo.png');
+    height: 40px;
+    background-repeat: no-repeat;
+    margin-left: 83%;
+    
+}
+
+#frmlogin{
+    width: 100%;
+    height: 240px;
+    background-color: rgb(213, 213, 213);
+    border-radius: 7px;
+    margin: 10px 0 0 0;
+}
+.headlogin{
+    width: 100%;
+    background-image: url('../images/login.png');
+    height: 60px;
+}
+
+.frmemail {
+    text-align: center;
+    margin: 20px 0 0 0 ;
+}
+.frmpass {
+    text-align: center;
+    margin: 15px 0 0 0 ;
+}
+.btlogin{
+    text-align: center;
+    width: 70%;
+    margin: 20px auto 0 auto;
+    
+}
+
+#frmcalendar{
+    width: 100%;
+    height: 240px;
+    background-color: rgb(213, 213, 213);
+    border-radius: 7px;
+    margin: 10px 0 0 0;
+}
+.headcalendar{
+    width: 100%;
+    background-image: url('../images/calendar.png');
+    height: 60px;
+}
+
+
+.headlink{
+    width: 100%;
+    background-image: url('../images/link.png');
+    height: 50px;
+}
+/* ColumnRight END */
+
+/* HEADER STRAT */
+
+.ui-header .ui-title{
+    background-image: url(../images/header.png);
+}
+
+
+#cssmenu{ position: absolute !important;width: 978px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 0  0 5px 5px;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
+    box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
+#cssmenu > ul {list-style:inside none; padding:0; margin:0;}
+#cssmenu > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;background-color: rgb(150, 150, 150);}
+#cssmenu > ul > li > a{ outline:none; display:block; position:relative; padding:12px 13.28px; font:bold 13px/100% Arial, Helvetica, sans-serif; text-align:center; text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.4); }
+#cssmenu > ul > li:first-child > a{border-radius:5px 0 0 5px;}
+#cssmenu > ul > li > a:after{ content:''; position:absolute; top:-1px; bottom:-1px; right:-2px; z-index:99; }
+#cssmenu ul li.has-sub:hover > a:after{top:0; bottom:0;}
+
+#cssmenu > ul > li.has-sub:hover > a:before{top:19px;}
+#cssmenu ul li.has-sub:hover > a{ background:rgb(131, 131, 131); border-color:rgb(131, 131, 131); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; }
+#cssmenu ul li.has-sub:hover > ul, #cssmenu ul li.has-sub:hover > div{display:block;}
+#cssmenu ul li.has-sub > a:hover{background:rgb(131, 131, 131); border-color:rgb(131, 131, 131);}
+#cssmenu ul li > ul, #cssmenu ul li > div{ display:none; width:auto; position:absolute; top:38px; padding:10px 0; background:rgb(131, 131, 131); border-radius:0 0 5px 5px; z-index:999; }
+#cssmenu ul li > ul{width:200px;}
+#cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
+#cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:rgb(255, 255, 255); text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); }
+#cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;background:#333333; background:-moz-linear-gradient(top, rgb(131, 131, 131) 0%, rgb(105, 105, 105) 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(131, 131, 131)), color-stop(100%,rgb(105, 105, 105))); background:-webkit-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-o-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:-ms-linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); background:linear-gradient(top, rgb(131, 131, 131) 0%,rgb(105, 105, 105) 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(131, 131, 131)', endColorstr='rgb(105, 105, 105)',GradientType=0 ); }
+#cssmenu{border-color:rgb(128, 123, 123);}
+#cssmenu > ul > li > a{border-right:1px solid rgb(109, 109, 109); color:rgb(255, 255, 255);}
+#cssmenu > ul > li > a:after{border-color:#444;}
+#cssmenu > ul > li > a:hover{cursor: pointer;text-shadow:0px 0 1px white;color:#fff;background:rgb(131, 131, 131);}
+
+/* HEADER END */
