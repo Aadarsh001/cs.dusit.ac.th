@@ -5,6 +5,8 @@
 package Servlet;
 
 import Class.ContentData;
+import Class.ContentData.Content;
+import Class.ContentData.Option;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -71,40 +73,47 @@ public class content extends HttpServlet {
         String content = request.getParameter("content");
         String option = request.getParameter("option");
         JSONObject data = new JSONObject();
-        System.out.println(content.hashCode());
-        if ("slideshow".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_sli", request.getParameter("id_sli"));
-            }
-        } else if ("news".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_new", request.getParameter("id_new"));
-            }
-        } else if ("event".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_eve", request.getParameter("id_eve"));
-            }
-        } else if ("knowledge".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_kno", request.getParameter("id_kno"));
-            }
-        } else if ("link".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_lin", request.getParameter("id_lin"));
-            }
-        } else if ("calendar".equals(content)) {
-            if ("some".equals(option)) {
-                data.put("id_cal", request.getParameter("id_cal"));
-            } else if ("show".equals(option)) {
-                data.put("month", request.getParameter("month"));
-            }
-        } else if ("user".equals(content)) {
-            if ("check".equals(option)) {
-                data.put("email", request.getParameter("email"));
-            } else if ("login".equals(option)) {
-                data.put("email", request.getParameter("email"));
-                data.put("password", request.getParameter("password"));
-            }
+        switch (Content.valueOf(content)) {
+            case slideshow:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_sli", request.getParameter("id_sli"));
+                }
+                break;
+            case news:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_new", request.getParameter("id_new"));
+                }
+                break;
+            case event:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_eve", request.getParameter("id_eve"));
+                }
+                break;
+            case knowledge:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_kno", request.getParameter("id_kno"));
+                }
+                break;
+            case link:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_lin", request.getParameter("id_lin"));
+                }
+                break;
+            case calendar:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_cal", request.getParameter("id_cal"));
+                } else if (Option.show.toString().equals(option)) {
+                    data.put("month", request.getParameter("month"));
+                }
+                break;
+            case user:
+                if (Option.login.toString().equals(option)) {
+                    data.put("email", request.getParameter("email"));
+                    data.put("password", request.getParameter("password"));
+                } else if (Option.check.toString().equals(option)) {
+                    data.put("email", request.getParameter("email"));
+                }
+                break;
         }
         if (content != null) {
             out.print(ContentData.getData(content, option, data.toString()));
@@ -130,96 +139,26 @@ public class content extends HttpServlet {
         JSONObject data = new JSONObject();
         String content = request.getParameter("content");
         String option = request.getParameter("option");
-        if ("slideshow".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_sli", request.getParameter("id_sli"));
-            }
-            if ("remove".equals(option)) {
-                data.put("path", getServletContext().getRealPath("/"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                String image = request.getParameter("image");
-                String filename = "";
-                if (image != null) {
-                    if (!"".equals(image)) {
-                        String[] datas = image.split("[,]");
-                        filename = "" + new File(getServletContext().getRealPath("/") + "/images/slideshow").list().length;
-                        String[] filetype = datas[0].split("[/]");
-                        filetype = filetype[1].split("[;]");
-                        BASE64Decoder decoder = new BASE64Decoder();
-                        DecimalFormat decimal_format = new DecimalFormat("000000");
-                        filename = "images/slideshow/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
-                        String base64 = datas[1];
-                        byte[] normal = decoder.decodeBuffer(base64);
-                        FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
-                        fo.write(normal);
-                        fo.close();
-                    }
+        switch (Content.valueOf(content)) {
+            case slideshow:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_sli", request.getParameter("id_sli"));
                 }
-                data.put("title", request.getParameter("title"));
-                data.put("image", filename);
-                data.put("link", request.getParameter("link"));
-                data.put("sequence", request.getParameter("sequence"));
-                data.put("startdate", request.getParameter("startdate"));
-                data.put("enddate", request.getParameter("enddate"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("news".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_new", request.getParameter("id_new"));
-            }
-            if ("remove".equals(option)) {
-                data.put("path", getServletContext().getRealPath("/"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                String file = request.getParameter("file");
-                String filename = "";
-                if (file != null) {
-                    if (!"".equals(file)) {
-                        String[] datas = file.split("[,]");
-                        filename = "" + new File(getServletContext().getRealPath("/") + "/file/news").list().length;
-                        String[] filetype = datas[0].split("[/]");
-                        filetype = filetype[1].split("[;]");
-                        BASE64Decoder decoder = new BASE64Decoder();
-                        DecimalFormat decimal_format = new DecimalFormat("000000");
-                        filename = "file/news/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
-                        String base64 = datas[1];
-                        byte[] normal = decoder.decodeBuffer(base64);
-                        FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
-                        fo.write(normal);
-                        fo.close();
-                    }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
                 }
-                data.put("title", request.getParameter("title"));
-                data.put("detail", request.getParameter("detail"));
-                data.put("file", filename);
-                data.put("startdate", request.getParameter("startdate"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("event".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_eve", request.getParameter("id_eve"));
-            }
-            if ("remove".equals(option)) {
-                data.put("path", getServletContext().getRealPath("/"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                String[] image = request.getParameterValues("image[]");
-                String filenames = "";
-                if (image != null) {
-                    for (int i = 0; i < image.length; i++) {
-                        if (!"".equals(image[i])) {
-                            String[] datas = image[i].split("[,]");
-                            String filename = "" + new File(getServletContext().getRealPath("/") + "/images/event").list().length;
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String image = request.getParameter("image");
+                    String filename = "";
+                    if (image != null) {
+                        if (!"".equals(image)) {
+                            String[] datas = image.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/slideshow").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
                             DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "images/event/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
-                            filenames += filename;
-                            if ((i + 1) < image.length) {
-                                filenames += ",";
-                            }
+                            filename = "images/slideshow/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -227,38 +166,34 @@ public class content extends HttpServlet {
                             fo.close();
                         }
                     }
+                    data.put("title", request.getParameter("title"));
+                    data.put("image", filename);
+                    data.put("link", request.getParameter("link"));
+                    data.put("sequence", request.getParameter("sequence"));
+                    data.put("startdate", request.getParameter("startdate"));
+                    data.put("enddate", request.getParameter("enddate"));
+                    data.put("status", request.getParameter("status"));
                 }
-                data.put("title", request.getParameter("title"));
-                data.put("detail", request.getParameter("detail"));
-                data.put("image", filenames);
-                data.put("startdate", request.getParameter("startdate"));
-                data.put("enddate", request.getParameter("enddate"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("knowledge".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_kno", request.getParameter("id_kno"));
-            }
-            if ("remove".equals(option)) {
-                data.put("path", getServletContext().getRealPath("/"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                String[] image = request.getParameterValues("image[]");
-                String filenames = "";
-                if (image != null) {
-                    for (int i = 0; i < image.length; i++) {
-                        if (!"".equals(image[i])) {
-                            String[] datas = image[i].split("[,]");
-                            String filename = "" + new File(getServletContext().getRealPath("/") + "/images/knowledge").list().length;
+                break;
+            case news:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_new", request.getParameter("id_new"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String file = request.getParameter("file");
+                    String filename = "";
+                    if (file != null) {
+                        if (!"".equals(file)) {
+                            String[] datas = file.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/news").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
                             DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "images/knowledge/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
-                            filenames += filename;
-                            if ((i + 1) < image.length) {
-                                filenames += ",";
-                            }
+                            filename = "file/news/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -266,42 +201,125 @@ public class content extends HttpServlet {
                             fo.close();
                         }
                     }
+                    data.put("title", request.getParameter("title"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("file", filename);
+                    data.put("startdate", request.getParameter("startdate"));
+                    data.put("status", request.getParameter("status"));
                 }
-                data.put("title", request.getParameter("title"));
-                data.put("detail", request.getParameter("detail"));
-                data.put("image", filenames);
-                data.put("startdate", request.getParameter("startdate"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("link".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_lin", request.getParameter("id_lin"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                data.put("title", request.getParameter("title"));
-                data.put("link", request.getParameter("link"));
-                data.put("sequence", request.getParameter("sequence"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("calendar".equals(content)) {
-            if ("edit".equals(option) || "remove".equals(option)) {
-                data.put("id_cal", request.getParameter("id_cal"));
-            }
-            if ("edit".equals(option) || "add".equals(option)) {
-                data.put("title", request.getParameter("title"));
-                data.put("detail", request.getParameter("detail"));
-                data.put("date", request.getParameter("date"));
-                data.put("status", request.getParameter("status"));
-            }
-        } else if ("user".equals(content)) {
+                break;
+            case event:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_eve", request.getParameter("id_eve"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String[] image = request.getParameterValues("image[]");
+                    String filenames = "";
+                    if (image != null) {
+                        for (int i = 0; i < image.length; i++) {
+                            if (!"".equals(image[i])) {
+                                String[] datas = image[i].split("[,]");
+                                String filename = "" + new File(getServletContext().getRealPath("/") + "/images/event").list().length;
+                                String[] filetype = datas[0].split("[/]");
+                                filetype = filetype[1].split("[;]");
+                                BASE64Decoder decoder = new BASE64Decoder();
+                                DecimalFormat decimal_format = new DecimalFormat("000000");
+                                filename = "images/event/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                                filenames += filename;
+                                if ((i + 1) < image.length) {
+                                    filenames += ",";
+                                }
+                                String base64 = datas[1];
+                                byte[] normal = decoder.decodeBuffer(base64);
+                                FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                                fo.write(normal);
+                                fo.close();
+                            }
+                        }
+                    }
+                    data.put("title", request.getParameter("title"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("image", filenames);
+                    data.put("startdate", request.getParameter("startdate"));
+                    data.put("enddate", request.getParameter("enddate"));
+                    data.put("status", request.getParameter("status"));
+                }
+
+                break;
+            case knowledge:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_kno", request.getParameter("id_kno"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String[] image = request.getParameterValues("image[]");
+                    String filenames = "";
+                    if (image != null) {
+                        for (int i = 0; i < image.length; i++) {
+                            if (!"".equals(image[i])) {
+                                String[] datas = image[i].split("[,]");
+                                String filename = "" + new File(getServletContext().getRealPath("/") + "/images/knowledge").list().length;
+                                String[] filetype = datas[0].split("[/]");
+                                filetype = filetype[1].split("[;]");
+                                BASE64Decoder decoder = new BASE64Decoder();
+                                DecimalFormat decimal_format = new DecimalFormat("000000");
+                                filename = "images/knowledge/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                                filenames += filename;
+                                if ((i + 1) < image.length) {
+                                    filenames += ",";
+                                }
+                                String base64 = datas[1];
+                                byte[] normal = decoder.decodeBuffer(base64);
+                                FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                                fo.write(normal);
+                                fo.close();
+                            }
+                        }
+                    }
+                    data.put("title", request.getParameter("title"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("image", filenames);
+                    data.put("startdate", request.getParameter("startdate"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case link:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_lin", request.getParameter("id_lin"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("link", request.getParameter("link"));
+                    data.put("sequence", request.getParameter("sequence"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case calendar:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_cal", request.getParameter("id_cal"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("date", request.getParameter("date"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case user:
                 data.put("email", request.getParameter("email"));
-            if ("edit".equals(option) || "add".equals(option)) {
-                data.put("password", request.getParameter("password"));
-                data.put("pname", request.getParameter("pname"));
-                data.put("fname", request.getParameter("fname"));
-                data.put("lname", request.getParameter("lname"));
-                data.put("status", request.getParameter("status"));
-            }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("password", request.getParameter("password"));
+                    data.put("pname", request.getParameter("pname"));
+                    data.put("fname", request.getParameter("fname"));
+                    data.put("lname", request.getParameter("lname"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
         }
         if (ContentData.setData(content, option, data.toString())) {
             result.put("result", "success");

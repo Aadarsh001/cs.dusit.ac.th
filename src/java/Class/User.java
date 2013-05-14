@@ -4,8 +4,8 @@
  */
 package Class;
 
+import Class.ContentData.Option;
 import Servlet.index;
-import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -19,27 +19,31 @@ import org.json.simple.JSONValue;
 public class User {
 
     public static String getData(String option, String detail) {
-        if (option.equals("login")) {
-            return loginDB(detail);
-        } else if (option.equals("check")) {
-            return checkDB(detail);
-        } else if (option.equals("all")) {
-            return showAllDB();
-        } else if (option.equals("some")) {
-            return showSomeDB(detail);
+        switch (Option.valueOf(option)) {
+            case login:
+                return loginDB(detail);
+            case check:
+                return checkDB(detail);
+            case all:
+                return showAllDB();
+            case some:
+                return showSomeDB(detail);
+            default:
+                return null;
         }
-        return null;
     }
 
     public static boolean setData(String option, String data) {
-        if (option.equals("add")) {
-            return addDB(data);
-        } else if (option.equals("edit")) {
-            return editDB(data);
-        } else if (option.equals("remove")) {
-            return removeDB(data);
+        switch (Option.valueOf(option)) {
+            case add:
+                return addDB(data);
+            case edit:
+                return editDB(data);
+            case remove:
+                return removeDB(data);
+            default:
+                return false;
         }
-        return false;
     }
 
     private static String loginDB(String detail) {
