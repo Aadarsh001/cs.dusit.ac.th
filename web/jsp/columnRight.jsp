@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="date"></div>
-<div id="social"></div>
+<div id="social"><a href="http://facebook.com" target="blank"><img src="images/fblogo.png"></a></div>
 <div id="frmlogin">
     <div class="headlogin"></div>
     <div data-role="fieldcontain" class="frmemail">
@@ -12,7 +12,7 @@
     <div data-role="fieldcontain" class="btlogin">
         <input type="button" id="login" value="Login" data-theme="b" data-mini="true">
     </div>
-    
+
 
 </div>
 <div id="frmcalendar">
@@ -23,9 +23,9 @@
 <div id="frmlink">
     <div class="headlink"></div>
     <div data-role="fieldcontain" class="calendar">
-        <span>- www.google.com</span>
-        <span>- www.google.com</span>
-        <span>- www.google.com</span>
-        <span>- www.google.com</span>
+        <ui id="link">
+            <li class="link"><a href="http://www.dusit.ac.th" target="blank">-  มหาวิทยาลัยราชภัฏสวนดุสิต</a></li>
+            <li class="link"><a href="http://www.dusit.ac.th" target="blank">-  งานทะเบียน</a></li>
+        </ui>
     </div>   
 </div>

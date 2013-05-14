@@ -1,23 +1,5 @@
 /* ColumnRight START */
 
-.column.ui-grid-a .ui-block-a{
-    width:75%;
-    border: solid red 1px;
-}
-.column.ui-grid-a .ui-block-b{
-    width:24%;
-    margin-left: 1%; 
-    height: auto;
-/*    border-radius: 7px;
-    background-color: whitesmoke;*/
-    
-}
-
-#slide{
-    width: 100%;
-    height: 260px;
-}
-
 #date{
     float: left;
     width:79%;
@@ -28,17 +10,16 @@
     
 }
 #social{
-    background-image: url('../images/fblogo.png');
     height: 40px;
-    background-repeat: no-repeat;
     margin-left: 83%;
     
 }
 
 #frmlogin{
-    width: 100%;
-    height: 240px;
+    width: 229px;
+    height: 250px;
     background-color: rgb(213, 213, 213);
+    border: solid rgb(179, 179, 179) 1px;
     border-radius: 7px;
     margin: 10px 0 0 0;
 }
@@ -46,11 +27,12 @@
     width: 100%;
     background-image: url('../images/login.png');
     height: 60px;
+    border-bottom: solid rgb(179, 179, 179) 1px;
 }
 
 .frmemail {
     text-align: center;
-    margin: 20px 0 0 0 ;
+    margin: 28px 0 0 0 ;
 }
 .frmpass {
     text-align: center;
@@ -64,9 +46,10 @@
 }
 
 #frmcalendar{
-    width: 100%;
+    width: 228;
     height: 240px;
     background-color: rgb(213, 213, 213);
+    border: solid rgb(179, 179, 179) 1px;
     border-radius: 7px;
     margin: 10px 0 0 0;
 }
@@ -74,14 +57,29 @@
     width: 100%;
     background-image: url('../images/calendar.png');
     height: 60px;
+    border-bottom: solid rgb(179, 179, 179) 1px;
 }
 
-
+#frmlink{
+    width: 228px;
+    height: 240px;
+    background-color: rgb(213, 213, 213);
+    border: solid rgb(179, 179, 179) 1px;
+    border-radius: 7px;
+    margin: 10px 0 0 0;
+}
 .headlink{
     width: 100%;
     background-image: url('../images/link.png');
     height: 50px;
+    border-bottom: solid rgb(179, 179, 179) 1px;
 }
+
+.link{
+    list-style-type: none;
+    margin: 10px auto 0 5px;
+}
+
 /* ColumnRight END */
 
 /* HEADER STRAT */

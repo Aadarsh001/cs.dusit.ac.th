@@ -1,5 +1,5 @@
 /*
-* jQuery Mobile Git Build: SHA1: 3d48d6517f808550ee402a2859feedec13b0a3fe <> Date: Tue Feb 19 15:25:22 2013 -0800
+* jQuery Mobile Git Build: SHA1: caa77b258660731d663844fe7867aa2c3a107ab1 <> Date: Wed Feb 20 15:03:27 2013 -0500
 * http://jquerymobile.com
 *
 * Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
@@ -151,17 +151,17 @@
 /* B
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-b {
-	border: 1px solid 		rgb(35, 130, 228) /*{b-bar-border}*/;
+	border: 1px solid 		#456f9a /*{b-bar-border}*/;
 	background: 			#5e87b0 /*{b-bar-background-color}*/;
 	color: 					#fff /*{b-bar-color}*/;
 	font-weight: bold;
 	text-shadow: 0 /*{b-bar-shadow-x}*/ 1px /*{b-bar-shadow-y}*/ 0 /*{b-bar-shadow-radius}*/ #3e6790 /*{b-bar-shadow-color}*/;
 	background-image: -webkit-gradient(linear, left top, left bottom, from( #6facd5 /*{b-bar-background-start}*/), to( #497bae /*{b-bar-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( rgb(25, 141, 219) /*{b-bar-background-start}*/, rgb(21, 93, 167) /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( rgb(25, 141, 219) /*{b-bar-background-start}*/, rgb(21, 93, 167) /*{b-bar-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( rgb(25, 141, 219) /*{b-bar-background-start}*/, rgb(21, 93, 167) /*{b-bar-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( rgb(25, 141, 219) /*{b-bar-background-start}*/, rgb(21, 93, 167) /*{b-bar-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( rgb(25, 141, 219) /*{b-bar-background-start}*/, rgb(21, 93, 167) /*{b-bar-background-end}*/);
+	background-image: -webkit-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #6facd5 /*{b-bar-background-start}*/, #497bae /*{b-bar-background-end}*/);
 }
 .ui-bar-b,
 .ui-bar-b input,
@@ -764,7 +764,7 @@ a.ui-link-inherit {
 .ui-icon-searchfield:after {
 	background-color: 						#666 /*{global-icon-color}*/;
 	background-color: 						rgba(0,0,0,.4) /*{global-icon-disc}*/;
-	background-image: url(../images/icons-18-white.png) /*{global-icon-set}*/;
+	background-image: url(images/icons-18-white.png) /*{global-icon-set}*/;
 	background-repeat: no-repeat;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
@@ -775,7 +775,7 @@ a.ui-link-inherit {
 .ui-icon-alt .ui-icon-searchfield:after {
 	background-color: 						#fff;
 	background-color: 						rgba(255,255,255,.3);
-	background-image: url(../images/icons-18-black.png);
+	background-image: url(images/icons-18-black.png);
 	background-repeat: no-repeat;
 }
 /* No disc
@@ -880,14 +880,14 @@ a.ui-link-inherit {
 	.ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-bars, .ui-icon-edit,
 	.ui-icon-search, .ui-icon-searchfield:after, 
 	.ui-icon-checkbox-off, .ui-icon-checkbox-on, .ui-icon-radio-off, .ui-icon-radio-on {
-		background-image: url(../images/icons-36-white.png);
+		background-image: url(images/icons-36-white.png);
 		-moz-background-size: 864px 18px;
 		-o-background-size: 864px 18px;
 		-webkit-background-size: 864px 18px;
 		background-size: 864px 18px;
 	}
 	.ui-icon-alt .ui-icon {
-		background-image: url(../images/icons-36-black.png);
+		background-image: url(images/icons-36-black.png);
 	}
 	.ui-icon-plus {
 		background-position: 	0px 50%;
@@ -979,7 +979,7 @@ a.ui-link-inherit {
 }
 /* loading icon */
 .ui-icon-loading {
-	background: url(../images/ajax-loader.gif);
+	background: url(images/ajax-loader.gif);
 	background-size: 46px 46px;
 }
 /* Button corner class
@@ -1122,7 +1122,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-header > .ui-btn-icon-notext,
 .ui-header-fixed.ui-fixed-hidden > .ui-btn-icon-notext { top: 6px; }
 .ui-header-fixed > .ui-btn-icon-notext { top: 7px;}
-.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: center; font-size: 16px; display: block; margin: .6em 0% .8em; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
+.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: center; font-size: 16px; display: block; margin: .6em 30% .8em; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
 .ui-footer .ui-title { margin: .6em 15px .8em; }
 /* content area*/
 .ui-content { border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; }

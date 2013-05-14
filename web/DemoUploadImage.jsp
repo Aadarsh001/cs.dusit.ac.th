@@ -39,7 +39,7 @@
 //                    }else{
 //                        $('#image').val('');
 //                        $('#myimage').attr('src','images/header.png');
-//                        alert("ไฟล์ภาพต้องเป็นขนาด 720 x 260 เท่านั้น");
+//                        alert("ไฟล์ภาพต้องเป็นขนาด 720 x 300 เท่านั้น");
 //                        clearInterval(timerId);
 //                    }
 //                }, 500);
@@ -48,7 +48,7 @@
     </head>
     <body>
         <input type="file" accept="image/jpeg,image/png" id="image"><br/>
-        <div style="width: 720px;height: 260px;"><img src="images/header.png" id="myimage"/></div>
+        <div style="width: 720px;height: 300px;"><img src="images/header.png" id="myimage"/></div>
         <input type="button" id="test" value="test"><br/>
         <textarea id="imagedata"></textarea>
     </body>

@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/x-icon" href="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
         <script type="text/javascript" src="js/index.js"></script>
@@ -18,7 +19,22 @@
             <div data-role="content">          
                 <div class="ui-grid-a column">
                     <div class="ui-block-a">
-                        <div id="slide"></div>
+                        <div id="frmslide">
+                            <div id="slideshow"></div>
+                        </div>
+                        <div id="frmnews">
+                            <div class="headnews"></div>
+                            <ul id="news">
+                                <li class=""><a href="http://google.com" rel="external">หัวข้อข่าว</a></li>
+                            </ul>
+                        </div>
+                        <div id="frmevent">
+                            <div class="headevent"></div>
+                        </div>
+                        <div id="frmknowledge">
+                            <div class="headknowledge"></div>
+                        </div>
+                        
                     </div>
                     <div class="ui-block-b">
                         <jsp:include page="jsp/columnRight.jsp" />
