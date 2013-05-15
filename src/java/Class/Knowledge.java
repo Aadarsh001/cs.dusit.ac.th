@@ -142,7 +142,12 @@ public class Knowledge {
             String select = "select max(id_kno) as id_kno from knowledge";
             con.query(select);
             con.first();
-            String id_kno = con.getString("id_kno");
+            String id_kno;
+            if (con.next()) {
+                id_kno = con.getString("id_kno");
+            } else {
+                id_kno = "0";
+            }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_kno = decimal_format.format(Integer.parseInt(id_kno) + 1);
             String insert = "insert into knowledge values('"

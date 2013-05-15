@@ -133,7 +133,12 @@ public class Calendar {
             String select = "select max(id_cal) as id_cal from calendar";
             con.query(select);
             con.first();
-            String id_cal = con.getString("id_cal");
+            String id_cal;
+            if (con.next()) {
+                id_cal = con.getString("id_cal");
+            } else {
+                id_cal = "0";
+            }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_cal = decimal_format.format(Integer.parseInt(id_cal) + 1);
             String insert = "insert into calendar values('"

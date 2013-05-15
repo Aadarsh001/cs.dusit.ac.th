@@ -4,14 +4,9 @@
  */
 package Class;
 
-import Class.ContentData.Option;
 import Servlet.index;
 import java.io.File;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -22,10 +17,10 @@ import org.json.simple.JSONValue;
  *
  * @author NewSuppamit
  */
-public class Event {
+public class Academic {
 
     public static String getData(String option, String detail) {
-        switch (Option.valueOf(option)) {
+        switch (ContentData.Option.valueOf(option)) {
             case show:
                 return showDB();
             case all:
@@ -38,7 +33,7 @@ public class Event {
     }
 
     public static boolean setData(String option, String data) {
-        switch (Option.valueOf(option)) {
+        switch (ContentData.Option.valueOf(option)) {
             case add:
                 return addDB(data);
             case edit:
@@ -56,21 +51,16 @@ public class Event {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", new Locale("th", "TH"));
-            String Date = dateFormat.format(new Date());
-            String select = "SELECT * FROM event "
-                    + "WHERE startdate <= '" + Date + "' and "
-                    + "enddate >= '" + Date + "' and "
-                    + "status = '1' ORDER BY id_eve DESC LIMIT 0,5";
+            String select = "SELECT * FROM academic "
+                    + "WHERE status = '1' "
+                    + "ORDER BY id_aca DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_eve", con.getString("id_eve"));
+                jchil.put("id_aca", con.getString("id_aca"));
+                jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("detail", con.getString("detail"));
-                jchil.put("image", con.getString("image"));
-                jchil.put("startdate", con.getString("startdate"));
-                jchil.put("enddate", con.getString("enddate"));
+                jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -89,17 +79,15 @@ public class Event {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM event "
-                    + "ORDER BY id_eve DESC";
+            String select = "SELECT * FROM academic "
+                    + "ORDER BY id_aca DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_eve", con.getString("id_eve"));
+                jchil.put("id_aca", con.getString("id_aca"));
+                jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("detail", con.getString("detail"));
-                jchil.put("image", con.getString("image"));
-                jchil.put("startdate", con.getString("startdate"));
-                jchil.put("enddate", con.getString("enddate"));
+                jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -118,16 +106,14 @@ public class Event {
             JSONObject json = new JSONObject();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM event "
-                    + "WHERE id_eve = '" + data.get("id_eve") + "'";
+            String select = "SELECT * FROM academic "
+                    + "WHERE id_aca = '" + data.get("id_aca") + "'";
             con.query(select);
             while (con.next()) {
-                json.put("id_eve", con.getString("id_eve"));
+                json.put("id_aca", con.getString("id_aca"));
+                json.put("owner", con.getString("owner"));
                 json.put("title", con.getString("title"));
-                json.put("detail", con.getString("detail"));
-                json.put("image", con.getString("image"));
-                json.put("startdate", con.getString("startdate"));
-                json.put("enddate", con.getString("enddate"));
+                json.put("link", con.getString("link"));
                 json.put("status", con.getString("status"));
             }
             con.disconnect();
@@ -143,24 +129,22 @@ public class Event {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select max(id_eve) as id_eve from event";
+            String select = "select max(id_aca) as id_aca from academic";
             con.query(select);
             con.first();
-            String id_eve;
+            String id_aca;
             if (con.next()) {
-                id_eve = con.getString("id_eve");
+                id_aca = con.getString("id_aca");
             } else {
-                id_eve = "0";
+                id_aca = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
-            id_eve = decimal_format.format(Integer.parseInt(id_eve) + 1);
-            String insert = "insert into event values('"
-                    + id_eve + "','"
+            id_aca = decimal_format.format(Integer.parseInt(id_aca) + 1);
+            String insert = "insert into academic values('"
+                    + id_aca + "','"
+                    + json.get("owner") + "','"
                     + json.get("title") + "','"
-                    + json.get("detail") + "','"
-                    + json.get("image") + "','"
-                    + json.get("startdate") + "','"
-                    + json.get("enddate") + "','"
+                    + json.get("link") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -177,14 +161,12 @@ public class Event {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String update = "UPDATE event SET "
+            String update = "UPDATE academic SET "
+                    + "owner = '" + json.get("owner") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "detail = '" + json.get("detail") + "',"
-                    + "image = '" + json.get("image") + "',"
-                    + "startdate = '" + json.get("startdate") + "',"
-                    + "enddate = '" + json.get("enddate") + "',"
+                    + "link = '" + json.get("link") + "',"
                     + "status = '" + json.get("status") + "' "
-                    + "WHERE id_eve = '" + json.get("id_eve") + "'";
+                    + "WHERE id_aca = '" + json.get("id_aca") + "'";
             if (con.update(update) > 0) {
                 return true;
             }
@@ -200,18 +182,18 @@ public class Event {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select image from event "
-                    + "WHERE id_eve = '" + json.get("id_eve") + "'";
+            String select = "select link from academic "
+                    + "WHERE id_aca = '" + json.get("id_aca") + "'";
             con.query(select);
             if (con.next()) {
-                String[] filename = con.getString("image").split("[,]");
-                for (int i = 0; i < filename.length; i++) {
-                    File file = new File(json.get("path") + filename[i]);
+                String filename = con.getString("link");
+                if (!"".equals(filename)) {
+                    File file = new File(json.get("path") + filename);
                     file.delete();
                 }
             }
-            String delete = "delete from event "
-                    + "WHERE id_eve = '" + json.get("id_eve") + "'";
+            String delete = "delete from academic "
+                    + "WHERE id_aca = '" + json.get("id_aca") + "'";
             if (con.delete(delete) > 0) {
                 return true;
             }

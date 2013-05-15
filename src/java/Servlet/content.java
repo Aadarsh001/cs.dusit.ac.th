@@ -114,6 +114,28 @@ public class content extends HttpServlet {
                     data.put("email", request.getParameter("email"));
                 }
                 break;
+            case personnel:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_per", request.getParameter("id_per"));
+                }
+                break;
+            case student:
+                if (Option.show.toString().equals(option)) {
+                    data.put("year", request.getParameter("year"));
+                } else if (Option.some.toString().equals(option)) {
+                    data.put("id_per", request.getParameter("id_per"));
+                }
+                break;
+            case course:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_cou", request.getParameter("id_cou"));
+                }
+                break;
+            case academic:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_aca", request.getParameter("id_aca"));
+                }
+                break;
         }
         if (content != null) {
             out.print(ContentData.getData(content, option, data.toString()));
@@ -317,6 +339,110 @@ public class content extends HttpServlet {
                     data.put("pname", request.getParameter("pname"));
                     data.put("fname", request.getParameter("fname"));
                     data.put("lname", request.getParameter("lname"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case personnel:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_per", request.getParameter("id_per"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String image = request.getParameter("image");
+                    String filename = "";
+                    if (image != null) {
+                        if (!"".equals(image)) {
+                            String[] datas = image.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/personnel").list().length;
+                            String[] filetype = datas[0].split("[/]");
+                            filetype = filetype[1].split("[;]");
+                            BASE64Decoder decoder = new BASE64Decoder();
+                            DecimalFormat decimal_format = new DecimalFormat("000000");
+                            filename = "images/personnel/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            String base64 = datas[1];
+                            byte[] normal = decoder.decodeBuffer(base64);
+                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                            fo.write(normal);
+                            fo.close();
+                        }
+                    }
+                    data.put("name", request.getParameter("name"));
+                    data.put("position", request.getParameter("position"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("image", filename);
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case student:
+                data.put("id_stu", request.getParameter("id_stu"));
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("name", request.getParameter("name"));
+                    data.put("detail", request.getParameter("detail"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case course:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_cou", request.getParameter("id_cou"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String link = request.getParameter("link");
+                    String filename = "";
+                    if (link != null) {
+                        if (!"".equals(link)) {
+                            String[] datas = link.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/personnel").list().length;
+                            String[] filetype = datas[0].split("[/]");
+                            filetype = filetype[1].split("[;]");
+                            BASE64Decoder decoder = new BASE64Decoder();
+                            DecimalFormat decimal_format = new DecimalFormat("000000");
+                            filename = "images/personnel/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            String base64 = datas[1];
+                            byte[] normal = decoder.decodeBuffer(base64);
+                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                            fo.write(normal);
+                            fo.close();
+                        }
+                    }
+                    data.put("title", request.getParameter("title"));
+                    data.put("link", filename);
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case academic:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_aca", request.getParameter("id_aca"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String link = request.getParameter("link");
+                    String filename = "";
+                    if (link != null) {
+                        if (!"".equals(link)) {
+                            String[] datas = link.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/academic").list().length;
+                            String[] filetype = datas[0].split("[/]");
+                            filetype = filetype[1].split("[;]");
+                            BASE64Decoder decoder = new BASE64Decoder();
+                            DecimalFormat decimal_format = new DecimalFormat("000000");
+                            filename = "images/academic/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            String base64 = datas[1];
+                            byte[] normal = decoder.decodeBuffer(base64);
+                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                            fo.write(normal);
+                            fo.close();
+                        }
+                    }
+                    data.put("owner", request.getParameter("owner"));
+                    data.put("title", request.getParameter("title"));
+                    data.put("link", filename);
                     data.put("status", request.getParameter("status"));
                 }
                 break;

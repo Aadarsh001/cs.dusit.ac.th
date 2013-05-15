@@ -132,7 +132,12 @@ public class Link {
             String select = "select max(id_lin) as id_lin from link";
             con.query(select);
             con.first();
-            String id_lin = con.getString("id_lin");
+            String id_lin;
+            if (con.next()) {
+                id_lin = con.getString("id_lin");
+            } else {
+                id_lin = "0";
+            }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_lin = decimal_format.format(Integer.parseInt(id_lin) + 1);
             String insert = "insert into link values('"

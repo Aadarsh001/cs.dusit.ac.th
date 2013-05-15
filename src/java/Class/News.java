@@ -175,7 +175,12 @@ public class News {
             String select = "select max(id_new) as id_new from news";
             con.query(select);
             con.first();
-            String id_new = con.getString("id_new");
+            String id_new;
+            if (con.next()) {
+                id_new = con.getString("id_new");
+            } else {
+                id_new = "0";
+            }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_new = decimal_format.format(Integer.parseInt(id_new) + 1);
             String insert = "insert into news values('"

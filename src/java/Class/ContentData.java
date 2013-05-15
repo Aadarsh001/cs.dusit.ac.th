@@ -12,7 +12,7 @@ public class ContentData {
 
     public enum Content {
 
-        slideshow, news, event, knowledge, link, calendar, user;
+        slideshow, news, event, knowledge, link, calendar, user, personnel, student, course, academic;
     }
 
     public enum Option {
@@ -36,6 +36,14 @@ public class ContentData {
                 return Calendar.getData(option, detail);
             case user:
                 return User.getData(option, detail);
+            case personnel:
+                return Personnel.getData(option, detail);
+            case student:
+                return Student.getData(option, detail);
+            case course:
+                return Course.getData(option, detail);
+            case academic:
+                return Academic.getData(option, detail);
             default:
                 return null;
         }
@@ -57,6 +65,14 @@ public class ContentData {
                 return Calendar.setData(option, data);
             case user:
                 return User.setData(option, data);
+            case personnel:
+                return Personnel.setData(option, data);
+            case student:
+                return Student.setData(option, data);
+            case course:
+                return Course.setData(option, data);
+            case academic:
+                return Academic.setData(option, data);
             default:
                 return false;
         }
