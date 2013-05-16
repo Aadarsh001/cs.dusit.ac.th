@@ -12,6 +12,10 @@
     min-height: 98% !important;
     margin: 1% 0;
 }
+[data-role=page]{
+    background-image: none;
+    
+}
 [data-role=header]{
     border-radius: 7px 7px 0 0;
     -webkit-border-radius: 7px 7px 0 0;
