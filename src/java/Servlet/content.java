@@ -153,6 +153,18 @@ public class content extends HttpServlet {
                     data.put("id_qas", request.getParameter("id_qas"));
                 }
                 break;
+            case groupdownload:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_gro", request.getParameter("id_gro"));
+                }
+                break;
+            case download:
+                if (Option.show.toString().equals(option)) {
+                    data.put("id_gro", request.getParameter("id_gro"));
+                } else if (Option.some.toString().equals(option)) {
+                    data.put("id_dow", request.getParameter("id_dow"));
+                }
+                break;
         }
         if (content != null) {
             out.print(ContentData.getData(content, option, data.toString()));
@@ -533,6 +545,50 @@ public class content extends HttpServlet {
                         }
                     }
                     data.put("category", request.getParameter("category"));
+                    data.put("title", request.getParameter("title"));
+                    data.put("file", filename);
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case groupdownload:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_gro", request.getParameter("id_gro"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("status", request.getParameter("status"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                break;
+            case download:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_dow", request.getParameter("id_dow"));
+                }
+                if (Option.remove.toString().equals(option)) {
+                    data.put("path", getServletContext().getRealPath("/"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    String file = request.getParameter("file");
+                    String filename = "";
+                    if (file != null) {
+                        if (!"".equals(file)) {
+                            String[] datas = file.split("[,]");
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/download").list().length;
+                            String[] filetype = datas[0].split("[/]");
+                            filetype = filetype[1].split("[;]");
+                            BASE64Decoder decoder = new BASE64Decoder();
+                            DecimalFormat decimal_format = new DecimalFormat("000000");
+                            filename = "file/download/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            String base64 = datas[1];
+                            byte[] normal = decoder.decodeBuffer(base64);
+                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
+                            fo.write(normal);
+                            fo.close();
+                        }
+                    }
+                    data.put("id_gro", request.getParameter("id_gro"));
                     data.put("title", request.getParameter("title"));
                     data.put("file", filename);
                     data.put("status", request.getParameter("status"));

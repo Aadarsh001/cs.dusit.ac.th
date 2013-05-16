@@ -12,7 +12,7 @@ public class ContentData {
 
     public enum Content {
 
-        slideshow, news, event, knowledge, link, calendar, user, personnel, student, course, academic, research, project, qassurance;
+        slideshow, news, event, knowledge, link, calendar, user, personnel, student, course, academic, research, project, qassurance, groupdownload, download;
     }
 
     public enum Option {
@@ -50,6 +50,10 @@ public class ContentData {
                 return Project.getData(option, detail);
             case qassurance:
                 return Qassurance.getData(option, detail);
+            case groupdownload:
+                return Groupdownload.getData(option, detail);
+            case download:
+                return Download.getData(option, detail);
             default:
                 return null;
         }
@@ -85,6 +89,10 @@ public class ContentData {
                 return Project.setData(option, data);
             case qassurance:
                 return Qassurance.setData(option, data);
+            case groupdownload:
+                return Groupdownload.setData(option, data);
+            case download:
+                return Download.setData(option, data);
             default:
                 return false;
         }
