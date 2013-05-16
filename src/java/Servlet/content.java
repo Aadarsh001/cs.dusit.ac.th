@@ -425,12 +425,12 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/personnel").list().length;
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/course").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
                             DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/personnel/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/course/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -531,12 +531,12 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/research").list().length;
+                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/qassurance").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
                             DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/research/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/qassurance/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
