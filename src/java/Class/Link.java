@@ -131,7 +131,6 @@ public class Link {
             con.connect();
             String select = "select max(id_lin) as id_lin from link";
             con.query(select);
-            con.first();
             String id_lin;
             if (con.next()) {
                 id_lin = con.getString("id_lin");

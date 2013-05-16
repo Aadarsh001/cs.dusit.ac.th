@@ -141,7 +141,6 @@ public class Knowledge {
             con.connect();
             String select = "select max(id_kno) as id_kno from knowledge";
             con.query(select);
-            con.first();
             String id_kno;
             if (con.next()) {
                 id_kno = con.getString("id_kno");

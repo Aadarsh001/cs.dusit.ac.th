@@ -135,7 +135,6 @@ public class Personnel {
             con.connect();
             String select = "select max(id_per) as id_per from personnel";
             con.query(select);
-            con.first();
             String id_per;
             if (con.next()) {
                 id_per = con.getString("id_per");

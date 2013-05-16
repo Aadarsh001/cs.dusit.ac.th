@@ -132,7 +132,6 @@ public class Calendar {
             con.connect();
             String select = "select max(id_cal) as id_cal from calendar";
             con.query(select);
-            con.first();
             String id_cal;
             if (con.next()) {
                 id_cal = con.getString("id_cal");

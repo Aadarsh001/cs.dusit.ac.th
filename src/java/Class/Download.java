@@ -132,7 +132,6 @@ public class Download {
             con.connect();
             String select = "select max(id_dow) as id_dow from download";
             con.query(select);
-            con.first();
             String id_dow;
             if (con.next()) {
                 id_dow = con.getString("id_dow");

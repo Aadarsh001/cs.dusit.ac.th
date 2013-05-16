@@ -128,7 +128,6 @@ public class Course {
             con.connect();
             String select = "select max(id_cou) as id_cou from course";
             con.query(select);
-            con.first();
             String id_cou;
             if (con.next()) {
                 id_cou = con.getString("id_cou");

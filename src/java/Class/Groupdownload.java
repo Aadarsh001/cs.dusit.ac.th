@@ -6,6 +6,7 @@ package Class;
 
 import Servlet.index;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -122,8 +123,18 @@ public class Groupdownload {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
+            String select = "select max(id_gro) as id_gro from groupdownload";
+            con.query(select);
+            String id_gro;
+            if (con.next()) {
+                id_gro = con.getString("id_dow");
+            } else {
+                id_gro = "0";
+            }
+            DecimalFormat decimal_format = new DecimalFormat("000000");
+            id_gro = decimal_format.format(Integer.parseInt(id_gro) + 1);
             String insert = "insert into groupdownload values('"
-                    + json.get("id_gro") + "','"
+                    + id_gro + "','"
                     + json.get("title") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {

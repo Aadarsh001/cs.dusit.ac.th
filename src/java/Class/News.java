@@ -174,7 +174,6 @@ public class News {
             con.connect();
             String select = "select max(id_new) as id_new from news";
             con.query(select);
-            con.first();
             String id_new;
             if (con.next()) {
                 id_new = con.getString("id_new");

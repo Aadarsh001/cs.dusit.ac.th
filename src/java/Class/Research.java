@@ -131,7 +131,6 @@ public class Research {
             con.connect();
             String select = "select max(id_res) as id_res from research";
             con.query(select);
-            con.first();
             String id_res;
             if (con.next()) {
                 id_res = con.getString("id_res");

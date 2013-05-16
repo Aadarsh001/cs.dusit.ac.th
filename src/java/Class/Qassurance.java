@@ -132,7 +132,6 @@ public class Qassurance {
             con.connect();
             String select = "select max(id_qas) as id_qas from qassurance";
             con.query(select);
-            con.first();
             String id_qas;
             if (con.next()) {
                 id_qas = con.getString("id_qas");

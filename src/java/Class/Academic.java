@@ -131,7 +131,6 @@ public class Academic {
             con.connect();
             String select = "select max(id_aca) as id_aca from academic";
             con.query(select);
-            con.first();
             String id_aca;
             if (con.next()) {
                 id_aca = con.getString("id_aca");
