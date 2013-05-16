@@ -1,7 +1,7 @@
 .ui-mobile [data-role=page]{
     min-height: 100% !important;
-    background-color: #f9f9f9;
-    background-image: linear-gradient(#f9f9f9,#f9f9f9);
+/*    background-color: #f9f9f9;*/
+/*    background-image: linear-gradient(#f9f9f9,#f9f9f9);*/
     position: relative;
     width: 980px;
     margin: 0 auto;
@@ -10,7 +10,7 @@
 .ui-mobile body{
     height: 98% !important;
     min-height: 98% !important;
-    margin: 0.5% 0;
+    margin: 1% 0;
 }
 [data-role=header]{
     border-radius: 7px 7px 0 0;
@@ -20,8 +20,8 @@
     box-shadow: 0px 0px 5px #000;
 }
 [data-role=content]{
-    margin-top: 1%;
-    background-color: #eee;
+    margin-top: 1.5%;
+    background-color: rgb(255, 255, 255);
     border-radius: 7px;
     padding: 1% 1% 90px 1%;
     width: 98%;

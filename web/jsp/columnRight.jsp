@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="date"></div>
 <div id="social"><a href="http://facebook.com" target="blank"><img src="images/fblogo.png"></a></div>
-<div id="frmlogin">
+<div id="frmlogin" class="frmcolR">
     <div class="headlogin"></div>
     <div class="ui-grid-b login">
         <div class="ui-block-a login"></div>
@@ -19,12 +19,12 @@
         <div class="ui-block-c login"></div>
     </div>
 </div>
-<div id="frmcalendar">
+<div id="frmcalendar" class="frmcolR">
     <div class="headcalendar"></div>
     <div class="calendar">
     </div>   
 </div>
-<div id="frmlink">
+<div id="frmlink" class="frmcolR">
     <div class="headlink"></div>
     <div class="calendar">
         <ui id="link">
