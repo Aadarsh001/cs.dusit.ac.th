@@ -5,7 +5,6 @@
 package Class;
 
 import Servlet.index;
-import java.io.File;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +16,7 @@ import org.json.simple.JSONValue;
  *
  * @author NewSuppamit
  */
-public class Course {
+public class Project {
 
     public static String getData(String option, String detail) {
         switch (ContentData.Option.valueOf(option)) {
@@ -51,15 +50,16 @@ public class Course {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
+            String select = "SELECT * FROM project "
                     + "WHERE status = '1' "
-                    + "ORDER BY id_cou DESC";
+                    + "ORDER BY id_pro DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_cou", con.getString("id_cou"));
+                jchil.put("id_pro", con.getString("id_pro"));
+                jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("file", con.getString("file"));
+                jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -78,14 +78,15 @@ public class Course {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
-                    + "ORDER BY id_cou DESC";
+            String select = "SELECT * FROM project "
+                    + "ORDER BY id_pro DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_cou", con.getString("id_cou"));
+                jchil.put("id_pro", con.getString("id_pro"));
+                jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("file", con.getString("file"));
+                jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -104,13 +105,14 @@ public class Course {
             JSONObject json = new JSONObject();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
-                    + "WHERE id_cou = '" + data.get("id_cou") + "'";
+            String select = "SELECT * FROM project "
+                    + "WHERE id_pro = '" + data.get("id_pro") + "'";
             con.query(select);
             while (con.next()) {
-                json.put("id_cou", con.getString("id_cou"));
+                json.put("id_pro", con.getString("id_pro"));
+                json.put("owner", con.getString("owner"));
                 json.put("title", con.getString("title"));
-                json.put("file", con.getString("file"));
+                json.put("link", con.getString("link"));
                 json.put("status", con.getString("status"));
             }
             con.disconnect();
@@ -126,21 +128,22 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select max(id_cou) as id_cou from course";
+            String select = "select max(id_pro) as id_pro from project";
             con.query(select);
             con.first();
-            String id_cou;
+            String id_pro;
             if (con.next()) {
-                id_cou = con.getString("id_cou");
+                id_pro = con.getString("id_pro");
             } else {
-                id_cou = "0";
+                id_pro = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
-            id_cou = decimal_format.format(Integer.parseInt(id_cou) + 1);
-            String insert = "insert into course values('"
-                    + id_cou + "','"
+            id_pro = decimal_format.format(Integer.parseInt(id_pro) + 1);
+            String insert = "insert into project values('"
+                    + id_pro + "','"
+                    + json.get("owner") + "','"
                     + json.get("title") + "','"
-                    + json.get("file") + "','"
+                    + json.get("link") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -157,11 +160,12 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String update = "UPDATE course SET "
+            String update = "UPDATE project SET "
+                    + "owner = '" + json.get("owner") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "file = '" + json.get("file") + "',"
+                    + "link = '" + json.get("link") + "',"
                     + "status = '" + json.get("status") + "' "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
+                    + "WHERE id_pro = '" + json.get("id_pro") + "'";
             if (con.update(update) > 0) {
                 return true;
             }
@@ -177,18 +181,8 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select file from course "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
-            con.query(select);
-            if (con.next()) {
-                String filename = con.getString("file");
-                if (!"".equals(filename)) {
-                    File file = new File(json.get("path") + filename);
-                    file.delete();
-                }
-            }
-            String delete = "delete from course "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
+            String delete = "delete from project "
+                    + "WHERE id_pro = '" + json.get("id_pro") + "'";
             if (con.delete(delete) > 0) {
                 return true;
             }

@@ -17,12 +17,12 @@ import org.json.simple.JSONValue;
  *
  * @author NewSuppamit
  */
-public class Course {
+public class Qassurance {
 
     public static String getData(String option, String detail) {
         switch (ContentData.Option.valueOf(option)) {
             case show:
-                return showDB();
+                return showDB(detail);
             case all:
                 return showAllDB();
             case some:
@@ -45,19 +45,21 @@ public class Course {
         }
     }
 
-    private static String showDB() {
+    private static String showDB(String detail) {
         try {
+            JSONObject data = (JSONObject) JSONValue.parse(detail);
             JSONObject json = new JSONObject();
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
-                    + "WHERE status = '1' "
-                    + "ORDER BY id_cou DESC";
+            String select = "SELECT * FROM qassurance "
+                    + "WHERE category = '" + data.get("category") + "' and status = '1' "
+                    + "ORDER BY id_qas DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_cou", con.getString("id_cou"));
+                jchil.put("id_qas", con.getString("id_qas"));
+                jchil.put("category", con.getString("category"));
                 jchil.put("title", con.getString("title"));
                 jchil.put("file", con.getString("file"));
                 jchil.put("status", con.getString("status"));
@@ -78,12 +80,13 @@ public class Course {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
-                    + "ORDER BY id_cou DESC";
+            String select = "SELECT * FROM qassurance "
+                    + "ORDER BY id_qas DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_cou", con.getString("id_cou"));
+                jchil.put("id_qas", con.getString("id_qas"));
+                jchil.put("category", con.getString("category"));
                 jchil.put("title", con.getString("title"));
                 jchil.put("file", con.getString("file"));
                 jchil.put("status", con.getString("status"));
@@ -104,11 +107,12 @@ public class Course {
             JSONObject json = new JSONObject();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM course "
-                    + "WHERE id_cou = '" + data.get("id_cou") + "'";
+            String select = "SELECT * FROM qassurance "
+                    + "WHERE id_qas = '" + data.get("id_qas") + "'";
             con.query(select);
             while (con.next()) {
-                json.put("id_cou", con.getString("id_cou"));
+                json.put("id_qas", con.getString("id_qas"));
+                json.put("category", con.getString("category"));
                 json.put("title", con.getString("title"));
                 json.put("file", con.getString("file"));
                 json.put("status", con.getString("status"));
@@ -126,19 +130,20 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select max(id_cou) as id_cou from course";
+            String select = "select max(id_qas) as id_qas from qassurance";
             con.query(select);
             con.first();
-            String id_cou;
+            String id_qas;
             if (con.next()) {
-                id_cou = con.getString("id_cou");
+                id_qas = con.getString("id_qas");
             } else {
-                id_cou = "0";
+                id_qas = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
-            id_cou = decimal_format.format(Integer.parseInt(id_cou) + 1);
-            String insert = "insert into course values('"
-                    + id_cou + "','"
+            id_qas = decimal_format.format(Integer.parseInt(id_qas) + 1);
+            String insert = "insert into qassurance values('"
+                    + id_qas + "','"
+                    + json.get("category") + "','"
                     + json.get("title") + "','"
                     + json.get("file") + "','"
                     + json.get("status") + "')";
@@ -157,11 +162,12 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String update = "UPDATE course SET "
+            String update = "UPDATE qassurance SET "
+                    + "owner = '" + json.get("category") + "',"
                     + "title = '" + json.get("title") + "',"
                     + "file = '" + json.get("file") + "',"
                     + "status = '" + json.get("status") + "' "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
+                    + "WHERE id_qas = '" + json.get("id_qas") + "'";
             if (con.update(update) > 0) {
                 return true;
             }
@@ -177,8 +183,8 @@ public class Course {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select file from course "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
+            String select = "select file from qassurance "
+                    + "WHERE id_qas = '" + json.get("id_qas") + "'";
             con.query(select);
             if (con.next()) {
                 String filename = con.getString("file");
@@ -187,8 +193,8 @@ public class Course {
                     file.delete();
                 }
             }
-            String delete = "delete from course "
-                    + "WHERE id_cou = '" + json.get("id_cou") + "'";
+            String delete = "delete from qassurance "
+                    + "WHERE id_qas = '" + json.get("id_qas") + "'";
             if (con.delete(delete) > 0) {
                 return true;
             }

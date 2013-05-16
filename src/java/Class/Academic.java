@@ -60,7 +60,7 @@ public class Academic {
                 jchil.put("id_aca", con.getString("id_aca"));
                 jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("link", con.getString("link"));
+                jchil.put("file", con.getString("file"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -87,7 +87,7 @@ public class Academic {
                 jchil.put("id_aca", con.getString("id_aca"));
                 jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
-                jchil.put("link", con.getString("link"));
+                jchil.put("file", con.getString("file"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
             }
@@ -113,7 +113,7 @@ public class Academic {
                 json.put("id_aca", con.getString("id_aca"));
                 json.put("owner", con.getString("owner"));
                 json.put("title", con.getString("title"));
-                json.put("link", con.getString("link"));
+                json.put("file", con.getString("file"));
                 json.put("status", con.getString("status"));
             }
             con.disconnect();
@@ -144,7 +144,7 @@ public class Academic {
                     + id_aca + "','"
                     + json.get("owner") + "','"
                     + json.get("title") + "','"
-                    + json.get("link") + "','"
+                    + json.get("file") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -164,7 +164,7 @@ public class Academic {
             String update = "UPDATE academic SET "
                     + "owner = '" + json.get("owner") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "link = '" + json.get("link") + "',"
+                    + "file = '" + json.get("file") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_aca = '" + json.get("id_aca") + "'";
             if (con.update(update) > 0) {
@@ -182,11 +182,11 @@ public class Academic {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select link from academic "
+            String select = "select file from academic "
                     + "WHERE id_aca = '" + json.get("id_aca") + "'";
             con.query(select);
             if (con.next()) {
-                String filename = con.getString("link");
+                String filename = con.getString("file");
                 if (!"".equals(filename)) {
                     File file = new File(json.get("path") + filename);
                     file.delete();
