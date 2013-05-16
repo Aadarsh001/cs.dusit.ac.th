@@ -27,9 +27,6 @@
 <div id="frmlink" class="frmcolR">
     <div class="headlink"></div>
     <div class="calendar">
-        <ui id="link">
-            <li class="link"><a href="http://www.dusit.ac.th" target="blank">-  มหาวิทยาลัยราชภัฏสวนดุสิต</a></li>
-            <li class="link"><a href="http://www.dusit.ac.th" target="blank">-  งานทะเบียน</a></li>
-        </ui>
+        <ui id="link"></ui>
     </div>   
 </div>

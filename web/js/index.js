@@ -11,7 +11,7 @@ IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 
 IncludeCSS('css/jquery.mobile-1.3.0.css');
-IncludeCSS('css/jquery-1.3.0-theme-mod.css');
+//IncludeCSS('css/jquery-1.3.0-theme-mod.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/index.css');
@@ -20,6 +20,8 @@ window.onload = function(){
     slideshow();
     news();
     event();
+    knowledge();
+    link();
 }
 
 function slideshow(){
@@ -35,7 +37,7 @@ function slideshow(){
             alert('Error');
         },
         success : function (data){
-            //                $('#slideshow').append("<img src='"+  +"'>");
+//              $('#slideshow').append('<img src="">');
             $('#slideshow').prepend('<img src="'+data.data[0].image+'"/>');
         }
     });
@@ -78,7 +80,8 @@ function news(){
             });
         }
     });
-    
+}
+
 function event(){
     $.ajax({
         url : 'content',
@@ -92,10 +95,54 @@ function event(){
             alert('Error');
         },
         success : function (data){
-            for(var i=0;i<data.data.length;i++){
-                $('.event.ui-grid-a').append('');
+            var heading = 0;
+            var image = data.data[heading].image.split('[,]');
+            var title = data.data[heading].title.substr(0, 57)+"...";
+            var detail = data.data[heading].detail.substr(0, 450)+"...";
+            $('.event.ui-grid-a').append('<div class="ui-block-a"><a href="#"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="firstevent"><a href="#">'+title+'</a></p><p class="detailfirstevent">'+detail+'</p></div>');
+            for(var i=1;i<data.data.length;i++){
+                $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="#"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="#">'+data.data[i].title+'</a></p><p class="detail">'+data.data[i].detail+'</p></div>');
             }
         }
     });
 }
+
+function knowledge(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'knowledge',
+            'option' : 'show'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert('Error');
+        },
+        success : function (data){
+            for(var i=0;i<data.data.length;i++){
+                $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="#"><img src="'+data.data[i].image+'"/></a></div><div class="ui-block-b"><p class="title"><a href="#">'+data.data[i].title+'</a></p><p class="detail"><a href="#">'+data.data[i].detail+'</a></p></div>');
+            }
+        }
+    });
+}
+
+function link(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'link',
+            'option' : 'show'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert('Error');
+        },
+        success : function (data){
+            for(var i=0;i<data.data.length;i++){
+                $('#link').append('<li class="link"><a href="'+data.data[i].link+'" target="blank">-  '+data.data[i].title+'</a></li>');
+            }
+        }
+    });
 }

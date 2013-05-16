@@ -6,8 +6,6 @@
     width:24%;
     margin-left: 1%; 
     height: auto;
-    /*    border-radius: 7px;
-        background-color: whitesmoke;*/
 
 }
 
@@ -26,7 +24,7 @@
 .frmcontent{
     margin-top: 10px;
     width: 100%;
-    height: 400px;
+    height: auto;;
     border-radius: 7px;
     background-color: whitesmoke;
     border: solid rgb(179, 179, 179) 1px;
@@ -35,14 +33,6 @@
 .headnews{
     width: 100%;
     background-image: url('../images/headnews.png');
-    height: 50px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
-}
-
-
-.headevent{
-    width: 100%;
-    background-image: url('../images/headevent.png');
     height: 50px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
@@ -68,14 +58,25 @@
 }
 
 /* EVENT START*/
-a.link{
+#frmknowledge a:link , #frmknowledge a:visited ,.frmcontent a:link , .frmcontent a:visited{
     text-decoration: none;
+    color: #3C3C3F;
 }
+#frmknowledge a:hover ,.frmcontent a:hover{
+    color: #FF9938;
+    text-decoration: underline;
+}
+.headevent{
+    width: 100%;
+    background-image: url('../images/headevent.png');
+    height: 50px;
+    border-bottom: solid rgb(179, 179, 179) 1px;
+}
+
 .event.ui-grid-a .ui-block-a{
-    width: 260px;
-    height: 180px;
+    width: 250px;
+    height: auto;
     margin: 15px 15px;
-    border: solid red 1px;
 }
 .event.ui-grid-a .ui-block-b{
     width: 415px;
@@ -96,30 +97,34 @@ a.link{
     text-align:justify; 
     width: 415px; 
     margin:0 auto;
+    line-height: 25px;
 }
-.subevent.ui-grid-a .ui-block-a{
+.subevent.ui-grid-a .ui-block-a , .knowledge.ui-grid-a .ui-block-a{
     width: 100px;
     height: 80px;
-    margin: 15px 15px;
+    margin: 0px 15px;
     border: solid red 1px;
 }
-.subevent.ui-grid-a .ui-block-b{
+.subevent.ui-grid-a .ui-block-b , .knowledge.ui-grid-a .ui-block-b{
     width: 575px;
     height: 80px;
-    margin: 15px 0 15px 0px;
+    margin: 0px 0px 15px 0px;
     overflow: hidden; 
     font-size: 12px;
 }
 
-.titleevent{
+.title{
     width: 550px;
     margin: 5px auto;
     font-weight: bolder;
     white-space: nowrap;
 }
-.detailevent{
+.detail{
     text-indent: 10px;
     text-align: justify;
     
+}
+.image{
+    width: 100%;
 }
 /* END EVENT*/

@@ -63,7 +63,18 @@
     height: 50px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
+.link a:link , .link a:visited{
+    text-decoration: none;
+    font-size: 14px;
+    text-shadow: initial;
+    font-weight: bold;
+    color: #194b7e;
+}
 
+.link a:hover{
+    font-weight: bolder;
+    color: #FF8109;
+}
 .link{
     list-style-type: none;
     margin: 10px auto 0 5px;
