@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- Host: localhost
--- Generation Time: May 14, 2013 at 05:06 PM
+-- Generation Time: May 16, 2013 at 06:39 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -21,9 +21,9 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `academic` (
   `id_aca` varchar(20) NOT NULL,
-  `id_pro` varchar(20) NOT NULL,
+  `owner` varchar(1000) NOT NULL,
   `title` varchar(1000) NOT NULL,
-  `link` varchar(1000) NOT NULL,
+  `file` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL,
   PRIMARY KEY  (`id_aca`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -62,7 +62,7 @@ INSERT INTO `calendar` VALUES ('000002', 'ssssss', 'sssssss', '25560205', '1');
 CREATE TABLE `course` (
   `id_cou` varchar(20) NOT NULL,
   `title` varchar(1000) NOT NULL,
-  `link` varchar(1000) NOT NULL,
+  `file` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -83,7 +83,7 @@ CREATE TABLE `download` (
   `id_dow` varchar(20) NOT NULL,
   `id_gro` varchar(20) NOT NULL,
   `title` varchar(1000) NOT NULL,
-  `link` varchar(1000) NOT NULL,
+  `file` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -225,8 +225,7 @@ CREATE TABLE `personnel` (
 
 CREATE TABLE `project` (
   `id_pro` varchar(20) NOT NULL,
-  `id_stu` varchar(20) NOT NULL,
-  `id_per` varchar(20) NOT NULL,
+  `owner` varchar(1000) NOT NULL,
   `title` varchar(1000) NOT NULL,
   `link` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL
@@ -247,7 +246,7 @@ CREATE TABLE `qassurance` (
   `id_qas` varchar(20) NOT NULL,
   `category` varchar(100) NOT NULL,
   `title` varchar(1000) NOT NULL,
-  `link` varchar(1000) NOT NULL,
+  `file` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -264,9 +263,9 @@ CREATE TABLE `qassurance` (
 
 CREATE TABLE `research` (
   `id_res` varchar(20) NOT NULL,
-  `id_per` varchar(20) NOT NULL,
+  `owner` varchar(1000) NOT NULL,
   `title` varchar(1000) NOT NULL,
-  `link` varchar(1000) NOT NULL,
+  `file` varchar(1000) NOT NULL,
   `status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -315,7 +314,6 @@ CREATE TABLE `student` (
   `id_stu` varchar(20) NOT NULL,
   `name` varchar(200) NOT NULL,
   `detail` varchar(5000) NOT NULL,
-  `image` varchar(100) NOT NULL,
   `status` varchar(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
