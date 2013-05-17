@@ -9,6 +9,7 @@
 <html>
     <head>
         <link rel="icon" type="image/x-icon" href="">
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
         <script type="text/javascript" src="js/index.js"></script>
