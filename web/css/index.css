@@ -1,15 +1,3 @@
-
-.column.ui-grid-a .ui-block-a{
-    width:75%;
-}
-.column.ui-grid-a .ui-block-b{
-    width:24%;
-    margin-left: 1%; 
-    height: auto;
-
-}
-
-
 #frmslide{
     width: 720px;
     height: 300px;

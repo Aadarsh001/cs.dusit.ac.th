@@ -1,5 +1,13 @@
 /* ColumnRight START */
+.column.ui-grid-a .ui-block-a{
+    width:75%;
+}
+.column.ui-grid-a .ui-block-b{
+    width:24%;
+    margin-left: 1%; 
+    height: auto;
 
+}
 #date{
     float: left;
     width:79%;

@@ -59,7 +59,7 @@ function news(){
             for(var i=0;i<data.data.length;i++){
                 var title = data.data[i].title.substr(0,68);
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
-                $('.titlenews.ui-grid-b').append('<div class="ui-block-a">*</div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="'+data.data[i].file+'"title="'+data.data[i].title+'">'+title+'</a></div>');
+                $('.titlenews.ui-grid-b').append('<div class="ui-block-a">*</div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="content?content=news&option=some&id_new='+data.data[i].id_new+'"title="'+data.data[i].title+'" id="test">'+title+'</a></div>');
             }
             $.ajax({
                 url : 'content',
@@ -76,14 +76,13 @@ function news(){
                     for(var i=0;i<data.data.length;i++){
                         var title = data.data[i].title.substr(0,68);
                         var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
-                        $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="'+data.data[i].file+'"title="'+data.data[i].title+'">'+title+'</a></div>');
+                        $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="content?content=news&option=some&id_new='+data.data[i].id_new+'"title="'+data.data[i].title+'">'+title+'</a></div>');
                     }
                 }
             });
         }
     });
 }
-
 function event(){
     $.ajax({
         url : 'content',
@@ -101,12 +100,12 @@ function event(){
             var image = data.data[heading].image.split(',');
             var title = data.data[heading].title.substr(0, 60);
             var detail = data.data[heading].detail.substr(0, 467);
-            $('.event.ui-grid-a').append('<div class="ui-block-a"><a href="'+data.data[0].id_eve+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="firstevent"><a href="'+data.data[0].id_eve+'" title="'+data.data[0].title+'">'+title+'</a></p><p class="detailfirstevent">'+detail+'</p></div>');
+            $('.event.ui-grid-a').append('<div class="ui-block-a"><a href="content?content=event&option=some&id_eve='+data.data[0].id_eve+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="firstevent"><a href="content?content=event&option=some&id_eve='+data.data[0].id_eve+'" title="'+data.data[0].title+'">'+title+'</a></p><p class="detailfirstevent">'+detail+'</p></div>');
             for(var i=1;i<data.data.length;i++){
                 var image = data.data[i].image.split(',');
                 var title = data.data[i].title.substr(0, 89);
                 var detail = data.data[i].detail.substr(0, 314);
-                $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="'+data.data[i].id_eve+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="'+data.data[i].id_eve+'"title="'+data.data[i].title+'">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
+                $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="content?content=event&option=some&id_eve='+data.data[i].id_eve+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="content?content=event&option=some&id_eve='+data.data[i].id_eve+'"title="'+data.data[i].title+'">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
         }
     });
@@ -129,7 +128,7 @@ function knowledge(){
                 var image = data.data[i].image.split(',');
                 var title = data.data[i].title.substr(0, 89);
                 var detail = data.data[i].detail.substr(0, 323);
-                $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="'+data.data[i].id_kno+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="'+data.data[i].id_kno+'" title="'+data.data[i].title+'">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
+                $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="content?content=knowledge&option=some&id_kno='+data.data[i].id_kno+'"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="content?content=knowledge&option=some&id_kno='+data.data[i].id_kno+'" title="'+data.data[i].title+'">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
         }
     });
