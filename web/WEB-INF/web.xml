@@ -16,6 +16,10 @@
         <servlet-name>contact</servlet-name>
         <servlet-class>Servlet.contact</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>allcontent</servlet-name>
+        <servlet-class>Servlet.allcontent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>contact</servlet-name>
         <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>allcontent</servlet-name>
+        <url-pattern>/allcontent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

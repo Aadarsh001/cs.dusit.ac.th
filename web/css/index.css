@@ -44,7 +44,37 @@
     margin: 5px 0;
     width: 85%;
 }
-
+.titlenews.ui-grid-b .more.ui-block-b{
+    margin: 5px 0;
+    width: 82%;
+}
+.titlenews.ui-grid-b .more.ui-block-c{
+    margin-bottom: 10px;
+    padding: 5px 0;
+    width: 13%;
+    font-size: 13px;
+    text-shadow: none;
+    text-align: center;
+    background-color: snow;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.subevent.ui-grid-a .more.ui-block-a , .knowledge.ui-grid-a .more.ui-block-a{
+    width: 81%;
+    height: 30px;
+}
+.subevent.ui-grid-a .more.ui-block-b , .knowledge.ui-grid-a .more.ui-block-b{
+    margin-bottom: 10px;
+    padding: 5px 0;
+    width: 13%;
+    height: 30px;
+    font-size: 13px;
+    text-shadow: none;
+    text-align: center;
+    background-color: snow;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
 /* EVENT START*/
 #frmknowledge a:link , #frmknowledge a:visited ,.frmcontent a:link , .frmcontent a:visited{
     text-decoration: none;
