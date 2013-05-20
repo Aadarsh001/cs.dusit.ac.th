@@ -23,7 +23,7 @@ window.onload = function(){
 }
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=]*)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
     return vars;
@@ -31,13 +31,14 @@ function getUrlVars() {
 
 function news(){
     var content = getUrlVars()["content"];
-    var option = getUrlVars()["option"];
+    var option = 'all'
 
     $.ajax({
         url : 'content',
         data : {
             'content' : content,
-            'option' : option
+            'option' : option,
+            'rp'    : '20'
         },
         dataType : 'json',
         type : 'get',
@@ -49,7 +50,7 @@ function news(){
             for(var i = 0; i<data.data.length; i++){
                 var title = data.data[i].title.substr(0,68);
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
-                $('.allcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="content?content=news&option=some&id_new='+data.data[i].id_new+'"title="'+data.data[i].title+'" id="test">'+title+'</a></div>');
+                $('.allcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id_new='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
             }
         }
     });

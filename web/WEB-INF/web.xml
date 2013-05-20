@@ -20,6 +20,10 @@
         <servlet-name>allcontent</servlet-name>
         <servlet-class>Servlet.allcontent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>showcontent</servlet-name>
+        <servlet-class>Servlet.showcontent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>allcontent</servlet-name>
         <url-pattern>/allcontent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showcontent</servlet-name>
+        <url-pattern>/showcontent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
