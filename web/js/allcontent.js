@@ -23,7 +23,7 @@ window.onload = function(){
 }
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=]*)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
     return vars;
@@ -31,7 +31,7 @@ function getUrlVars() {
 
 function news(){
     var content = getUrlVars()["content"];
-    var option = getUrlVars()["option"];
+    var option = 'all'
 
     $.ajax({
         url : 'content',
