@@ -27,7 +27,7 @@ public class Event {
     public static String getData(String option, String detail) {
         switch (Option.valueOf(option)) {
             case show:
-                return showDB();
+                return showDB(detail);
             case all:
                 return showAllDB();
             case some:
@@ -50,18 +50,21 @@ public class Event {
         }
     }
 
-    private static String showDB() {
+    private static String showDB(String detail) {
         try {
+            JSONObject data = (JSONObject) JSONValue.parse(detail);
             JSONObject json = new JSONObject();
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
+            int page = Integer.parseInt(data.get("page").toString());
+            int rp = Integer.parseInt(data.get("rp").toString());
             DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", new Locale("th", "TH"));
             String Date = dateFormat.format(new Date());
             String select = "SELECT * FROM event "
                     + "WHERE startdate <= '" + Date + "' and "
                     + "enddate >= '" + Date + "' and "
-                    + "status = '1' ORDER BY id_eve DESC LIMIT 0,5";
+                    + "status = '1' ORDER BY id_eve DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();

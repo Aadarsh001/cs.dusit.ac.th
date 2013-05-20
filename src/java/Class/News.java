@@ -29,7 +29,7 @@ public class News {
             case pin:
                 return showPinDB();
             case show:
-                return showDB();
+                return showDB(detail);
             case all:
                 return showAllDB();
             case some:
@@ -52,17 +52,21 @@ public class News {
         }
     }
 
-    private static String showDB() {
+    private static String showDB(String detail) {
         try {
+            JSONObject data = (JSONObject) JSONValue.parse(detail);
             JSONObject json = new JSONObject();
             JSONArray jarray = new JSONArray();
             DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", new Locale("th", "TH"));
             String Date = dateFormat.format(new Date());
             Connect con = new Connect();
             con.connect();
+            int page = Integer.parseInt(data.get("page").toString());
+            int rp = Integer.parseInt(data.get("rp").toString());
             String select = "SELECT * FROM news "
                     + "WHERE status = '1' and startdate <= '" + Date + "' "
-                    + "ORDER BY startdate DESC LIMIT 0,5";
+                    + "ORDER BY startdate DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
+            System.out.println(select);
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();

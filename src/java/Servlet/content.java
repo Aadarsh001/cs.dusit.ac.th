@@ -80,17 +80,38 @@ public class content extends HttpServlet {
                 }
                 break;
             case news:
-                if (Option.some.toString().equals(option)) {
+                if (Option.show.toString().equals(option)) {
+                    data.put("rp", request.getParameter("rp"));
+                    if (request.getParameter("page") != null) {
+                        data.put("page", request.getParameter("page"));
+                    } else {
+                        data.put("page", "1");
+                    }
+                } else if (Option.some.toString().equals(option)) {
                     data.put("id_new", request.getParameter("id_new"));
                 }
                 break;
             case event:
-                if (Option.some.toString().equals(option)) {
+                if (Option.show.toString().equals(option)) {
+                    data.put("rp", request.getParameter("rp"));
+                    if (request.getParameter("page") != null) {
+                        data.put("page", request.getParameter("page"));
+                    } else {
+                        data.put("page", "1");
+                    }
+                } else if (Option.some.toString().equals(option)) {
                     data.put("id_eve", request.getParameter("id_eve"));
                 }
                 break;
             case knowledge:
-                if (Option.some.toString().equals(option)) {
+                if (Option.show.toString().equals(option)) {
+                    data.put("rp", request.getParameter("rp"));
+                    if (request.getParameter("page") != null) {
+                        data.put("page", request.getParameter("page"));
+                    } else {
+                        data.put("page", "1");
+                    }
+                } else if (Option.some.toString().equals(option)) {
                     data.put("id_kno", request.getParameter("id_kno"));
                 }
                 break;
