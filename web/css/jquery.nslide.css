@@ -24,7 +24,6 @@
     border-radius: 10px;
 }
 .nslide_btn:hover{
-    text-shadow: 0 2px 0 #fff;
     opacity: .99;
     -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
     -webkit-box-shadow: 0px 0px 5px #000;

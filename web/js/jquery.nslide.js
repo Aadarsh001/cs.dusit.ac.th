@@ -1,6 +1,8 @@
 (function($) {
     var max_slide = 0;
+    var m_t = 0;
     $.fn.nSlide = function(width,height){
+        m_t = (height-32);
         $(this).find('a').each(function() {
             $(this).attr("class","nslide_img");
         }); 
@@ -11,8 +13,9 @@
         });
         $('#nslide1').fadeIn();
         for(var i=max_slide;i>0;i--){
-            $(this).append('<div class="nslide_btn" style="margin-top:'+(height-32)+'px;">'+i+'</div>');
+            $(this).append('<div class="nslide_btn" id="nslide_btn'+i+'" style="margin-top:'+m_t+'px;">'+i+'</div>');
         }
+        $('#nslide_btn1').attr("style","margin-top:"+m_t+"px;opacity:.99;");
         nslide.start();
     }
     $.fn.nSlide.move = function(page){
@@ -31,12 +34,16 @@
             nslide.slide = setInterval(function(){
                 if(nslide.sequence!=max_slide){
                     $('#nslide'+nslide.sequence).fadeOut('400',function(){
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
                         nslide.sequence++;
                         $('#nslide'+(nslide.sequence)).fadeIn('100');
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                     });
                 }else{
                     $('#nslide'+nslide.sequence).fadeOut('400',function(){
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
                         nslide.sequence = 1;
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                         $('#nslide'+nslide.sequence).fadeIn('100');
                     });
                 }
@@ -46,7 +53,9 @@
             if(num!=nslide.sequence){
                 clearInterval(nslide.slide);
                 $('#nslide'+nslide.sequence).fadeOut('400',function(){
+                    $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
                     nslide.sequence=num;
+                    $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                     nslide.run();
                     $('#nslide'+nslide.sequence).fadeIn('100');
                 });
