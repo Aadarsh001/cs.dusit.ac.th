@@ -5,15 +5,19 @@
     margin: 0 auto;
     background: none;
 }
-.ui-mobile body{
-    height: 98% !important;
-    min-height: 98% !important;
-    margin: 1% 0;
+body{
     background-color: rgba(255, 102, 0, 0.59);
+}
+.ui-mobile body{
+/*    height: 98% !important;
+    min-height: 98% !important;*/
+    margin: 2% 0;
+    
+    background: rgb(255, 153, 51) url('../images/bg.png') repeat-x;
 }
 [data-role=page]{
     background-image: none;
-    
+
 }
 [data-role=header]{
     background-color: #faa41d;

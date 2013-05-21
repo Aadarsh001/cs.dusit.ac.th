@@ -8,6 +8,7 @@
             $(this).children("img").attr("class","nslide_img");
         }); 
         $(this).attr("style","width:"+width+"px;height:"+height+"px");
+        $(this).attr("class","nslide_frm");
         $(this).find('a').each(function() {
             max_slide++;
             $(this).attr("id","nslide"+max_slide);

@@ -1,4 +1,5 @@
 /* ColumnRight START */
+
 .column.ui-grid-a .ui-block-a{
     width:75%;
 }
@@ -6,7 +7,6 @@
     width:24%;
     margin-left: 1%; 
     height: auto;
-
 }
 #date{
     float: left;
@@ -14,15 +14,12 @@
     margin-left: 1%; 
     border-radius: 7px;
     height: 40px;
-    background-color: rgb(213, 213, 213);
-    
+    background-color: rgb(213, 213, 213);   
 }
 #social{
     height: 40px;
-    margin-left: 83%;
-    
+    margin-left: 83%;  
 }
-
 .frmcolR{
     width: 229px;
     height: 250px;
@@ -43,7 +40,6 @@
 .ui-grid-b.login .login.ui-block-b{
     width: 200px;
 }
-
 .frmemail {
     text-align: center;
     margin: 28px 0 0 0 ;
@@ -56,7 +52,6 @@
     text-align: center;
     width: 70%;
     margin: 20px auto 0 auto;
-    
 }
 .headcalendar{
     width: 100%;
@@ -64,7 +59,6 @@
     height: 60px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
-
 .headlink{
     width: 100%;
     background-image: url('../images/link.png');
@@ -78,7 +72,6 @@
     font-weight: bold;
     color: #194b7e;
 }
-
 .link a:hover{
     font-weight: bolder;
     color: #FF8109;
@@ -93,21 +86,18 @@
 /* HEADER STRAT */
 
 [data-role=header]{
-    background-image: url(../images/header.png);
+    /*background-image: url(../images/header.png);*/
     background-repeat: no-repeat;
 }
-
-
 #cssmenu{margin-left: -1px; width: 980px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 0  0 5px 5px;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
-    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
-    box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
+         -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
+         box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
 #cssmenu > ul {list-style:inside none; padding:0; margin:0;}
 #cssmenu > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;background-color: rgb(0, 0, 0);}
 #cssmenu > ul > li > a{ outline:none; display:block; position:relative; padding:12px 13.28px; font:bold 13px/100% Arial, Helvetica, sans-serif; text-align:center; text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.4); }
 #cssmenu > ul > li:first-child > a{border-radius:5px 0 0 5px;}
 #cssmenu > ul > li > a:after{ content:''; position:absolute; top:-1px; bottom:-1px; right:-2px; z-index:99; }
 #cssmenu ul li.has-sub:hover > a:after{top:0; bottom:0;}
-
 #cssmenu > ul > li.has-sub:hover > a:before{top:19px;}
 #cssmenu ul li.has-sub:hover > a{ background:rgb(40, 40, 40); border-color:rgb(40, 40, 40); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; }
 #cssmenu ul li.has-sub:hover > ul, #cssmenu ul li.has-sub:hover > div{display:block;}

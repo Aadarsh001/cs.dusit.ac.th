@@ -4,6 +4,11 @@
     border-radius: 3px;
     -webkit-border-radius: 3px;
 }
+.nslide_frm{
+    border: solid rgb(179, 179, 179) 1px;
+    border-radius: 7px 60px 7px 7px;
+    -webkit-border-radius: 7px 60px 7px 7px;
+}
 .nslide_img{
     border-radius: 7px 60px 7px 7px;
     -webkit-border-radius: 7px 60px 7px 7px;

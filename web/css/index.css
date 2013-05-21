@@ -2,12 +2,10 @@
     width: 720px;
     height: 300px;
 }
-
 #slideshow{
     width: 720px;
     height: 300px;
 }
-
 .frmcontent{
     margin-top: 10px;
     width: 100%;
@@ -16,21 +14,18 @@
     background-color: whitesmoke;
     border: solid rgb(179, 179, 179) 1px;
 }
-
 .headnews{
     width: 100%;
     background-image: url('../images/headnews.png');
     height: 50px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
-
 .headknowledge{
     width: 100%;
     background-image: url('../images/headknowledge.png');
     height: 50px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
-
 .titlenews.ui-grid-b .pin.ui-block-a{
     margin: 5px 0;
     width: 20px;
@@ -100,7 +95,6 @@
     height: 50px;
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
-
 .event.ui-grid-a .ui-block-a{
     width: 250px;
     height: auto;
@@ -141,7 +135,6 @@
     overflow: hidden; 
     font-size: 12px;
 }
-
 .title{
     width: 550px;
     margin: 5px auto;
@@ -151,8 +144,7 @@
 .detail{
     margin-top: 5px;
     text-indent: 10px;
-    text-align: justify;
-    
+    text-align: justify;  
 }
 .image{
     width: 100%;
@@ -162,4 +154,5 @@
     -webkit-box-shadow: 0px 0px 5px #000;
     box-shadow: 0px 0px 5px #000;
 }
+
 /* END EVENT*/
