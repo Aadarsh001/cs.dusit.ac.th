@@ -1,6 +1,12 @@
-.nslide_img{
+.nslide_link{
     display: none;
     position: absolute;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.nslide_img{
+    border-radius: 7px 60px 7px 7px;
+    -webkit-border-radius: 7px 60px 7px 7px;
 }
 .nslide_btn{
     opacity: .70;
@@ -19,9 +25,8 @@
     text-shadow: 0 1px 0 #fff;
     display: inline;
     font-size: 12px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 12px;
+    border-radius: 12x;
 }
 .nslide_btn:hover{
     opacity: .99;

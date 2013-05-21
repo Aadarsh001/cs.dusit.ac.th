@@ -4,7 +4,8 @@
     $.fn.nSlide = function(width,height){
         m_t = (height-32);
         $(this).find('a').each(function() {
-            $(this).attr("class","nslide_img");
+            $(this).attr("class","nslide_link");
+            $(this).children("img").attr("class","nslide_img");
         }); 
         $(this).attr("style","width:"+width+"px;height:"+height+"px");
         $(this).find('a').each(function() {
