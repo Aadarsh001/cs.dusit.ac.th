@@ -34,14 +34,14 @@
             nslide.slide = setInterval(function(){
                 if(nslide.sequence!=max_slide){
                     $('#nslide'+nslide.sequence).fadeOut('400',function(){
-                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;");
                         nslide.sequence++;
                         $('#nslide'+(nslide.sequence)).fadeIn('100');
                         $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                     });
                 }else{
                     $('#nslide'+nslide.sequence).fadeOut('400',function(){
-                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
+                        $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;");
                         nslide.sequence = 1;
                         $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                         $('#nslide'+nslide.sequence).fadeIn('100');
@@ -53,7 +53,7 @@
             if(num!=nslide.sequence){
                 clearInterval(nslide.slide);
                 $('#nslide'+nslide.sequence).fadeOut('400',function(){
-                    $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .70;");
+                    $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;");
                     nslide.sequence=num;
                     $('#nslide_btn'+nslide.sequence).attr("style","margin-top:"+m_t+"px;opacity: .99;");
                     nslide.run();
