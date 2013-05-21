@@ -56,7 +56,9 @@ function shownews(id){
             alert('ERROR');
         },
         success : function (data){
-            alert('id_new = '+id);
+            var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
+            $('.showcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c">'+data.title+'</div>');
+            
         }
     });
 }
@@ -75,7 +77,9 @@ function showevent(id){
             alert('ERROR');
         },
         success : function (data){
-            alert('id_eve = ' + id);
+            var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
+            $('.showcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c">'+data.title+'</div>');
+            
         }
     });
 }
@@ -86,7 +90,7 @@ function showknowledge(id){
         data : {
             'content' : 'knowledge',
             'option'  : 'some',
-            'id_eve' : id
+            'id_kno' : id
         },
         dataType : 'json',
         type : 'get',
@@ -94,7 +98,9 @@ function showknowledge(id){
             alert('ERROR');
         },
         success : function (data){
-            alert('id = ' + id);
+            var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
+            $('.showcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c">'+data.title+'</div>');
+            
         }
     });
 }

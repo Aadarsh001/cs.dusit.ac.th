@@ -82,7 +82,7 @@ function news(){
                         var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
                         $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
                     }
-                    $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b more"></div><a href="allcontent?content=news&option=all" rel="external"><div class="ui-block-c more">more >></div></a>');
+                    $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b more"></div><a href="allcontent?content=news&option=all" rel="external"><div class="ui-block-c more">ดูข่าวย้อนหลัง></div></a>');
                 }
             });
         }
@@ -113,7 +113,7 @@ function event(){
                 var detail = data.data[i].detail.substr(0, 314);
                 $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=event&id='+data.data[i].id_eve+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=event&id='+data.data[i].id_eve+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
-            $('.subevent.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=event&option=all" rel="external"><div class="ui-block-b more">more >></div></a>');
+            $('.subevent.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=event&option=all" rel="external"><div class="ui-block-b more">รวมกิจกรรม></div></a>');
         }
     });
 }
@@ -138,7 +138,7 @@ function knowledge(){
                 var detail = data.data[i].detail.substr(0, 323);
                 $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" title="'+data.data[i].title+'" rel="external">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
-            $('.knowledge.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=knowledge&option=all" rel="external"><div class="ui-block-b more">more >></div></a>');
+            $('.knowledge.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=knowledge&option=all" rel="external"><div class="ui-block-b more">รวมสาระน่ารู้></div></a>');
         }
     });
 }
