@@ -18,9 +18,19 @@ IncludeCSS('css/showcontent.css');
 
 window.onload = function(){
     getUrlVars();
-    shownews();
-//    showevent();
-//    showknow();
+    sel_content();
+}
+
+function sel_content(){
+    var content = getUrlVars()["content"];
+    var id = getUrlVars()["id"];
+    if(content == "news"){
+        shownews(id);
+    }else if(content == "event"){
+        showevent(id);
+    }else if(content == "knowledge"){
+        showknowledge(id);
+    }
 }
 
 function getUrlVars() {
@@ -31,14 +41,12 @@ function getUrlVars() {
     return vars;
 }
 
-function shownews(){
-    var content = getUrlVars()["content"];
-    var id = getUrlVars()["id_new"];
+function shownews(id){
 
     $.ajax({
         url : 'content',
         data : {
-            'content' : content,
+            'content' : 'news',
             'option'  : 'some',
             'id_new' : id
         },
@@ -48,19 +56,16 @@ function shownews(){
             alert('ERROR');
         },
         success : function (data){
-            alert('id = '+id);
+            alert('id_new = '+id);
         }
     });
 }
 
-function showevent(){
-    var content = getUrlVars()["content"];
-    var id = getUrlVars()["id_eve"];
-    
+function showevent(id){    
     $.ajax({
         url : 'content',
         data : {
-            'content' : content,
+            'content' : 'event',
             'option'  : 'some',
             'id_eve' : id
         },
@@ -70,19 +75,16 @@ function showevent(){
             alert('ERROR');
         },
         success : function (data){
-            alert('id = ' + id);
+            alert('id_eve = ' + id);
         }
     });
 }
 
-function showknow(){
-    var content = getUrlVars()["content"];
-    var id = getUrlVars()["id_kno"];
-    
+function showknowledge(id){
     $.ajax({
         url : 'content',
         data : {
-            'content' : content,
+            'content' : 'knowledge',
             'option'  : 'some',
             'id_eve' : id
         },
