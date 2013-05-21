@@ -47,7 +47,8 @@
 }
 .titlenews.ui-grid-b .ui-block-b{
     margin: 5px 0;
-    width: 11%;
+    width: 10%;
+    font-size: 14px;
 }
 .titlenews.ui-grid-b .ui-block-c{
     margin: 5px 0;
