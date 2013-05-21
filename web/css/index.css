@@ -32,9 +32,18 @@
     border-bottom: solid rgb(179, 179, 179) 1px;
 }
 
+.titlenews.ui-grid-b .pin.ui-block-a{
+    margin: 5px 0;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-image: url('../images/pin.png');
+}
 .titlenews.ui-grid-b .ui-block-a{
     margin: 5px 0;
-    width: 3%;text-align: center;
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }
 .titlenews.ui-grid-b .ui-block-b{
     margin: 5px 0;

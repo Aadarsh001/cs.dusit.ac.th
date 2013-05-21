@@ -62,7 +62,7 @@ function news(){
             for(var i=0;i<data.data.length;i++){
                 var title = data.data[i].title.substr(0,73)+"..";
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
-                $('.titlenews.ui-grid-b').append('<div class="ui-block-a">*</div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
+                $('.titlenews.ui-grid-b').append('<div class="ui-block-a pin"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
             }
             $.ajax({
                 url : 'content',
