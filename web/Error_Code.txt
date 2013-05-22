@@ -1,0 +1,4 @@
+Error Code [aabc]
+aa = 01 -> slideshow
+b = 0 -> data.error , 1 -> ajax error
+c = 1 -> add,2 -> edit,3 -> remove

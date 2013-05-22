@@ -1,0 +1,42 @@
+.default.ui-grid-a .ui-block-a,.default.ui-grid-a .ui-block-b{
+    text-align: right;
+    width:50%;
+}
+.ui-field-contain label.ui-input-text,.ui-field-contain label.ui-select,label.ui-slider{
+    float: left;
+    line-height: 33px;
+    width: 32%;
+}
+.ui-field-contain input.ui-input-text, .ui-field-contain textarea.ui-input-text, .ui-field-contain .ui-input-search, .ui-field-contain div.ui-input-text,.ui-field-contain .ui-select{
+    width: 66%;
+}
+.ui-slider-track, .ui-slider-switch{
+    margin-top: -30px;
+    float: right;
+    width: 40%;
+}
+.ui-collapsible-content{
+    padding: 10px 0;
+}
+#frm_image{
+    width: 720px;
+    height: 310px;
+}
+#image,#_image{
+    border: solid rgb(179, 179, 179) 1px;
+    border-radius: 7px 60px 7px 7px;
+    -webkit-border-radius: 7px 60px 7px 7px;
+}
+.hidden{
+    display: none;
+    position: absolute;
+}
+.comment{
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+    color: red;
+}
+.ui-btn-active{
+    background-image: #ff5533;
+}

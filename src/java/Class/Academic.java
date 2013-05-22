@@ -131,10 +131,9 @@ public class Academic {
             con.connect();
             String select = "select max(id_aca) as id_aca from academic";
             con.query(select);
-            String id_aca;
-            if (con.next()) {
-                id_aca = con.getString("id_aca");
-            } else {
+            con.next();
+            String id_aca = con.getString("id_aca");
+            if (id_aca == null) {
                 id_aca = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

@@ -144,10 +144,9 @@ public class Knowledge {
             con.connect();
             String select = "select max(id_kno) as id_kno from knowledge";
             con.query(select);
-            String id_kno;
-            if (con.next()) {
-                id_kno = con.getString("id_kno");
-            } else {
+            con.next();
+            String id_kno = con.getString("id_kno");
+            if (id_kno == null) {
                 id_kno = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

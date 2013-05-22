@@ -128,10 +128,9 @@ public class Course {
             con.connect();
             String select = "select max(id_cou) as id_cou from course";
             con.query(select);
-            String id_cou;
-            if (con.next()) {
-                id_cou = con.getString("id_cou");
-            } else {
+            con.next();
+            String id_cou = con.getString("id_cou");
+            if (id_cou == null) {
                 id_cou = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

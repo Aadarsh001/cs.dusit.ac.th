@@ -132,10 +132,9 @@ public class Download {
             con.connect();
             String select = "select max(id_dow) as id_dow from download";
             con.query(select);
-            String id_dow;
-            if (con.next()) {
-                id_dow = con.getString("id_dow");
-            } else {
+            con.next();
+            String id_dow = con.getString("id_dow");
+            if (id_dow == null) {
                 id_dow = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

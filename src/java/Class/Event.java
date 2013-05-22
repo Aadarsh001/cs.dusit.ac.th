@@ -148,10 +148,9 @@ public class Event {
             con.connect();
             String select = "select max(id_eve) as id_eve from event";
             con.query(select);
-            String id_eve;
-            if (con.next()) {
-                id_eve = con.getString("id_eve");
-            } else {
+            con.next();
+            String id_eve = con.getString("id_eve");
+            if (id_eve == null) {
                 id_eve = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

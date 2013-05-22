@@ -177,10 +177,9 @@ public class News {
             con.connect();
             String select = "select max(id_new) as id_new from news";
             con.query(select);
-            String id_new;
-            if (con.next()) {
-                id_new = con.getString("id_new");
-            } else {
+            con.next();
+            String id_new = con.getString("id_new");
+            if (id_new == null) {
                 id_new = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

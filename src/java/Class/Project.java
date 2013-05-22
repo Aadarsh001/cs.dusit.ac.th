@@ -130,10 +130,9 @@ public class Project {
             con.connect();
             String select = "select max(id_pro) as id_pro from project";
             con.query(select);
-            String id_pro;
-            if (con.next()) {
-                id_pro = con.getString("id_pro");
-            } else {
+            con.next();
+            String id_pro = con.getString("id_pro");
+            if (id_pro == null) {
                 id_pro = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

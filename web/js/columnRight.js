@@ -28,7 +28,7 @@ function clock(){
     monthno=now.getMonth();
     monthno+=1;
     year=now.getFullYear();
-//    year+=543;
+    //    year+=543;
     
     if (monthno<=9) {
         monthno="0"+monthno;
@@ -62,4 +62,21 @@ function clock(){
     $('#date').append(date +" "+time);
     
     setTimeout("clock()", 1000);
+}
+
+function PageAdmin(content,option) {
+    if(option==undefined){
+        option="";
+    }
+    var temp=document.createElement("form");
+    temp.action="admin"+option;
+    temp.method="POST";
+    temp.style.display="none";
+    var opt=document.createElement("textarea");
+    opt.name="content";
+    opt.value=content;
+    temp.appendChild(opt);
+    document.body.appendChild(temp);
+    temp.submit();
+    return temp;
 }

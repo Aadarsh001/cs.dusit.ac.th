@@ -7,11 +7,10 @@ package Servlet;
 import Class.ContentData;
 import Class.ContentData.Content;
 import Class.ContentData.Option;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DecimalFormat;
+import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -225,12 +224,10 @@ public class content extends HttpServlet {
                     if (image != null) {
                         if (!"".equals(image)) {
                             String[] datas = image.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/slideshow").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "images/slideshow/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "images/slideshow/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -260,12 +257,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/news").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/news/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/news/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -294,12 +289,11 @@ public class content extends HttpServlet {
                         for (int i = 0; i < image.length; i++) {
                             if (!"".equals(image[i])) {
                                 String[] datas = image[i].split("[,]");
-                                String filename = "" + new File(getServletContext().getRealPath("/") + "/images/event").list().length;
+                                String filename = "";
                                 String[] filetype = datas[0].split("[/]");
                                 filetype = filetype[1].split("[;]");
                                 BASE64Decoder decoder = new BASE64Decoder();
-                                DecimalFormat decimal_format = new DecimalFormat("000000");
-                                filename = "images/event/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                                filename = "images/event/" + UUID.randomUUID() + "." + filetype[0];
                                 filenames += filename;
                                 if ((i + 1) < image.length) {
                                     filenames += ",";
@@ -335,12 +329,11 @@ public class content extends HttpServlet {
                         for (int i = 0; i < image.length; i++) {
                             if (!"".equals(image[i])) {
                                 String[] datas = image[i].split("[,]");
-                                String filename = "" + new File(getServletContext().getRealPath("/") + "/images/knowledge").list().length;
+                                String filename = "";
                                 String[] filetype = datas[0].split("[/]");
                                 filetype = filetype[1].split("[;]");
                                 BASE64Decoder decoder = new BASE64Decoder();
-                                DecimalFormat decimal_format = new DecimalFormat("000000");
-                                filename = "images/knowledge/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                                filename = "images/knowledge/" + UUID.randomUUID() + "." + filetype[0];
                                 filenames += filename;
                                 if ((i + 1) < image.length) {
                                     filenames += ",";
@@ -405,12 +398,10 @@ public class content extends HttpServlet {
                     if (image != null) {
                         if (!"".equals(image)) {
                             String[] datas = image.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/images/personnel").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "images/personnel/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "images/personnel/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -446,12 +437,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/course").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/course/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/course/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -477,12 +466,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/academic").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/academic/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/academic/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -509,12 +496,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/research").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/research/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/research/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -552,12 +537,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/qassurance").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/qassurance/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/qassurance/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -596,12 +579,10 @@ public class content extends HttpServlet {
                     if (file != null) {
                         if (!"".equals(file)) {
                             String[] datas = file.split("[,]");
-                            filename = "" + new File(getServletContext().getRealPath("/") + "/file/download").list().length;
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            DecimalFormat decimal_format = new DecimalFormat("000000");
-                            filename = "file/download/" + decimal_format.format(Integer.parseInt(filename) + 1) + "." + filetype[0];
+                            filename = "file/download/" + UUID.randomUUID() + "." + filetype[0];
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);

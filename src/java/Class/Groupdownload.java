@@ -125,10 +125,9 @@ public class Groupdownload {
             con.connect();
             String select = "select max(id_gro) as id_gro from groupdownload";
             con.query(select);
-            String id_gro;
-            if (con.next()) {
-                id_gro = con.getString("id_dow");
-            } else {
+            con.next();
+            String id_gro = con.getString("id_gro");
+            if (id_gro == null) {
                 id_gro = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

@@ -131,10 +131,9 @@ public class Link {
             con.connect();
             String select = "select max(id_lin) as id_lin from link";
             con.query(select);
-            String id_lin;
-            if (con.next()) {
-                id_lin = con.getString("id_lin");
-            } else {
+            con.next();
+            String id_lin = con.getString("id_lin");
+            if (id_lin == null) {
                 id_lin = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

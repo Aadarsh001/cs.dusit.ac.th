@@ -135,10 +135,9 @@ public class Personnel {
             con.connect();
             String select = "select max(id_per) as id_per from personnel";
             con.query(select);
-            String id_per;
-            if (con.next()) {
-                id_per = con.getString("id_per");
-            } else {
+            con.next();
+            String id_per = con.getString("id_per");
+            if (id_per == null) {
                 id_per = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

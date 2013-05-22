@@ -132,10 +132,9 @@ public class Qassurance {
             con.connect();
             String select = "select max(id_qas) as id_qas from qassurance";
             con.query(select);
-            String id_qas;
-            if (con.next()) {
-                id_qas = con.getString("id_qas");
-            } else {
+            con.next();
+            String id_qas = con.getString("id_qas");
+            if (id_qas == null) {
                 id_qas = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

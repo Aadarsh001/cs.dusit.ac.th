@@ -15,7 +15,12 @@
             window.onload = function(){
                 $('#image').change(function(){
                     showPreview(this);
-                });$('#test').click(function(){
+                });
+                $('#slideshow').click(function(){
+                    post("admin", {content:"slideshow"});
+                });
+                
+                $('#test').click(function(){
                     if($('#image').val()){
                         $('#imagedata').append($('#myimage').attr('src'));
                     }else{
@@ -33,16 +38,31 @@
                     }
                     reader.readAsDataURL(ele.files[0]);
                 }
-//                var timerId = setInterval(function () {
-//                    if($('#myimage').width()==720&&$('#myimage').height()==300){
-//                        clearInterval(timerId);
-//                    }else{
-//                        $('#image').val('');
-//                        $('#myimage').attr('src','images/header.png');
-//                        alert("ไฟล์ภาพต้องเป็นขนาด 720 x 300 เท่านั้น");
-//                        clearInterval(timerId);
-//                    }
-//                }, 500);
+                //                var timerId = setInterval(function () {
+                //                    if($('#myimage').width()==720&&$('#myimage').height()==300){
+                //                        clearInterval(timerId);
+                //                    }else{
+                //                        $('#image').val('');
+                //                        $('#myimage').attr('src','images/header.png');
+                //                        alert("ไฟล์ภาพต้องเป็นขนาด 720 x 300 เท่านั้น");
+                //                        clearInterval(timerId);
+                //                    }
+                //                }, 500);
+            }
+            function post(URL, PARAMS) {
+                var temp=document.createElement("form");
+                temp.action=URL;
+                temp.method="POST";
+                temp.style.display="none";
+                for(var x in PARAMS) {
+                    var opt=document.createElement("textarea");
+                    opt.name=x;
+                    opt.value=PARAMS[x];
+                    temp.appendChild(opt);
+                }
+                document.body.appendChild(temp);
+                temp.submit();
+                return temp;
             }
         </script>
     </head>
@@ -50,6 +70,6 @@
         <input type="file" accept="image/jpeg,image/png" id="image"><br/>
         <div style="width: 720px;height: 300px;"><img src="images/header.png" id="myimage"/></div>
         <input type="button" id="test" value="test"><br/>
-        <textarea id="imagedata"></textarea>
+        <input type="button" id="slideshow" value="slideshow"><br/>
     </body>
 </html>

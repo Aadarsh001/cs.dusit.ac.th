@@ -148,10 +148,9 @@ public class Slideshow {
             con.connect();
             String select = "select max(id_sli) as id_sli from slideshow";
             con.query(select);
-            String id_sli;
-            if (con.next()) {
-                id_sli = con.getString("id_sli");
-            } else {
+            con.next();
+            String id_sli = con.getString("id_sli");
+            if (id_sli == null) {
                 id_sli = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
@@ -182,7 +181,6 @@ public class Slideshow {
             con.connect();
             String update = "UPDATE slideshow SET "
                     + "title = '" + json.get("title") + "',"
-                    + "image = '" + json.get("image") + "',"
                     + "link = '" + json.get("link") + "',"
                     + "sequence = '" + json.get("sequence") + "',"
                     + "startdate = '" + json.get("startdate") + "',"

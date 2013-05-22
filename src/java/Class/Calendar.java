@@ -132,10 +132,9 @@ public class Calendar {
             con.connect();
             String select = "select max(id_cal) as id_cal from calendar";
             con.query(select);
-            String id_cal;
-            if (con.next()) {
-                id_cal = con.getString("id_cal");
-            } else {
+            con.next();
+            String id_cal = con.getString("id_cal");
+            if (id_cal == null) {
                 id_cal = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");

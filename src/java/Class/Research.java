@@ -131,10 +131,9 @@ public class Research {
             con.connect();
             String select = "select max(id_res) as id_res from research";
             con.query(select);
-            String id_res;
-            if (con.next()) {
-                id_res = con.getString("id_res");
-            } else {
+            con.next();
+            String id_res = con.getString("id_res");
+            if (id_res == null) {
                 id_res = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
