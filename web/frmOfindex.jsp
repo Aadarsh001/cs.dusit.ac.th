@@ -33,7 +33,7 @@
                                 <a href="#"><img src="images/slideshow/slide9.png" /></a>
                             </div>
                         </div>
-                        <div id="frmnews" class="frmcontent">
+                        <div id="frm" class="frmcontent">
                             <div class="headnews"></div>
                             <div class="ui-grid-b titlenews" ></div>
                         </div>

@@ -56,9 +56,9 @@ function shownews(id){
             alert('Error');
         },
         success : function (data){
+            var title = data.title.substr(0,68)+"..";
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
-            $('.showcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c">'+data.title+'</div>');
-            
+            $('.showcontent.ui-grid-a').append('<div class="ui-block-a">'+date+' : </div><div class="ui-block-b">'+title+'</div>');   
         }
     });
 }
@@ -77,8 +77,9 @@ function showevent(id){
             alert('Error');
         },
         success : function (data){
+            var title = data.title.substr(0,68)+"..";
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
-            $('.showcontent.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c">'+data.title+'</div>');
+            $('.showcontent.ui-grid-a').append('</div><div class="ui-block-a">'+date+' : </div><div class="ui-block-b">'+title+'</div>');
             
         }
     });

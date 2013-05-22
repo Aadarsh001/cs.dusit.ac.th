@@ -20,7 +20,10 @@
             <div data-role="content">          
                 <div class="ui-grid-a column">
                     <div class="ui-block-a column">
-                        <div class="ui-grid-b allcontent"></div>
+                        <div id="frmnews" class="frmcontent">
+                            <div class="headnews"></div>
+                            <div class="ui-grid-a allcontent" ></div>
+                        </div>
                     </div>
                     <div class="ui-block-b column">
                         <jsp:include page="jsp/columnRight.jsp" />

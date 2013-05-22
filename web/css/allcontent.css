@@ -6,7 +6,30 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+.frmcontent{
+    width: 100%;
+    height: auto;;
+    border-radius: 7px;
+    background-color: #F9F8FF;
+    border: solid #E1E1E1 1px;
+}
+.headnews{
+    width: 100%;
+    background-image: url('../images/headnews.png');
+    height: 50px;
+    border-bottom: solid #E1E1E1 1px;
 }
 
+.allcontent.ui-grid-a .ui-block-a{
+    margin-top: 10px;
+    width: 12%;
+    text-align: center;
+/*    font-size: 15px;*/
+}
+.allcontent.ui-grid-a .ui-block-b{
+    margin-top: 10px;
+    width: 86%;
+    overflow: hidden; 
+    white-space: nowrap;
+/*    font-size: 15px;*/
+}
