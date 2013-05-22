@@ -8,8 +8,8 @@
         <li><a href="about" rel="external"><div>เกี่ยวกับหลักสูตร</div></a></li>
         <li class='has-sub'><a id="" rel="external"><div>บุคลากร</div></a>
             <ul>
-                <li><a href="" rel="external"><div>อาจารย์และเจ้าหน้าที่</div></a></li>
-                <li><a href="" rel="external"><div>นักศึกษา</div></a></li>
+                <li><a href="personnal" rel="external"><div>อาจารย์และเจ้าหน้าที่</div></a></li>
+                <li><a href="student" rel="external"><div>นักศึกษา</div></a></li>
             </ul>
         </li>
         <li class='has-sub'><a href="" id="" rel="external"><div>ตารางเวลา</div></a>

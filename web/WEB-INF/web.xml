@@ -32,6 +32,10 @@
         <servlet-name>about</servlet-name>
         <servlet-class>Servlet.about</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>personnal</servlet-name>
+        <servlet-class>Servlet.personnal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>about</servlet-name>
         <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>personnal</servlet-name>
+        <url-pattern>/personnal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
