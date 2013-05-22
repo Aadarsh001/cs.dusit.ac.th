@@ -5,7 +5,7 @@
 </div><div id="cssmenu">
     <ul>
         <li><a href="index" rel="external"><div>หน้าหลัก</div></a></li>
-        <li><a href="" rel="external"><div>เกี่ยวกับหลักสูตร</div></a></li>
+        <li><a href="about" rel="external"><div>เกี่ยวกับหลักสูตร</div></a></li>
         <li class='has-sub'><a id="" rel="external"><div>บุคลากร</div></a>
             <ul>
                 <li><a href="" rel="external"><div>อาจารย์และเจ้าหน้าที่</div></a></li>

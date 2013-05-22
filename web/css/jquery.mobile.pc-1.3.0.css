@@ -13,7 +13,7 @@ body{
     min-height: 98% !important;*/
     margin: 2% 0;
     
-    background: rgb(255, 153, 51) url('../images/bg.png') repeat-x;
+    background: #FF9933 url('../images/bg.png') repeat-x;
 }
 [data-role=page]{
     background-image: none;

@@ -55,7 +55,12 @@ function news(){
             alert('Error');
         },
         success : function (data){
+            if(data.data.length > 5){
+                $('.loadmore').show();
+                
+            }
             for(var i = 0; i<data.data.length; i++){
+                $('.headcontent').css('background-image', 'url("/cs.dusit.ac.th/images/headnews.png")');
                 var title = data.data[i].title.substr(0,68)+"..";
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
                 $('.allcontent.ui-grid-a').append('<div class="ui-block-a">'+date+' : </div><div class="ui-block-b"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
@@ -78,10 +83,43 @@ function event(){
             alert('Error');
         },
         success : function (data){
+            if(data.data.length > 5){
+                $('.loadmore').show();
+                
+            }
+            $('.headcontent').css('background-image', 'url("/cs.dusit.ac.th/images/headevent.png")');
             for(var i = 0; i<data.data.length; i++){
                 var title = data.data[i].title.substr(0,68)+"..";
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
                 $('.allcontent.ui-grid-a').append('<div class="ui-block-a">'+date+' : </div><div class="ui-block-b"><a href="showcontent?content=event&id='+data.data[i].id_eve+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
+            }
+        }
+    });
+}
+
+function knowledge(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'knowledge',
+            'option' : 'all',
+            'rp'    : '20'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('Error');
+        },
+        success : function (data){
+            if(data.data.length > 5){
+                $('.loadmore').show();
+                
+            }
+            $('.headcontent').css('background-image', 'url("/cs.dusit.ac.th/images/headknowledge.png")');
+            for(var i = 0; i<data.data.length; i++){
+                var title = data.data[i].title.substr(0,68)+"..";
+                var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
+                $('.allcontent.ui-grid-a').append('<div class="ui-block-a">'+date+' : </div><div class="ui-block-b"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
             }
         }
     });

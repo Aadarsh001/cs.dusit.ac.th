@@ -9,10 +9,13 @@
 .frmcontent{
     margin-top: 10px;
     width: 100%;
-    height: auto;;
+    height: auto;
     border-radius: 7px;
     background-color: #F9F8FF;
     border: solid #E1E1E1 1px;
+}
+.allcontent .ui-grid-a{
+    padding-bottom: 15px;
 }
 .headnews{
     width: 100%;
@@ -152,5 +155,4 @@
     -webkit-box-shadow: 0px 0px 5px #E1E1E1;
     box-shadow: 0px 0px 5px #E1E1E1;
 }
-
 /* END EVENT*/

@@ -1,0 +1,52 @@
+/* 
+    Document   : about
+    Created on : May 23, 2013, 1:32:20 AM
+    Author     : Note
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.frmabout, .frmvision{
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+}
+.headabout{
+    width: 100%;
+    background-image: url('../images/headabout.png');
+    height: 60px;
+    border-bottom: solid #E1E1E1 1px;
+    background-repeat: no-repeat;
+}
+
+.detailabout{
+    margin: 15px auto;
+    text-align: justify;
+    width: 90%;
+    text-indent: 40px;
+    line-height: 30px;
+    padding-bottom: 50px;
+    font-size: 15px;
+}
+
+.headvision{
+    margin: 20px auto;
+    width: 100%;
+    background-image: url('../images/headvision.png');
+    height: 60px;
+    border-bottom: solid #E1E1E1 1px;
+    background-repeat: no-repeat;
+}
+.detailvision{
+    margin: 15px auto;
+    text-align: justify;
+    width: 90%;
+    line-height: 30px;
+    padding-bottom: 50px;
+    font-size: 15px;
+}
+
+.bold{
+    font-weight: bold;
+    width: 100%;
+}
