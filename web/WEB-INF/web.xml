@@ -24,6 +24,10 @@
         <servlet-name>showcontent</servlet-name>
         <servlet-class>Servlet.showcontent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>Servlet.admin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>showcontent</servlet-name>
         <url-pattern>/showcontent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

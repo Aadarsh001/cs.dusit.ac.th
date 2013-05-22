@@ -25,6 +25,7 @@ window.onload = function(){
     event();
     knowledge();
     link();
+    clock();
 }
 
 function slideshow(){
@@ -139,26 +140,6 @@ function knowledge(){
                 $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" title="'+data.data[i].title+'" rel="external">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
             $('.knowledge.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=knowledge&option=all" rel="external"><div class="ui-block-b more">รวมสาระน่ารู้></div></a>');
-        }
-    });
-}
-
-function link(){
-    $.ajax({
-        url : 'content',
-        data : {
-            'content' : 'link',
-            'option' : 'show'
-        },
-        dataType : 'json',
-        type : 'get',
-        error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
-        },
-        success : function (data){
-            for(var i=0;i<data.data.length;i++){
-                $('#link').append('<li class="link"><a href="'+data.data[i].link+'" target="blank">-  '+data.data[i].title+'</a></li>');
-            }
         }
     });
 }
