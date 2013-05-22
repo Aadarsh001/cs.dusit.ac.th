@@ -18,11 +18,22 @@
 #date{
     float: left;
     width:79%;
-    margin-left: 1%; 
+    margin-left: 1%;
+    margin-top: 2px;
     border-radius: 7px;
-    height: 40px;
-    background-color: rgb(213, 213, 213);
+    height: 35px;
+    background-color: #F9F8FF;
     cursor: default;
+    text-align: center;
+    line-height: 35px;
+    text-shadow: none;
+    font-family: cursive;
+    color: rgb(10, 88, 172);
+    font-weight: bolder;
+    font-size: 14px;
+    -moz-box-shadow: 0px 0px 5px #E1E1E1;
+    -webkit-box-shadow: 0px 0px 5px #E1E1E1;
+    box-shadow: 0px 0px 5px #E1E1E1;
 }
 #social{
     height: 40px;
@@ -31,8 +42,8 @@
 .frmcolR{
     width: 229px;
     height: 250px;
-    background-color: rgb(213, 213, 213);
-    border: solid rgb(179, 179, 179) 1px;
+    background-color: #F9F8FF;
+    border: solid #E1E1E1 1px;
     border-radius: 7px;
     margin: 10px 0 0 0;
 }
@@ -40,7 +51,7 @@
     width: 100%;
     background-image: url('../images/login.png');
     height: 60px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .login.ui-grid-b .login.ui-block-a , .login.ui-grid-b .login.ui-block-c{
     width: 10px;
@@ -65,13 +76,13 @@
     width: 100%;
     background-image: url('../images/calendar.png');
     height: 60px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .headlink{
     width: 100%;
     background-image: url('../images/link.png');
     height: 50px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .link a:link , .link a:visited{
     text-decoration: none;

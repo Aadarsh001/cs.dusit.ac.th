@@ -11,20 +11,20 @@
     width: 100%;
     height: auto;;
     border-radius: 7px;
-    background-color: whitesmoke;
-    border: solid rgb(179, 179, 179) 1px;
+    background-color: #F9F8FF;
+    border: solid #E1E1E1 1px;
 }
 .headnews{
     width: 100%;
     background-image: url('../images/headnews.png');
     height: 50px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .headknowledge{
     width: 100%;
     background-image: url('../images/headknowledge.png');
     height: 50px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .titlenews.ui-grid-b .pin.ui-block-a{
     margin: 5px 0;
@@ -61,9 +61,8 @@
     font-size: 13px;
     text-shadow: none;
     text-align: center;
-    background-color: snow;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .subevent.ui-grid-a .more.ui-block-a , .knowledge.ui-grid-a .more.ui-block-a{
     width: 81%;
@@ -77,9 +76,8 @@
     font-size: 13px;
     text-shadow: none;
     text-align: center;
-    background-color: snow;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
+    font-size: 13px;
+    font-weight: bold;
 }
 /* EVENT START*/
 #frmknowledge a:link , #frmknowledge a:visited ,.frmcontent a:link , .frmcontent a:visited{
@@ -93,7 +91,7 @@
     width: 100%;
     background-image: url('../images/headevent.png');
     height: 50px;
-    border-bottom: solid rgb(179, 179, 179) 1px;
+    border-bottom: solid #E1E1E1 1px;
 }
 .event.ui-grid-a .ui-block-a{
     width: 250px;
@@ -150,9 +148,9 @@
     width: 100%;
     border-radius: 7px;
     -webkit-border-radius: 7px;
-    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
-    -webkit-box-shadow: 0px 0px 5px #000;
-    box-shadow: 0px 0px 5px #000;
+    -moz-box-shadow: 0px 0px 5px #E1E1E1;
+    -webkit-box-shadow: 0px 0px 5px #E1E1E1;
+    box-shadow: 0px 0px 5px #E1E1E1;
 }
 
 /* END EVENT*/

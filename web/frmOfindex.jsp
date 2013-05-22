@@ -9,7 +9,7 @@
 <html>
     <head>
         <link rel="icon" type="image/x-icon" href="">
-        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
         <script type="text/javascript" src="js/index.js"></script>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div data-role="footer" data-theme="d"><jsp:include page="jsp/footer.jsp" /></div>
+            <jsp:include page="jsp/footer.jsp" />
         </div>
         <br/>
     </body>

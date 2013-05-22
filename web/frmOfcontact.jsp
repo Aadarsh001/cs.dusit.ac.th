@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div data-role="footer" data-theme="d"><jsp:include page="jsp/footer.jsp" /></div>
+            <jsp:include page="jsp/footer.jsp" />
         </div>
     </body>
 </html>

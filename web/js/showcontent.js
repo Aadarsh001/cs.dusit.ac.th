@@ -53,7 +53,7 @@ function shownews(id){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('ERROR');
+            alert('Error');
         },
         success : function (data){
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
@@ -74,7 +74,7 @@ function showevent(id){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('ERROR');
+            alert('Error');
         },
         success : function (data){
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
@@ -95,7 +95,7 @@ function showknowledge(id){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('ERROR');
+            alert('Error');
         },
         success : function (data){
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
