@@ -19,7 +19,7 @@
             <jsp:include page="jsp/header.jsp"/>
             <div data-role="content">          
                 <div class="ui-grid-a column">
-                    <div class="ui-block-a">
+                    <div class="ui-block-a column">
                         <div id="frmslide">
                             <div id="slideshow">
                                 <a href="#"><img src="images/slideshow/slide1.png" /></a>
@@ -47,7 +47,7 @@
                             <div class="ui-grid-a knowledge"></div>
                         </div>
                     </div>
-                    <div class="ui-block-b">
+                    <div class="ui-block-b column">
                         <jsp:include page="jsp/columnRight.jsp" />
                     </div>
                 </div>
