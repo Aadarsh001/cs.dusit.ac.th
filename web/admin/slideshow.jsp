@@ -18,7 +18,7 @@
             <jsp:include page="../jsp/header.jsp"/>
             <div data-role="content">          
                 <div class="ui-grid-a column">
-                    <div class="ui-block-a">
+                    <div class="ui-block-a column">
                         <div data-role="collapsible" data-collapsed="false" data-mini="true" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-r">
                             <h3>เพิ่ม Slide</h3>
                             <fieldset class="ui-grid-a default">
@@ -51,7 +51,7 @@
                             </fieldset>
                         </div>
                     </div>
-                    <div class="ui-block-b">
+                    <div class="ui-block-b column">
                         <jsp:include page="../jsp/columnRight.jsp" />
                     </div>
                 </div>

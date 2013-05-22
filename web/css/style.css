@@ -7,10 +7,10 @@
 
 /* ColumnRight START */
 
-.column.ui-grid-a .ui-block-a{
+.column.ui-grid-a .column.ui-block-a{
     width:75%;
 }
-.column.ui-grid-a .ui-block-b{
+.column.ui-grid-a .column.ui-block-b{
     width:24%;
     margin-left: 1%; 
     height: auto;
