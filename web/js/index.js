@@ -10,6 +10,7 @@ IncludeJavaScript('js/jquery-1.8.3.min.js');
 IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery.nslide.js');
+IncludeJavaScript('js/columnRight.js');
 
 IncludeCSS('css/jquery.mobile-1.3.0.css');
 //IncludeCSS('css/jquery-1.3.0-theme-mod.css');

@@ -1,3 +1,10 @@
+
+/* ColumnLeft START */
+.column.ui-grid-a .ui-block-a .default.ui-grid-a .ui-block-a,.column.ui-grid-a .ui-block-a .default.ui-grid.a .ui-block-b{
+    width:50%;
+}
+/* ColumnLeft END */
+
 /* ColumnRight START */
 
 .column.ui-grid-a .ui-block-a{
@@ -14,7 +21,8 @@
     margin-left: 1%; 
     border-radius: 7px;
     height: 40px;
-    background-color: rgb(213, 213, 213);   
+    background-color: rgb(213, 213, 213);
+    cursor: default;
 }
 #social{
     height: 40px;
