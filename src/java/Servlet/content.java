@@ -7,6 +7,7 @@ package Servlet;
 import Class.ContentData;
 import Class.ContentData.Content;
 import Class.ContentData.Option;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -220,9 +221,13 @@ public class content extends HttpServlet {
                 }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     String image = request.getParameter("image");
-                    String filename = "";
+                    String filename = request.getParameter("filename");
                     if (image != null) {
                         if (!"".equals(image)) {
+                            if (filename != null) {
+                                File file = new File(getServletContext().getRealPath("/") + filename);
+                                file.delete();
+                            }
                             String[] datas = image.split("[,]");
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");

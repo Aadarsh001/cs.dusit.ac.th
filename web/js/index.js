@@ -13,6 +13,7 @@ IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
 IncludeJavaScript('js/columnRight.js');
 
 IncludeCSS('css/jquery.mobile-1.3.0.css');
+//IncludeCSS('css/jquery-1.3.0-theme-mod.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/jquery.nplugins-0.0.1.css');
 IncludeCSS('css/style.css');
@@ -20,13 +21,12 @@ IncludeCSS('css/index.css');
 
 window.onload = function(){
     $('#slideshow').nSlide(720,300);
-    $('#date').nClock();
     //    slideshow();
     news();
     event();
     knowledge();
     link();
-    
+    $('#date').nClock();
 }
 
 function slideshow(){
@@ -90,6 +90,7 @@ function news(){
         }
     });
 }
+
 function event(){
     $.ajax({
         url : 'content',

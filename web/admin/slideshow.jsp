@@ -106,6 +106,7 @@
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
                                     <input type="text" id="_id_sli" class="hidden" data-role="none">
+                                    <input type="text" id="_filename" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input 
                                             type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
@@ -144,6 +145,12 @@
                                             <input type="radio" name="_status" id="_status-0" value="0" />
                                             <label for="_status-0">ซ่อน</label>
                                         </fieldset>
+                                    </div>
+                                </div>
+                                <div class="ui-block-a">
+                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                                        <label for="foo" class="ui-input-text">รูปภาพ : </label>
+                                        <input type="file" id="_image_file" accept="image/jpeg,image/png" data-mini="true">
                                     </div>
                                 </div>
                             </fieldset>
