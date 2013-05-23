@@ -24,5 +24,6 @@
         <input type="button" class="admin_btn" id="slideshow" value="slideshow"><br/>
         <input type="button" class="admin_btn" id="news" value="news"><br/>
         <input type="button" class="admin_btn" id="event" value="event"><br/>
+        <input type="button" class="admin_btn" id="knowledge" value="knowledge"><br/>
     </body>
 </html>

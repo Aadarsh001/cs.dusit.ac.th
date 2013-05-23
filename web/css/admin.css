@@ -53,3 +53,7 @@
     height: 180px;
     margin: 10px auto;
 }
+.image_name{
+    font-weight: bold;
+    text-align: center;
+}

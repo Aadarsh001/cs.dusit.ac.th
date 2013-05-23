@@ -339,7 +339,7 @@ public class content extends HttpServlet {
                 if (Option.remove.toString().equals(option)) {
                     data.put("path", getServletContext().getRealPath("/"));
                 }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                if (Option.add.toString().equals(option)) {
                     String[] image = request.getParameterValues("image[]");
                     String filenames = "";
                     if (image != null) {
@@ -363,9 +363,11 @@ public class content extends HttpServlet {
                             }
                         }
                     }
+                    data.put("image", filenames);
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)){
                     data.put("title", request.getParameter("title"));
                     data.put("detail", request.getParameter("detail"));
-                    data.put("image", filenames);
                     data.put("startdate", request.getParameter("startdate"));
                     data.put("status", request.getParameter("status"));
                 }

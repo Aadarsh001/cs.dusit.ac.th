@@ -63,7 +63,7 @@ function shownews(id){
             if(data.file.substr((data.file.length-3), 3)!="pdf"){
                 $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<div><a href="'+data.file+'" target="_blank">ดาวน์โหลดเอกสาร คลิกที่นี่</a></div>');   
             }else{
-                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<embed width="660px" height="800px" name="plugin" src="'+data.file+'" type="application/pdf"></div>');   
+                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<embed width="660px" height="600px" name="plugin" src="'+data.file+'" type="application/pdf"></div>');   
             }
         }
     });
@@ -106,9 +106,19 @@ function showknowledge(id){
             alert('Error');
         },
         success : function (data){
+            var image = data.image.split(',');
+            var detail = data.detail;
+            var detail_split;
+            for(i=0;i<image.length;i++){
+                detail_split = detail.split('[IMG'+i+']');
+                detail = detail_split[0];
+                for(j=1;j<detail_split.length;j++){
+                    detail += '<img src="'+image[i]+'">'+detail_split[j];
+                }
+            }
             $('.headcontent').css('background-image', 'url("images/headknowledge.png")');
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
-            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+data.title+'</div><div class="detail">'+data.detail+'</div>'); 
+            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+data.title+'</div><p class="detail">'+detail+'</p>'); 
             
         }
     });

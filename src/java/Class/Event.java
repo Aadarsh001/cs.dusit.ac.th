@@ -65,7 +65,6 @@ public class Event {
                     + "WHERE startdate <= '" + Date + "' and "
                     + "enddate >= '" + Date + "' and "
                     + "status = '1' ORDER BY id_eve DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
-            System.out.println(select);
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();

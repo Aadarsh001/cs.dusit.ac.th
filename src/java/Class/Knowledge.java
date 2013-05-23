@@ -176,7 +176,6 @@ public class Knowledge {
             String update = "UPDATE knowledge SET "
                     + "title = '" + json.get("title") + "',"
                     + "detail = '" + json.get("detail") + "',"
-                    + "image = '" + json.get("image") + "',"
                     + "startdate = '" + json.get("startdate") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_kno = '" + json.get("id_kno") + "'";
