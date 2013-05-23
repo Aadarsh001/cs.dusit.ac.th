@@ -10,7 +10,7 @@ IncludeJavaScript('js/jquery-1.8.3.min.js');
 IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
-IncludeJavaScript('js/jquery.npreview.js');
+IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
 IncludeJavaScript('js/columnRight.js');
 IncludeJavaScript('js/flexigrid.js');
 
@@ -25,48 +25,20 @@ IncludeCSS('css/admin_slideshow.css');
 var page = "slideshow";
 
 window.onload = function onload(){
-    tab_btn();
-    clock();
     datepicker();
-    $('#image_file').nPreview('#image');
-    slideshow.all();
-    $('#submit_add').click(function(){
-        if(($('#title').val() != "")
-            &&($('#startdate').val() != "")
-            &&($('#enddate').val() != "")
-            &&($('#image').attr('src').substr(0, 4) == "data")){
-            if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
-                if($('#link').val()==""){
-                    $('#link').val("#");
-                }
-                slideshow.add();
-            }
-        }else{
-            alert('กรุณาระบุข้อมูลทั้งหมด');
-        }
-    });
-    $('#submit_edit').click(function(){
-        if(($('#_title').val() != "")
-            &&($('#_id_sli').val() != "")
-            &&($('#_startdate').val() != "")
-            &&($('#_enddate').val() != "")){
-            if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
-                if($('#_link').val()==""){
-                    $('#_link').val("#");
-                }
-                slideshow.edit();
-            }
-        }else{
-            alert('กรุณาระบุข้อมูลทั้งหมด');
-        }
-    });
+    tab_btn();
+    $('#date').nClock();
+    $('#image_file').nPreview('#image',720,300);
+    $('#_image_file').nPreview('#_image',720,300);
+    slideshow.start();
     $('.reset').click(function(){
-        PageAdmin('slideshow');
+        PageAdmin(page);
     });
 }
 
 function tab_btn(){
     $('#page_edit').slideUp();
+    $('#page_add').slideUp();
     $('#tab_add').click(function(){
         $('#page_edit').slideUp("",function(){
             $('#page_add').slideDown();
@@ -81,11 +53,46 @@ function tab_btn(){
         var tab = getUrlVars()["tab"];
         if(tab=="edit"){
             $('#tab_edit').trigger('click');
+        }else{
+            $('#page_add').slideDown();
         }
     }, 500);
 }
 
 var slideshow = {
+    start : function(){
+        slideshow.all();
+        $('#submit_add').click(function(){
+            if(($('#title').val() != "")
+                &&($('#startdate').val() != "")
+                &&($('#enddate').val() != "")
+                &&($('#image').attr('src').substr(0, 4) == "data")){
+                if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
+                    if($('#link').val()==""){
+                        $('#link').val("#");
+                    }
+                    slideshow.add();
+                }
+            }else{
+                alert('กรุณาระบุข้อมูลทั้งหมด');
+            }
+        });
+        $('#submit_edit').click(function(){
+            if(($('#_title').val() != "")
+                &&($('#_id_sli').val() != "")
+                &&($('#_startdate').val() != "")
+                &&($('#_enddate').val() != "")){
+                if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
+                    if($('#_link').val()==""){
+                        $('#_link').val("#");
+                    }
+                    slideshow.edit();
+                }
+            }else{
+                alert('กรุณาระบุข้อมูลทั้งหมด');
+            }
+        });
+    },
     all : function(){
         $.ajax({
             url : 'content',
@@ -100,12 +107,18 @@ var slideshow = {
             },
             success : function (data){
                 for(var i =0;i<data.data.length;i++){
+                    var status;
+                    if(data.data[i].status=="1"){
+                        status = "แสดง";
+                    }else{
+                        status = "ซ่อน";
+                    }
                     $('#showAll').children("tbody").append("<tr id="+data.data[i].id_sli+"><td>"
                         +data.data[i].title+"</td><td>"
-                        +data.data[i].startdate+"</td><td>"
-                        +data.data[i].enddate+"</td><td>"
+                        +data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(0, 4)+"</td><td>"
+                        +data.data[i].enddate.substr(6, 2)+"/"+data.data[i].enddate.substr(4, 2)+"/"+data.data[i].enddate.substr(0, 4)+"</td><td>"
                         +data.data[i].sequence+"</td><td>"
-                        +data.data[i].status+"</td></tr>");
+                        +status+"</td></tr>");
                 }
                 $('#showAll tr').click(function(){
                     slideshow.some($(this).attr("id"));
@@ -146,9 +159,12 @@ var slideshow = {
                 $('#_sequence').val(data.sequence).slider( "refresh" );
                 if (data.status == "1") {
                     $('#_status-1').attr("checked", true).checkboxradio("refresh");
+                    $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 } else {
                     $('#_status-0').attr("checked", true).checkboxradio("refresh");
+                    $('#_status-1').removeAttr("checked").checkboxradio("refresh");
                 }
+                $('#_filename').val(data.image);
                 $('#_image').attr("src",data.image);
             }
         });
@@ -182,6 +198,10 @@ var slideshow = {
         });
     },
     edit : function(){
+        var image = $('#_image').attr('src');
+        if(image.substr(0, 4) != "data"){
+            image = null;
+        }
         $.ajax({
             url : 'content',
             data : {
@@ -189,6 +209,8 @@ var slideshow = {
                 'option' : 'edit',
                 'id_sli' : $('#_id_sli').val(),
                 'title' : $('#_title').val(),
+                'image' : image,
+                'filename' : $('#_filename').val(),
                 'link' : $('#_link').val(),
                 'sequence' : $('#_sequence').val(),
                 'startdate' : $('#_startdate').val().substr(6, 4)+$('#_startdate').val().substr(3, 2)+$('#_startdate').val().substr(0, 2),
@@ -231,38 +253,4 @@ var slideshow = {
             }
         });
     }
-}
-
-function datepicker() {
-    var d = new Date();
-    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/'
-    + (d.getFullYear() + 543);
-    $(".datepicker")
-    .datepicker(
-    {
-        changeMonth : true,
-        changeYear : true,
-        dateFormat : 'dd/mm/yy',
-        isBuddhist : true,
-        defaultDate : toDay,
-        dayNames : [ 'อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ',
-        'พฤหัสบดี', 'ศุกร์', 'เสาร์' ],
-        dayNamesMin : [ 'อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.',
-        'ส.' ],
-        monthNames : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
-        'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม',
-        'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน',
-        'ธันวาคม' ],
-        monthNamesShort : [ 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.',
-        'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.',
-        'ต.ค.', 'พ.ย.', 'ธ.ค.' ]
-    });
-}
-
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=]*)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
 }

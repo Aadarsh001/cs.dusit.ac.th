@@ -11,28 +11,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/columnRight.js"></script>
         <script type="text/javascript">
             window.onload = function(){
-                $('#slideshow').click(function(){
-                    PageAdmin("slideshow");
+                $('.admin_btn').click(function(){
+                    PageAdmin($(this).attr('id'));
                 });      
-            }
-            function PageAdmin(content) {
-                var temp=document.createElement("form");
-                temp.action="admin";
-                temp.method="POST";
-                temp.style.display="none";
-                var opt=document.createElement("textarea");
-                opt.name="content";
-                opt.value=content;
-                temp.appendChild(opt);
-                document.body.appendChild(temp);
-                temp.submit();
-                return temp;
             }
         </script>
     </head>
     <body>
-        <input type="button" id="slideshow" value="slideshow"><br/>
+        <input type="button" class="admin_btn" id="slideshow" value="slideshow"><br/>
+        <input type="button" class="admin_btn" id="news" value="news"><br/>
     </body>
 </html>
