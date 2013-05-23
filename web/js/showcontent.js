@@ -60,7 +60,11 @@ function shownews(id){
             $('.headcontent').css('background-image', 'url("images/headnews.png")');
             var title = data.title.substr(0,68);
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
-            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<embed width="100%" height="100%" name="plugin" src="http://www.dusit.ac.th/sdu/activities/news/2013-01-10/evt_02126.pdf" type="application/pdf"></div>');   
+            if(data.file.substr((data.file.length-3), 3)!="pdf"){
+                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<a href="'+data.file+'" target="_blank">ดาวน์โหลดเอกสาร คลิกที่นี่</a>');   
+            }else{
+                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<embed width="660px" height="800px" name="plugin" src="'+data.file+'" type="application/pdf"></div>');   
+            }
         }
     });
 }

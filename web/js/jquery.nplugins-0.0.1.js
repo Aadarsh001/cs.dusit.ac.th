@@ -67,8 +67,9 @@
 })(jQuery);
 
 (function($) {
-    $.fn.nPreview = function(id,w,h){
+    $.fn.nPreview = function(id,w,h,demo){
         $(this).change(function(){
+            $(id).removeAttr('style');
             $(id).attr('src', this.value);
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
@@ -77,16 +78,22 @@
                 }
                 reader.readAsDataURL(this.files[0]);
             }
-            var timerId = setInterval(function () {
-                if($(id).width()==w&&$(id).height()==h){
-                    clearInterval(timerId);
-                }else{
-                    $(this).attr("src","");
-                    $(id).attr('src','images/demo_image.png');
-                    alert("ไฟล์ภาพต้องเป็นขนาด "+w+" x "+h+" เท่านั้น");
-                    clearInterval(timerId);
-                }
-            }, 500);
+            if(h!=undefined&&w!=undefined){
+                var timerId = setInterval(function () {
+                    if($(id).width()==w&&$(id).height()==h){
+                        $(id).css({
+                            'width':'100%',
+                            'height':'100%'
+                        });
+                        clearInterval(timerId);
+                    }else{
+                        $(this).attr("src","");
+                        $(id).attr('src',demo);
+                        alert("ไฟล์ภาพต้องเป็นขนาด "+w+" x "+h+" เท่านั้น");
+                        clearInterval(timerId);
+                    }
+                }, 500);
+            }
         });
     }
 })(jQuery);

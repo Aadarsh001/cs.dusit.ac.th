@@ -2,6 +2,9 @@
     text-align: right;
     width:50%;
 }
+.default.ui-grid-a{
+    margin-bottom: 10px;
+}
 .ui-field-contain label.ui-input-text,.ui-field-contain label.ui-select,label.ui-slider{
     float: left;
     line-height: 33px;
@@ -44,4 +47,9 @@
     height: 260px;
     width: 620px;
     margin: 0 auto 10px auto;
+}
+.image_frm{
+    width: 240px;
+    height: 180px;
+    margin: 10px auto;
 }

@@ -65,6 +65,7 @@ public class Event {
                     + "WHERE startdate <= '" + Date + "' and "
                     + "enddate >= '" + Date + "' and "
                     + "status = '1' ORDER BY id_eve DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
+            System.out.println(select);
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
@@ -181,7 +182,6 @@ public class Event {
             String update = "UPDATE event SET "
                     + "title = '" + json.get("title") + "',"
                     + "detail = '" + json.get("detail") + "',"
-                    + "image = '" + json.get("image") + "',"
                     + "startdate = '" + json.get("startdate") + "',"
                     + "enddate = '" + json.get("enddate") + "',"
                     + "status = '" + json.get("status") + "' "
