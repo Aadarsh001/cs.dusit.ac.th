@@ -20,8 +20,8 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/index.css');
 
 window.onload = function(){
-    $('#slideshow').nSlide(720,300);
-    //    slideshow();
+    //    $('#slideshow').nSlide(720,300);
+    slideshow();
     news();
     event();
     knowledge();
@@ -42,8 +42,10 @@ function slideshow(){
             alert('Error');
         },
         success : function (data){
-            //              $('#slideshow').append('<img src="">');
-            $('#slideshow').prepend('<img src="'+data.data[0].image+'"/>');
+            for(i=0;i<data.data.length;i++){
+                $('#slideshow').append('<a href="'+data.data[i].link+'" title="'+data.data[i].title+'"><img src="'+data.data[i].image+'" /></a>');
+            }
+            $('#slideshow').nSlide(720,300);
         }
     });
 }

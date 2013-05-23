@@ -61,7 +61,7 @@ function shownews(id){
             var title = data.title.substr(0,68);
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
             if(data.file.substr((data.file.length-3), 3)!="pdf"){
-                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<a href="'+data.file+'" target="_blank">ดาวน์โหลดเอกสาร คลิกที่นี่</a>');   
+                $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<div><a href="'+data.file+'" target="_blank">ดาวน์โหลดเอกสาร คลิกที่นี่</a></div>');   
             }else{
                 $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'<embed width="660px" height="800px" name="plugin" src="'+data.file+'" type="application/pdf"></div>');   
             }

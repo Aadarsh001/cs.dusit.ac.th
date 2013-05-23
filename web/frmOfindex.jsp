@@ -22,7 +22,7 @@
                     <div class="ui-block-a column">
                         <div id="frmslide">
                             <div id="slideshow">
-                                <a href="#"><img src="images/slideshow/slide1.png" /></a>
+<!--                                <a href="#"><img src="images/slideshow/slide1.png" /></a>
                                 <a href="#"><img src="images/slideshow/slide2.png" /></a>
                                 <a href="#"><img src="images/slideshow/slide3.png" /></a>
                                 <a href="#"><img src="images/slideshow/slide4.png" /></a>
@@ -30,7 +30,7 @@
                                 <a href="#"><img src="images/slideshow/slide6.png" /></a>
                                 <a href="#"><img src="images/slideshow/slide7.png" /></a>
                                 <a href="#"><img src="images/slideshow/slide8.png" /></a>
-                                <a href="#"><img src="images/slideshow/slide9.png" /></a>
+                                <a href="#"><img src="images/slideshow/slide9.png" /></a>-->
                             </div>
                         </div>
                         <div id="frm" class="frmcontent">
