@@ -20,20 +20,17 @@ IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
-IncludeCSS('css/admin_slideshow.css');
+IncludeCSS('css/admin.css');
 
 var page = "slideshow";
 
 window.onload = function onload(){
-    datepicker();
     tab_btn();
+    $('.datepicker').nDatepicker();
     $('#date').nClock();
     $('#image_file').nPreview('#image',720,300);
     $('#_image_file').nPreview('#_image',720,300);
     slideshow.start();
-    $('.reset').click(function(){
-        PageAdmin(page);
-    });
 }
 
 function tab_btn(){
@@ -71,6 +68,7 @@ var slideshow = {
                     if($('#link').val()==""){
                         $('#link').val("#");
                     }
+                    $.mobile.loading( 'show');
                     slideshow.add();
                 }
             }else{
@@ -86,18 +84,22 @@ var slideshow = {
                     if($('#_link').val()==""){
                         $('#_link').val("#");
                     }
+                    $.mobile.loading( 'show');
                     slideshow.edit();
                 }
             }else{
                 alert('กรุณาระบุข้อมูลทั้งหมด');
             }
         });
+        $('.reset').click(function(){
+            PageAdmin(page);
+        });
     },
     all : function(){
         $.ajax({
             url : 'content',
             data : {
-                'content' : 'slideshow',
+                'content' : page,
                 'option' : 'all'
             },
             dataType : 'json',
@@ -141,7 +143,7 @@ var slideshow = {
         $.ajax({
             url : 'content',
             data : {
-                'content' : 'slideshow',
+                'content' : page,
                 'option' : 'some',
                 'id_sli' : id
             },
@@ -173,7 +175,7 @@ var slideshow = {
         $.ajax({
             url : 'content',
             data : {
-                'content' : 'slideshow',
+                'content' : page,
                 'option' : 'add',
                 'title' : $('#title').val(),
                 'image' : $('#image').attr('src'),
@@ -187,12 +189,14 @@ var slideshow = {
             type : 'post',
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("Error : 0111");
+                $.mobile.loading( 'hide');
             },
             success : function (data){
                 if(data.result != "fail"){
                     PageAdmin(page);
                 }else{
                     alert("Error : 0101");
+                    $.mobile.loading( 'hide');
                 }
             }
         });
@@ -205,7 +209,7 @@ var slideshow = {
         $.ajax({
             url : 'content',
             data : {
-                'content' : 'slideshow',
+                'content' : page,
                 'option' : 'edit',
                 'id_sli' : $('#_id_sli').val(),
                 'title' : $('#_title').val(),
@@ -221,12 +225,14 @@ var slideshow = {
             type : 'post',
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("Error : 0112");
+                $.mobile.loading( 'hide');
             },
             success : function (data){
                 if(data.result != "fail"){
                     PageAdmin(page,"?tab=edit");
                 }else{
                     alert("Error : 0102");
+                    $.mobile.loading( 'hide');
                 }
             }
         });
@@ -235,7 +241,7 @@ var slideshow = {
         $.ajax({
             url : 'content',
             data : {
-                'content' : 'slideshow',
+                'content' : page,
                 'option' : 'remove',
                 'id_sli' : id
             },

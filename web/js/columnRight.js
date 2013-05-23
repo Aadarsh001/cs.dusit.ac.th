@@ -35,36 +35,33 @@ function PageAdmin(content,option) {
     return temp;
 }
 
-function datepicker() {
-    var d = new Date();
-    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/'
-    + (d.getFullYear() + 543);
-    $(".datepicker")
-    .datepicker(
-    {
-        changeMonth : true,
-        changeYear : true,
-        dateFormat : 'dd/mm/yy',
-        isBuddhist : true,
-        defaultDate : toDay,
-        dayNames : [ 'อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ',
-        'พฤหัสบดี', 'ศุกร์', 'เสาร์' ],
-        dayNamesMin : [ 'อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.',
-        'ส.' ],
-        monthNames : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
-        'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม',
-        'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน',
-        'ธันวาคม' ],
-        monthNamesShort : [ 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.',
-        'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.',
-        'ต.ค.', 'พ.ย.', 'ธ.ค.' ]
-    });
-}
-
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=]*)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
     });
     return vars;
+}
+
+function tab_btn(){
+    $('#page_edit').slideUp();
+    $('#page_add').slideUp();
+    $('#tab_add').click(function(){
+        $('#page_edit').slideUp("",function(){
+            $('#page_add').slideDown();
+        });
+    });
+    $('#tab_edit').click(function(){
+        $('#page_add').slideUp("",function(){
+            $('#page_edit').slideDown();
+        });
+    });
+    setTimeout(function(){
+        var tab = getUrlVars()["tab"];
+        if(tab=="edit"){
+            $('#tab_edit').trigger('click');
+        }else{
+            $('#page_add').slideDown();
+        }
+    }, 500);
 }

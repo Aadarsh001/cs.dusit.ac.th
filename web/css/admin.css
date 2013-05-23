@@ -40,3 +40,8 @@
 .ui-btn-active{
     background-image: #ff5533;
 }
+.ui-body-c textarea{
+    height: 260px;
+    width: 620px;
+    margin: 0 auto 10px auto;
+}

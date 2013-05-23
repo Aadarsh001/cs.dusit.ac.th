@@ -209,10 +209,10 @@ public class News {
             String update = "UPDATE news SET "
                     + "title = '" + json.get("title") + "',"
                     + "detail = '" + json.get("detail") + "',"
-                    + "file = '" + json.get("file") + "',"
                     + "startdate = '" + json.get("startdate") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_new = '" + json.get("id_new") + "'";
+            System.out.println(update);
             if (con.update(update) > 0) {
                 return true;
             }
@@ -228,13 +228,21 @@ public class News {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select image from news "
+            String select = "select file from news "
                     + "WHERE id_new = '" + json.get("id_new") + "'";
             con.query(select);
             if (con.next()) {
                 String filename = con.getString("file");
                 if (!"".equals(filename)) {
                     File file = new File(json.get("path") + filename);
+                    file.delete();
+                    String[] path = filename.split("[/]");
+                    int no_path = path.length;
+                    filename = "";
+                    for (int i = 0; i < (no_path - 1); i++) {
+                        filename += path[i] + "/";
+                    }
+                    file = new File(json.get("path") + filename);
                     file.delete();
                 }
             }
