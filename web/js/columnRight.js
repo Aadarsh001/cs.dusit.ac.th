@@ -18,6 +18,52 @@ function link(){
     });
 }
 
+function clock(){
+    now=new Date();
+    hour=now.getHours();
+    min=now.getMinutes();
+    sec=now.getSeconds();
+    day=now.getDate();
+    month=now.getMonth();
+    monthno=now.getMonth();
+    monthno+=1;
+    year=now.getFullYear();
+    //    year+=543;
+    
+    if (monthno<=9) {
+        monthno="0"+monthno;
+    }
+    if (hour<=9) {
+        hour="0"+hour;
+    }
+    if (min<=9) {
+        min="0"+min;
+    }
+    if (sec<=9) {
+        sec="0"+sec;
+    }
+    if (month == 0) print2='Jan';
+    if (month == 1) month='Feb';
+    if (month == 2) month='Mar';
+    if (month == 3) month='Apr';
+    if (month == 4) month='May';
+    if (month == 5) month='Jun';
+    if (month == 6) month='July';
+    if (month == 7) month='Aug';
+    if (month == 8) month='Sep';
+    if (month == 9) month='Oct';
+    if (month == 10) month='Nov';
+    if (month == 11) month='Dec';
+
+    time = hour + ":" + min + ":" + sec;
+    date = day + " " + month + " " + year;
+
+    $('#date').empty();
+    $('#date').append(date +" "+time);
+    
+    setTimeout("clock()", 1000);
+}
+
 function PageAdmin(content,option) {
     if(option==undefined){
         option="";
@@ -33,38 +79,4 @@ function PageAdmin(content,option) {
     document.body.appendChild(temp);
     temp.submit();
     return temp;
-}
-
-function datepicker() {
-    var d = new Date();
-    var toDay = d.getDate() + '/' + (d.getMonth() + 1) + '/'
-    + (d.getFullYear() + 543);
-    $(".datepicker")
-    .datepicker(
-    {
-        changeMonth : true,
-        changeYear : true,
-        dateFormat : 'dd/mm/yy',
-        isBuddhist : true,
-        defaultDate : toDay,
-        dayNames : [ 'อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ',
-        'พฤหัสบดี', 'ศุกร์', 'เสาร์' ],
-        dayNamesMin : [ 'อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.',
-        'ส.' ],
-        monthNames : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
-        'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม',
-        'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน',
-        'ธันวาคม' ],
-        monthNamesShort : [ 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.',
-        'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.',
-        'ต.ค.', 'พ.ย.', 'ธ.ค.' ]
-    });
-}
-
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=]*)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-    return vars;
 }

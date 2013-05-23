@@ -181,7 +181,6 @@ public class Slideshow {
             con.connect();
             String update = "UPDATE slideshow SET "
                     + "title = '" + json.get("title") + "',"
-                    + "image = '" + json.get("image") + "',"
                     + "link = '" + json.get("link") + "',"
                     + "sequence = '" + json.get("sequence") + "',"
                     + "startdate = '" + json.get("startdate") + "',"

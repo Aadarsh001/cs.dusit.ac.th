@@ -36,6 +36,30 @@
         <servlet-name>personnal</servlet-name>
         <servlet-class>Servlet.personnal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>student</servlet-name>
+        <servlet-class>Servlet.student</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>course</servlet-name>
+        <servlet-class>Servlet.course</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>academic</servlet-name>
+        <servlet-class>Servlet.academic</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>qassurance</servlet-name>
+        <servlet-class>Servlet.qassurance</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>download</servlet-name>
+        <servlet-class>Servlet.download</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>timetable</servlet-name>
+        <servlet-class>Servlet.timetable</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -71,6 +95,30 @@
     <servlet-mapping>
         <servlet-name>personnal</servlet-name>
         <url-pattern>/personnal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>student</servlet-name>
+        <url-pattern>/student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>course</servlet-name>
+        <url-pattern>/course</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>academic</servlet-name>
+        <url-pattern>/academic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>qassurance</servlet-name>
+        <url-pattern>/qassurance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>download</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>timetable</servlet-name>
+        <url-pattern>/timetable</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

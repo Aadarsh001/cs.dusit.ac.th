@@ -12,14 +12,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
-        <script type="text/javascript" src="js/showcontent.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
         <link rel="stylesheet" href="css/about.css" type="text/css" media="all"/>
     </head>
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
             <div data-role="content"> 
-                <div class="frmabout">
+                <div class="ui-grid-a column">
+                    <div class="ui-block-a column"><div class="frmabout">
                     <div class="headabout"></div>
                     <div class="detailabout">ศูนย์การเรียนรางน้ำเริ่มเปิดดำเนินการเมื่อวันที่ 3 กรกฎาคม 2549 โดยมีการโอนย้าย นักศึกษาภาคปกติ 3 หลักสูตรคือ หลักสูตรวิทยาการคอมพิวเตอร์ หลักสูตรบริหารธุรกิจ และหลักสูตรเทคโนโลยีสารสนเทศ จากศูนย์การศึกษาพาณิชยการสยามมาเรียนที่ศูนย์ รางน้ำ มีจำนวนทั้งสิ้น 1,443 คน สำหรับอาจารย์และบุคลากรอื่นๆ ได้โอนย้ายมาจาก ศูนย์พาณิชยการสยามเช่นเดียวกัน ปัจจุบันศูนย์การเรียนรางน้ำได้รับมอบหมายให้ผลิตบัณฑิต ภาคปกติ 2 หลักสูตรคือ หลักสูตรวิทยาการคอมพิวเตอร์ ระดับปริญญาตรี และหลักสูตร การบริหารธุรกิจ แขนงคอมพิวเตอร์ธุรกิจ ระดับปริญญาตรี (หลักสูตรต่อเนื่อง) โดยมีรองศาสตราจารย์สุภา ศีลสร ดำรงตำแหน่งเป็นผู้อำนวยการประจำศูนย์</div>
                 </div>
@@ -60,6 +61,8 @@
                         6. ฝึกอบรมบุคลากรและนักศึกษาของศูนย์ให้มีคุณธรรม จริยธรรม ทั้งการประกอบอาชีพ และการ ดำรงชีวิตในสังคม<br/>
                         7. จัดกิจกรรมด้านศิลปวัฒนธรรม และการอนุรักษ์ศิลปะ  วัฒนธรรมไทย<br/>
                         8. มีกิจกรรมการบริการวิชาการสู่ชุมชนและสังคมที่หลากหลาย</div><br/>
+                </div></div>
+                    <div class="ui-block-b column"><jsp:include page="jsp/columnRight.jsp" /></div>
                 </div>
             </div>
             <jsp:include page="jsp/footer.jsp" />

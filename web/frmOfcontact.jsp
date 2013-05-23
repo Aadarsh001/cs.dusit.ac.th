@@ -19,8 +19,8 @@
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
             <div data-role="content">          
-                <div class="ui-grid-a contact">
-                    <div class="ui-block-a contact">
+                <div class="ui-grid-a column">
+                    <div class="ui-block-a column">
                         <div class="headcontact"></div>
                         <div class="detailcontact">
                             <span class="cont" >หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
@@ -33,7 +33,7 @@
                             <div class="map"></div>
                         </div>
                     </div>
-                    <div class="ui-block-b contact">
+                    <div class="ui-block-b column">
                         <jsp:include page="jsp/columnRight.jsp" />
                     </div>
                 </div>

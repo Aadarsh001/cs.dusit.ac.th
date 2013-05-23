@@ -1,12 +1,3 @@
-.contact.ui-grid-a .contact.ui-block-a{
-    width:75%;
-}
-.contact.ui-grid-a .contact.ui-block-b{
-    width:24%;
-    margin-left: 1%; 
-    height: auto;
-}
-
 .headcontact{
     width: 100%;
     background-image: url('../images/headcontact.png');

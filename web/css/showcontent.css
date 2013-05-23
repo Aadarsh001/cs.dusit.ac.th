@@ -18,11 +18,6 @@
     background-repeat: no-repeat;
 }
 
-.colshcontent{
-    width: 95%;
-    margin: 10px auto;
-}
-
 .showcontent{
     margin: 15px 10px;
 }
@@ -30,7 +25,7 @@
     font-size: 14px;
 }
 .title{
-    width: 100%;
+    width: 90%;
     text-align: center;
     font-weight: bold;
     margin: 10px auto;
