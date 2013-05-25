@@ -343,7 +343,7 @@ public class content extends HttpServlet {
                     String[] image = request.getParameterValues("image[]");
                     String filenames = "";
                     if (image != null) {
-                        for (int i = 0; i < image.length; i++) {
+                        for (int i = (image.length-1); i >= 0 ; i--) {
                             if (!"".equals(image[i])) {
                                 String[] datas = image[i].split("[,]");
                                 String filename = "";
@@ -352,7 +352,7 @@ public class content extends HttpServlet {
                                 BASE64Decoder decoder = new BASE64Decoder();
                                 filename = "images/knowledge/" + UUID.randomUUID() + "." + filetype[0];
                                 filenames += filename;
-                                if ((i + 1) < image.length) {
+                                if (i>0) {
                                     filenames += ",";
                                 }
                                 String base64 = datas[1];

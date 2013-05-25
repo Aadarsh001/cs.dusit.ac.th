@@ -25,5 +25,6 @@
         <input type="button" class="admin_btn" id="news" value="news"><br/>
         <input type="button" class="admin_btn" id="event" value="event"><br/>
         <input type="button" class="admin_btn" id="knowledge" value="knowledge"><br/>
+        <input type="button" class="admin_btn" id="link" value="link"><br/>
     </body>
 </html>

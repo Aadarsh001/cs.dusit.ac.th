@@ -109,6 +109,7 @@
     font-size: 12px;
 }
 .firstevent{
+    font-weight: bolder;
     font-size: 14px; 
     white-space: nowrap;
     overflow: hidden;

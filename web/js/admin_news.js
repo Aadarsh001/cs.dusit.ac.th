@@ -11,6 +11,7 @@ IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
 IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
+IncludeJavaScript('js/jquery.wysiwyg.js');
 IncludeJavaScript('js/columnRight.js');
 IncludeJavaScript('js/flexigrid.js');
 
@@ -18,6 +19,7 @@ IncludeCSS('css/jquery.mobile-1.3.0.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
+IncludeCSS('css/jquery.wysiwyg.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
@@ -25,9 +27,17 @@ IncludeCSS('css/admin.css');
 var page = "news";
 
 window.onload = function onload(){
+    link();
+    $('#date').nClock();
+    $('textarea').wysiwyg({
+        controls: {
+            insertImage : {
+                visible : false
+            }
+        }
+    });
     tab_btn();
     $('.datepicker').nDatepicker();
-    $('#date').nClock();
     $('#file').nUpload();
     news.start();
 }
@@ -122,7 +132,7 @@ var news = {
             success : function (data){
                 $('#_id_new').val(data.id_new);
                 $('#_title').val(data.title);
-                $('#_detail').val(data.detail);
+                $('#_detail').wysiwyg('setContent',data.detail);
                 $('#_startdate').val(data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(0, 4));
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");

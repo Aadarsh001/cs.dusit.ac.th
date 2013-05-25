@@ -11,6 +11,7 @@ IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
 IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
+IncludeJavaScript('js/jquery.wysiwyg.js');
 IncludeJavaScript('js/columnRight.js');
 IncludeJavaScript('js/flexigrid.js');
 
@@ -18,29 +19,34 @@ IncludeCSS('css/jquery.mobile-1.3.0.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
+IncludeCSS('css/jquery.wysiwyg.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
 
 var page = "event";
+var img_no = 0;
 
 window.onload = function onload(){
-    tab_btn();
-    $('#image_file').nPreview('#image',640,480,'images/640x480.png');
+    link();
     $('.datepicker').nDatepicker();
+    $('textarea').wysiwyg({
+        controls: {
+            insertImage : {
+                visible : false
+            }
+        }
+    });
+    tab_btn();
+    $('#image_file').nPreview('#image',640,480,'images/640x480.png','ASC');
     $('#date').nClock();
     events.start();
     $('#btn_add_images').click(function(){
         if($('#image').attr("src").substr(0, 4) == "data"){
             $('#image_file').val("");
-            $('#add_images').prepend('<div class="image_frm"><img src="images/640x480.png" id="image" class="image"/></div>');
-        }else{
-            var images = [];
-            $('.image').each(function(index){
-                if($(this).attr("src").substr(0, 4) == "data"){
-                    images.push($(this).attr("src"));
-                }
-            });
+            $('#detail').wysiwyg('setContent',$('#detail').val()+'<div style="text-align: center;">[IMG'+(img_no)+']</div>');
+            img_no++;
+            $('#add_images').after('<div class="ui-block-a"><div class="image_frm"><img src="images/640x480.png" id="image" class="image"></div><div class="image_name">[IMG'+img_no+']</div></div>');   
         }
     });
 }
@@ -98,7 +104,6 @@ var events = {
                     }
                     $('#showAll').children("tbody").append("<tr id="+data.data[i].id_eve+"><td>"
                         +data.data[i].title+"</td><td>"
-                        +data.data[i].detail+"</td><td>"
                         +data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(0, 4)+"</td><td>"
                         +data.data[i].enddate.substr(6, 2)+"/"+data.data[i].enddate.substr(4, 2)+"/"+data.data[i].enddate.substr(0, 4)+"</td><td>"
                         +status+"</td></tr>");
@@ -136,7 +141,7 @@ var events = {
             success : function (data){
                 $('#_id_eve').val(data.id_eve);
                 $('#_title').val(data.title);
-                $('#_detail').val(data.detail);
+                $('#_detail').wysiwyg('setContent',data.detail);
                 $('#_startdate').val(data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(0, 4));
                 $('#_enddate').val(data.enddate.substr(6, 2)+"/"+data.enddate.substr(4, 2)+"/"+data.enddate.substr(0, 4));
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");

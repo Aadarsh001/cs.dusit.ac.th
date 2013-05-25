@@ -80,7 +80,7 @@ public class Link {
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM link "
-                    + "ORDER BY id_lin DESC";
+                    + "ORDER BY sequence ASC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();

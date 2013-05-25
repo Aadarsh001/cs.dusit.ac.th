@@ -83,10 +83,20 @@ function showevent(id){
             alert('Error');
         },
         success : function (data){
+            var image = data.image.split(',');
+            var detail = data.detail;
+            var detail_split;
+            for(i=0;i<image.length;i++){
+                detail_split = detail.split('[IMG'+i+']');
+                detail = detail_split[0];
+                for(j=1;j<detail_split.length;j++){
+                    detail += '<img class="images" src="'+image[i]+'">'+detail_split[j];
+                }
+            }
             $('.headcontent').css('background-image', 'url("images/headevent.png")');
             var title = data.title.substr(0,68);
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
-            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+data.detail+'</div>'); 
+            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+detail+'</div>'); 
             
         }
     });
@@ -113,7 +123,7 @@ function showknowledge(id){
                 detail_split = detail.split('[IMG'+i+']');
                 detail = detail_split[0];
                 for(j=1;j<detail_split.length;j++){
-                    detail += '<img src="'+image[i]+'">'+detail_split[j];
+                    detail += '<img class="images" src="'+image[i]+'">'+detail_split[j];
                 }
             }
             $('.headcontent').css('background-image', 'url("images/headknowledge.png")');

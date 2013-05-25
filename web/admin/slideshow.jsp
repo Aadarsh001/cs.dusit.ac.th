@@ -28,7 +28,6 @@
                         <div id="page_add">
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="id_sli" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
                                             type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">

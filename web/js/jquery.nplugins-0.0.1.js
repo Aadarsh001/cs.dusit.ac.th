@@ -69,6 +69,7 @@
 (function($) {
     $.fn.nPreview = function(id,w,h,demo,m){
         $(this).change(function(){
+            $(id).attr('src',demo);
             $(id).removeAttr('style');
             $(id).attr('src', this.value);
             if (this.files && this.files[0]) {

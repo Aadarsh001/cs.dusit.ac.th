@@ -28,18 +28,26 @@ var page = "knowledge";
 var img_no = 0;
 
 window.onload = function onload(){
-    $('textarea').wysiwyg({controls: {insertImage : { visible : false }}});
+    link();
+    $('.datepicker').nDatepicker();
+    $('textarea').wysiwyg({
+        controls: {
+            insertImage : {
+                visible : false
+            }
+        }
+    });
     tab_btn();
     $('#image_file').nPreview('#image',640,480,'images/640x480.png','ASC');
-    $('.datepicker').nDatepicker();
     $('#date').nClock();
     knowledge.start();
     $('#btn_add_images').click(function(){
         if($('#image').attr("src").substr(0, 4) == "data"){
             $('#image_file').val("");
+            $('#detail').wysiwyg('setContent',$('#detail').val()+'<div style="text-align: center;">[IMG'+(img_no)+']</div>');
             img_no++;
-            $('#add_images').after('<div class="ui-block-a"><div class="image_name">[IMG'+img_no+']</div><div class="image_frm"><img src="images/640x480.png" id="image" class="image"/></div></div>');   
-    }
+            $('#add_images').after('<div class="ui-block-a"><div class="image_frm"><img src="images/640x480.png" id="image" class="image"></div><div class="image_name">[IMG'+img_no+']</div></div>');   
+        }
     });
 }
 

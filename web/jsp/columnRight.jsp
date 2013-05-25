@@ -26,6 +26,6 @@
 <div id="frmlink" class="frmcolR">
     <div class="headlink"></div>
     <div class="calendar">
-        <ui id="link"></ui>
+        <ui id="frm_link"></ui>
     </div>   
 </div>

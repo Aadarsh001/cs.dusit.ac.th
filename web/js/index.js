@@ -64,7 +64,7 @@ function news(){
         },
         success : function (data){
             for(var i=0;i<data.data.length;i++){
-                var title = data.data[i].title.substr(0,73)+"..";
+                var title = data.data[i].title.substr(0,73);
                 var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
                 $('.titlenews.ui-grid-b').append('<div class="ui-block-a pin"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
             }
@@ -82,7 +82,7 @@ function news(){
                 },
                 success : function (data){
                     for(var i=0;i<data.data.length;i++){
-                        var title = data.data[i].title.substr(0,73)+"..";
+                        var title = data.data[i].title.substr(0,73);
                         var date = data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(2, 2);
                         $('.titlenews.ui-grid-b').append('<div class="ui-block-a"></div><div class="ui-block-b">'+date+' : </div><div class="ui-block-c"><a href="showcontent?content=news&id='+data.data[i].id_new+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></div>');
                     }
@@ -109,13 +109,29 @@ function event(){
         success : function (data){
             var heading = 0;
             var image = data.data[heading].image.split(',');
-            var title = data.data[heading].title.substr(0, 59)+"..";
+            var title = data.data[heading].title.substr(0, 59);
             var detail = data.data[heading].detail.substr(0, 467);
+            var detail_split;
+            for(i=0;i<image.length;i++){
+                detail_split = detail.split('[IMG'+i+']');
+                detail = detail_split[0];
+                for(j=1;j<detail_split.length;j++){
+                    detail += detail_split[j];
+                }
+            }
             $('.event.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=event&id='+data.data[0].id_eve+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="firstevent"><a href="showcontent?content=event&id='+data.data[0].id_eve+'" title="'+data.data[0].title+'" rel="external">'+title+'</a></p><p class="detailfirstevent">'+detail+'</p></div>');
             for(var i=1;i<data.data.length;i++){
-                var image = data.data[i].image.split(',');
-                var title = data.data[i].title.substr(0, 86)+"..";
-                var detail = data.data[i].detail.substr(0, 314);
+                image = data.data[i].image.split(',');
+                title = data.data[i].title.substr(0, 86);
+                detail = data.data[i].detail.substr(0, 314);
+                var detail_split;
+                for(i=0;i<image.length;i++){
+                    detail_split = detail.split('[IMG'+i+']');
+                    detail = detail_split[0];
+                    for(j=1;j<detail_split.length;j++){
+                        detail += detail_split[j];
+                    }
+                }
                 $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=event&id='+data.data[i].id_eve+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=event&id='+data.data[i].id_eve+'"title="'+data.data[i].title+'" rel="external">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
             $('.subevent.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=event&option=all" rel="external"><div class="ui-block-b more">รวมกิจกรรม></div></a>');
@@ -139,8 +155,16 @@ function knowledge(){
         success : function (data){
             for(var i=0;i<data.data.length;i++){
                 var image = data.data[i].image.split(',');
-                var title = data.data[i].title.substr(0, 86)+"..";
+                var title = data.data[i].title.substr(0, 86);
                 var detail = data.data[i].detail.substr(0, 323);
+                var detail_split;
+                for(j=0;j<image.length;j++){
+                    detail_split = detail.split('[IMG'+j+']');
+                    detail = detail_split[0];
+                    for(k=1;k<detail_split.length;k++){
+                        detail += detail_split[k];
+                    }
+                }
                 $('.knowledge.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" rel="external"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=knowledge&id='+data.data[i].id_kno+'" title="'+data.data[i].title+'" rel="external">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
             $('.knowledge.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=knowledge&option=all" rel="external"><div class="ui-block-b more">รวมสาระน่ารู้></div></a>');

@@ -28,7 +28,6 @@
                         <div id="page_add">
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="id_new" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
                                             type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
@@ -59,16 +58,19 @@
                             </fieldset>
                             <textarea id="detail"  maxlength="10000"></textarea>
                             <fieldset class="ui-grid-a default" >
-                                <div class="ui-block-a" id="add_images">
+                                <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">รูปภาพ : </label>
                                         <input type="file" id="image_file" accept="image/jpeg,image/png" data-mini="true">
                                     </div>
+
+                                </div>
+                                <div class="ui-block-b" id="add_images"style="text-align: left;margin-top: 12px;">
                                     <input type="button" value="เพิ่มรูปภาพ" data-mini="true" data-inline="true" id="btn_add_images">
                                 </div>
                                 <div class="ui-block-a">
-                                    <div class="image_name">[IMG0]</div>
                                     <div class="image_frm"><img src="images/640x480.png" id="image" class="image"/></div>
+                                    <div class="image_name">[IMG0]</div>
                                 </div>
                             </fieldset>
 
