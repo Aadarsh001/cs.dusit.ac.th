@@ -122,9 +122,7 @@ public class content extends HttpServlet {
                 break;
             case calendar:
                 if (Option.some.toString().equals(option)) {
-                    data.put("id_cal", request.getParameter("id_cal"));
-                } else if (Option.show.toString().equals(option)) {
-                    data.put("month", request.getParameter("month"));
+                    data.put("date", request.getParameter("date"));
                 }
                 break;
             case user:

@@ -26,5 +26,6 @@
         <input type="button" class="admin_btn" id="event" value="event"><br/>
         <input type="button" class="admin_btn" id="knowledge" value="knowledge"><br/>
         <input type="button" class="admin_btn" id="link" value="link"><br/>
+        <input type="button" class="admin_btn" id="calendar" value="calendar"><br/>
     </body>
 </html>

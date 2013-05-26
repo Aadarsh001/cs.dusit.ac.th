@@ -1,3 +1,36 @@
+$(function(){
+    $('#date').nClock();
+    calendar();
+    link();
+});
+
+function calendar(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'calendar',
+            'option' : 'show'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert('Error');
+        },
+        success : function (data){
+            var date = [];
+            for(var i=0;i<data.data.length;i++){
+                date.push(data.data[i].date);
+            }
+            setTimeout(function(){
+                $('.calendar').
+                nCalendar(date,function(dateText,inst){
+                    window.open('showcontent?content=calendar&id='+dateText,'_blank');
+                });
+            }, 500);
+        }
+    });
+}
+
 function link(){
     $.ajax({
         url : 'content',

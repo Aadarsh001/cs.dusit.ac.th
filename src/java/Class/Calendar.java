@@ -22,7 +22,7 @@ public class Calendar {
     public static String getData(String option, String detail) {
         switch (Option.valueOf(option)) {
             case show:
-                return showDB(detail);
+                return showDB();
             case all:
                 return showAllDB();
             case some:
@@ -45,15 +45,14 @@ public class Calendar {
         }
     }
 
-    private static String showDB(String detail) {
+    private static String showDB() {
         try {
-            JSONObject data = (JSONObject) JSONValue.parse(detail);
             JSONObject json = new JSONObject();
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM calendar "
-                    + "WHERE date like '" + data.get("month") + "%' and status = '1' "
+                    + "WHERE status = '1' "
                     + "ORDER BY date ASC";
             con.query(select);
             while (con.next()) {
@@ -108,7 +107,7 @@ public class Calendar {
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM calendar "
-                    + "WHERE id_cal = '" + data.get("id_cal") + "'";
+                    + "WHERE date = '" + data.get("date") + "'";
             con.query(select);
             while (con.next()) {
                 json.put("id_cal", con.getString("id_cal"));

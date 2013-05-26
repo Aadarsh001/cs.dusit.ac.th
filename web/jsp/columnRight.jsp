@@ -13,7 +13,7 @@
                 <input type="password" id="pass" placeholder="Password" value="">
             </div>
             <div class="btlogin">
-                    <input type="button" id="login" value="Login" data-theme="b" data-mini="true">
+                <input type="button" id="login" value="Login" data-theme="b" data-mini="true">
             </div>
         </div>
         <div class="ui-block-c login"></div>
@@ -25,7 +25,7 @@
 </div>
 <div id="frmlink" class="frmcolR">
     <div class="headlink"></div>
-    <div class="calendar">
+    <div class="link">
         <ui id="frm_link"></ui>
     </div>   
 </div>

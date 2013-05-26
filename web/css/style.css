@@ -7,6 +7,12 @@
 
 /* ColumnRight START */
 
+#frmcalendar{
+    height: 100%;
+}
+.calendar .ui-datepicker{
+    width: 96%;
+}
 .column.ui-grid-a .column.ui-block-a{
     width:75%;
 }
@@ -99,20 +105,18 @@
     list-style-type: none;
     margin: 10px auto 0 5px;
 }
-
 /* ColumnRight END */
 
 /* HEADER STRAT */
 
 [data-role=header]{
-    /*background-image: url(../images/header.png);*/
     background-repeat: no-repeat;
 }
-#cssmenu{margin-left: -1px; width: 980px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 0  0 5px 5px;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+#cssmenu{margin-left: -1px; width: 980px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 7px 7px 0 0;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
          -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
          box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
 #cssmenu > ul {list-style:inside none; padding:0; margin:0;}
-#cssmenu > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;background-color: rgb(0, 0, 0);}
+#cssmenu > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;}
 #cssmenu > ul > li > a{ outline:none; display:block; position:relative; padding:12px 13.28px; font:bold 13px/100% Arial, Helvetica, sans-serif; text-align:center; text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.4); }
 #cssmenu > ul > li:first-child > a{border-radius:5px 0 0 5px;}
 #cssmenu > ul > li > a:after{ content:''; position:absolute; top:-1px; bottom:-1px; right:-2px; z-index:99; }
@@ -125,7 +129,14 @@
 #cssmenu ul li > ul{width:200px;}
 #cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
 #cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:rgb(255, 255, 255); text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); }
-#cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;background:rgb(0, 0, 0);}
+#cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;
+                                                background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c /*{a-bar-background-start}*/), to( #111 /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
+                                                background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+                                                background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
+                                                background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
+                                                background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
+                                                background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
+}
 #cssmenu{border-color:rgb(0, 0, 0);}
 #cssmenu > ul > li > a{/*border-right:1px solid rgb(109, 109, 109);*/ color:rgb(255, 255, 255);}
 #cssmenu > ul > li > a:after{border-color:#444;}

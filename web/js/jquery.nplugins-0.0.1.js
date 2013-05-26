@@ -115,7 +115,7 @@
                 }
             }
         });
-}
+    }
 })(jQuery);
 
 (function($) {
@@ -200,13 +200,47 @@
             'พฤหัสบดี', 'ศุกร์', 'เสาร์' ],
             dayNamesMin : [ 'อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.',
             'ส.' ],
-            monthNames : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
+            monthNamesShort : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
             'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม',
             'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน',
             'ธันวาคม' ],
-            monthNamesShort : [ 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.',
+            monthNames : [ 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.',
             'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.',
             'ต.ค.', 'พ.ย.', 'ธ.ค.' ]
+        });
+    }
+})(jQuery);
+
+(function($) {
+    $.fn.nCalendar = function(hDate,eClick){
+        $(this).datepicker({
+            dateFormat : 'dd/mm/yy',
+            isBuddhist : true,
+            onSelect: eClick,
+            beforeShowDay: function(date) {
+                var dates = hDate;
+                var date_no = date.getDate();
+                var month_no = date.getMonth();
+                var year_no = date.getFullYear()+543;
+                month_no++;
+                if (month_no<=9) {
+                    month_no="0"+month_no;
+                }
+                if (date_no<=9) {
+                    date_no="0"+date_no;
+                }
+                date = year_no+""+month_no+""+date_no;
+                for (var i = 0; i < dates.length; i++) {
+                    if (dates[i] == date) {
+                        return [true, 'highlight'];
+                    }
+                }
+                return [true, "no_event\" onclick=\"return false;"];
+            },
+            monthNames : [ 'มกราคม', 'กุมภาพันธ์', 'มีนาคม',
+            'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม',
+            'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน',
+            'ธันวาคม' ]
         });
     }
 })(jQuery);

@@ -1,8 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div data-role="header" data-theme="d">
-    <h2></h2>
-    
-</div><div id="cssmenu">
+<div id="cssmenu">
     <ul>
         <li><a href="index" rel="external"><div>หน้าหลัก</div></a></li>
         <li><a href="about" rel="external"><div>เกี่ยวกับหลักสูตร</div></a></li>
@@ -24,4 +21,7 @@
         <li><a href="download" rel="external"><div>เอกสารดาวน์โหลด</div></a></li>
         <li><a href="contact" target="" rel="external"><div>ติดต่อ</div></a></li>
     </ul>
+</div>
+<div data-role="header" data-theme="d">
+    <h6></h6>
 </div>

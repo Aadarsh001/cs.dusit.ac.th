@@ -19,6 +19,7 @@ IncludeCSS('css/jquery.mobile-1.3.0.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
+IncludeCSS('css/jquery.nplugins-0.0.1.css');
 IncludeCSS('css/jquery.wysiwyg.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
@@ -95,7 +96,6 @@ var news = {
                     }
                     $('#showAll').children("tbody").append("<tr id="+data.data[i].id_new+"><td>"
                         +data.data[i].title+"</td><td>"
-                        +data.data[i].detail+"</td><td>"
                         +data.data[i].startdate.substr(6, 2)+"/"+data.data[i].startdate.substr(4, 2)+"/"+data.data[i].startdate.substr(0, 4)+"</td><td>"
                         +status+"</td></tr>");
                 }

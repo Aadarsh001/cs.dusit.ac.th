@@ -19,6 +19,7 @@ IncludeCSS('css/jquery.mobile-1.3.0.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
+IncludeCSS('css/jquery.nplugins-0.0.1.css');
 IncludeCSS('css/jquery.wysiwyg.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');

@@ -81,8 +81,7 @@
                             <table id="showAll">
                                 <thead>
                                     <tr>
-                                        <th width="250">ชื่อเรื่อง</th>
-                                        <th width="250">เนื้อหา</th>
+                                        <th width="500">ชื่อเรื่อง</th>
                                         <th width="80">วันที่เริ่ม</th>
                                         <th width="70">สถานะ</th>
                                     </tr>

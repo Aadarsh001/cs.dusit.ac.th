@@ -12,7 +12,6 @@ IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/columnRight.js');
 
 IncludeCSS('css/jquery.mobile-1.3.0.css');
-//IncludeCSS('css/jquery-1.3.0-theme-mod.css');
 IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/showcontent.css');
@@ -31,6 +30,8 @@ function sel_content(){
         showevent(id);
     }else if(content == "knowledge"){
         showknowledge(id);
+    }else if(content == "calendar"){
+        showcalendar(id);
     }
 }
 
@@ -129,6 +130,28 @@ function showknowledge(id){
             $('.headcontent').css('background-image', 'url("images/headknowledge.png")');
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
             $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+data.title+'</div><p class="detail">'+detail+'</p>'); 
+            
+        }
+    });
+}
+
+function showcalendar(id){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'calendar',
+            'option'  : 'some',
+            'date' : id.substr(6, 4)+""+id.substr(3, 2)+""+id.substr(0, 2)
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('Error');
+        },
+        success : function (data){
+            $('.headcontent').css('background-image', 'url("images/headcalendar.png")');
+            var date = data.date.substr(6, 2)+"/"+data.date.substr(4, 2)+"/"+data.date.substr(2, 2);
+            $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+data.title+'</div><p class="detail">'+data.detail+'</p>'); 
             
         }
     });
