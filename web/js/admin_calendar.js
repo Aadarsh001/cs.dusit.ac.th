@@ -28,12 +28,18 @@ IncludeCSS('css/admin.css');
 var page = "calendar";
 
 window.onload = function onload(){
-    link();
-    $('#date').nClock();
     $('textarea').wysiwyg({
         controls: {
-            insertImage : {
-                visible : false
+            insertImage : {visible : false},
+            h4 : { visible : true && !( $.browser.mozilla ), className : 'h4', command : 'formatBlock', arguments : ['<H4>'], tags : ['h4'], tooltip : "Header 4" },
+            h5 : { visible : true && !( $.browser.mozilla ), className : 'h5', command : 'formatBlock', arguments : ['<H5>'], tags : ['h5'], tooltip : "Header 5" },
+            h6 : { visible : true && !( $.browser.mozilla ), className : 'h6', command : 'formatBlock', arguments : ['<H6>'], tags : ['h6'], tooltip : "Header 6" },
+            insertYoutube : {
+                exec: function() {
+                    $('textarea').wysiwyg('insertHtml',prompt('Embed', ''));
+                    return true;
+                },
+                visible: true
             }
         }
     });

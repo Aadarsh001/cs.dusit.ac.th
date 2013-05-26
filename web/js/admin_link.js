@@ -28,8 +28,6 @@ IncludeCSS('css/admin.css');
 var page = "link";
 
 window.onload = function onload(){
-    link();
-    $('#date').nClock();
     tab_btn();
     links.start();
 }

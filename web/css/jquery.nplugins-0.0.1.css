@@ -1,3 +1,7 @@
+div.wysiwyg ul.panel li a.insertYoutube{
+    background: url(../images/insertYoutube.png) no-repeat;
+}
+
 .ui-datepicker-calendar .highlight a{
     border: 1px solid blue;
     color: blue;

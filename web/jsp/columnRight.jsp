@@ -7,10 +7,10 @@
         <div class="ui-block-a login"></div>
         <div class="ui-block-b login">
             <div class="frmemail">
-                <input type="text" id="email" placeholder="Email" value="" aria-required="1" placeholder aria-label="First Name">
+                <input type="text" id="email" placeholder="Email" aria-required="1" placeholder aria-label="First Name" data-mini="true">
             </div>
             <div class="frmpass">
-                <input type="password" id="pass" placeholder="Password" value="">
+                <input type="password" id="pass" placeholder="Password" data-mini="true">
             </div>
             <div class="btlogin">
                 <input type="button" id="login" value="Login" data-theme="b" data-mini="true">

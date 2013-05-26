@@ -46,7 +46,7 @@ function news(){
         url : 'content',
         data : {
             'content' : 'news',
-            'option' : 'all',
+            'option' : 'show',
             'rp'    : '20'
         },
         dataType : 'json',
@@ -74,7 +74,7 @@ function event(){
         url : 'content',
         data : {
             'content' : 'event',
-            'option' : 'all',
+            'option' : 'show',
             'rp'    : '20'
         },
         dataType : 'json',
@@ -102,7 +102,7 @@ function knowledge(){
         url : 'content',
         data : {
             'content' : 'knowledge',
-            'option' : 'all',
+            'option' : 'show',
             'rp'    : '20'
         },
         dataType : 'json',

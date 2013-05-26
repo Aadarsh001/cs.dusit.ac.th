@@ -65,7 +65,7 @@ public class News {
             int rp = Integer.parseInt(data.get("rp").toString());
             String select = "SELECT * FROM news "
                     + "WHERE status = '1' and startdate <= '" + Date + "' "
-                    + "ORDER BY id_new DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
+                    + "ORDER BY startdate DESC,id_new DESC LIMIT " + rp * (page - 1) + "," + rp * page + "";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();

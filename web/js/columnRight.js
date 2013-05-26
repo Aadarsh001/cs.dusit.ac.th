@@ -1,8 +1,114 @@
 $(function(){
     $('#date').nClock();
+    login();
+    check_login();
     calendar();
     link();
 });
+
+function login(){
+    $('#login').click(function(){
+        _login();
+    });
+    $('#email').keydown(function(e){
+        if(e.keyCode==13){
+            $('#pass').focus();
+        }
+    });
+    $('#pass').keydown(function(e){
+        if(e.keyCode==13){
+            _login();
+        }
+    });
+    
+    function _login(){
+        if(($('#email').val()!="")&&($('#pass').val()!="")){
+            $.ajax({
+                url : 'content',
+                data : {
+                    'content' : 'user',
+                    'option' : 'login',
+                    'email' : $('#email').val(),
+                    'password' : $('#pass').val()
+                },
+                dataType : 'json',
+                type : 'get',
+                error : function(XMLHttpRequest, textStatus, errorThrown){
+                    alert('Error');
+                },
+                success : function (data){
+                    if(data.pname!=undefined){
+                        $.ajax({
+                            url : 'content',
+                            data : {
+                                'content' : 'session',
+                                'option' : 'set',
+                                'email' : data.email,
+                                'pname' : data.pname,
+                                'fname' : data.fname,
+                                'lname' : data.lname,
+                                'status' : data.status
+                            },
+                            dataType : 'json',
+                            type : 'post',
+                            error : function(XMLHttpRequest, textStatus, errorThrown){
+                                alert('Error');
+                            },
+                            success : function (data){
+                                check_login();
+                            }
+                        });
+                    }else{
+                        $('#pass').val("");
+                        alert("Email หรือ รหัสผ่าน ไม่ถูกต้อง");
+                    }
+                }
+            });
+        }
+    }
+}
+
+function check_login(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'session',
+            'option' : 'get'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert('Error');
+        },
+        success : function (data){
+            var content = '<div class="ui-block-a login"></div><div class="ui-block-b login"><div class="frmemail">ยินดีต้อนรับ<br/><br/>\n\
+คุณ '+data.fname+' '+data.lname+'<br/><br/>\n\
+<a href="account">แก้ไขข้อมูลส่วนตัว</a><br/><br/>\n\
+<a href="#" onclick="logout();">ออกจากระบบ</a></div></div><div class="ui-block-c login"></div>';
+            $('.login.ui-grid-b').empty();
+            $('.login.ui-grid-b').attr('style','text-align: center;');
+            $('.login.ui-grid-b').append(content);
+        }
+    });
+}
+
+function logout(){
+    $.ajax({
+        url : 'content',
+        data : {
+            'content' : 'session',
+            'option' : 'logout'
+        },
+        dataType : 'json',
+        type : 'get',
+        error : function(XMLHttpRequest, textStatus, errorThrown){
+            alert('Error');
+        },
+        success : function (data){
+            window.location.reload();
+        }
+    });
+}
 
 function calendar(){
     $.ajax({
@@ -21,12 +127,10 @@ function calendar(){
             for(var i=0;i<data.data.length;i++){
                 date.push(data.data[i].date);
             }
-            setTimeout(function(){
-                $('.calendar').
-                nCalendar(date,function(dateText,inst){
-                    window.open('showcontent?content=calendar&id='+dateText,'_blank');
-                });
-            }, 500);
+            $('.calendar').
+            nCalendar(date,function(dateText,inst){
+                window.open('showcontent?content=calendar&id='+dateText,'_blank');
+            });
         }
     });
 }

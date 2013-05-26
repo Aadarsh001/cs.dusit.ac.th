@@ -58,11 +58,13 @@ public class User {
                     + "status != '0'";
             con.query(select);
             while (con.next()) {
-                json.put("email", con.getString("email"));
-                json.put("pname", con.getString("pname"));
-                json.put("fname", con.getString("fname"));
-                json.put("lname", con.getString("lname"));
-                json.put("status", con.getString("status"));
+                if (data.get("password").hashCode() == con.getString("password").hashCode()) {
+                    json.put("email", con.getString("email"));
+                    json.put("pname", con.getString("pname"));
+                    json.put("fname", con.getString("fname"));
+                    json.put("lname", con.getString("lname"));
+                    json.put("status", con.getString("status"));
+                }
             }
             con.disconnect();
             return json.toString();

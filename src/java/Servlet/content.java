@@ -16,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.catalina.Session;
 import org.json.simple.JSONObject;
 import sun.misc.BASE64Decoder;
 
@@ -184,8 +186,26 @@ public class content extends HttpServlet {
                     data.put("id_dow", request.getParameter("id_dow"));
                 }
                 break;
+            case session:
+                HttpSession session = request.getSession(true);
+                if (option.equals("get")&&session.getAttribute("email")!=null) {
+                    JSONObject result = new JSONObject();
+                    result.put("email", session.getAttribute("email"));
+                    result.put("pname", session.getAttribute("pname"));
+                    result.put("fname", session.getAttribute("fname"));
+                    result.put("lname", session.getAttribute("lname"));
+                    result.put("status", session.getAttribute("status"));
+                    out.print(result);
+                } else {
+                    session.removeAttribute("email");
+                    session.removeAttribute("pname");
+                    session.removeAttribute("fname");
+                    session.removeAttribute("lname");
+                    session.removeAttribute("status");
+                }
+                break;
         }
-        if (content != null) {
+        if (!content.equals("session")) {
             out.print(ContentData.getData(content, option, data.toString()));
         }
     }
@@ -298,7 +318,7 @@ public class content extends HttpServlet {
                     String[] image = request.getParameterValues("image[]");
                     String filenames = "";
                     if (image != null) {
-                        for (int i = 0; i < image.length; i++) {
+                        for (int i = (image.length - 1); i >= 0; i--) {
                             if (!"".equals(image[i])) {
                                 String[] datas = image[i].split("[,]");
                                 String filename = "";
@@ -307,7 +327,7 @@ public class content extends HttpServlet {
                                 BASE64Decoder decoder = new BASE64Decoder();
                                 filename = "images/event/" + UUID.randomUUID() + "." + filetype[0];
                                 filenames += filename;
-                                if ((i + 1) < image.length) {
+                                if (i > 0) {
                                     filenames += ",";
                                 }
                                 String base64 = datas[1];
@@ -341,7 +361,7 @@ public class content extends HttpServlet {
                     String[] image = request.getParameterValues("image[]");
                     String filenames = "";
                     if (image != null) {
-                        for (int i = (image.length-1); i >= 0 ; i--) {
+                        for (int i = (image.length - 1); i >= 0; i--) {
                             if (!"".equals(image[i])) {
                                 String[] datas = image[i].split("[,]");
                                 String filename = "";
@@ -350,7 +370,7 @@ public class content extends HttpServlet {
                                 BASE64Decoder decoder = new BASE64Decoder();
                                 filename = "images/knowledge/" + UUID.randomUUID() + "." + filetype[0];
                                 filenames += filename;
-                                if (i>0) {
+                                if (i > 0) {
                                     filenames += ",";
                                 }
                                 String base64 = datas[1];
@@ -363,7 +383,7 @@ public class content extends HttpServlet {
                     }
                     data.put("image", filenames);
                 }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)){
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     data.put("title", request.getParameter("title"));
                     data.put("detail", request.getParameter("detail"));
                     data.put("startdate", request.getParameter("startdate"));
@@ -613,11 +633,31 @@ public class content extends HttpServlet {
                     data.put("status", request.getParameter("status"));
                 }
                 break;
+            case session:
+                HttpSession session = request.getSession(true);
+                if (option.equals("set")) {
+                    session.setAttribute("email", request.getParameter("email"));
+                    session.setAttribute("pname", request.getParameter("pname"));
+                    session.setAttribute("fname", request.getParameter("fname"));
+                    session.setAttribute("lname", request.getParameter("lname"));
+                    session.setAttribute("status", request.getParameter("status"));
+                } else {
+                    session.removeAttribute("email");
+                    session.removeAttribute("pname");
+                    session.removeAttribute("fname");
+                    session.removeAttribute("lname");
+                    session.removeAttribute("status");
+                }
+                break;
         }
-        if (ContentData.setData(content, option, data.toString())) {
-            result.put("result", "success");
+        if (!content.equals("session")) {
+            if (ContentData.setData(content, option, data.toString())) {
+                result.put("result", "success");
+            } else {
+                result.put("result", "fail");
+            }
         } else {
-            result.put("result", "fail");
+            result.put("result", "success");
         }
         out.print(result.toString());
     }

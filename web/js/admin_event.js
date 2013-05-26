@@ -29,18 +29,24 @@ var page = "event";
 var img_no = 0;
 
 window.onload = function onload(){
-    link();
     $('.datepicker').nDatepicker();
     $('textarea').wysiwyg({
         controls: {
-            insertImage : {
-                visible : false
+            insertImage : {visible : false},
+            h4 : { visible : true && !( $.browser.mozilla ), className : 'h4', command : 'formatBlock', arguments : ['<H4>'], tags : ['h4'], tooltip : "Header 4" },
+            h5 : { visible : true && !( $.browser.mozilla ), className : 'h5', command : 'formatBlock', arguments : ['<H5>'], tags : ['h5'], tooltip : "Header 5" },
+            h6 : { visible : true && !( $.browser.mozilla ), className : 'h6', command : 'formatBlock', arguments : ['<H6>'], tags : ['h6'], tooltip : "Header 6" },
+            insertYoutube : {
+                exec: function() {
+                    $('textarea').wysiwyg('insertHtml',prompt('Embed', ''));
+                    return true;
+                },
+                visible: true
             }
         }
     });
     tab_btn();
     $('#image_file').nPreview('#image',640,480,'images/640x480.png','ASC');
-    $('#date').nClock();
     events.start();
     $('#btn_add_images').click(function(){
         if($('#image').attr("src").substr(0, 4) == "data"){

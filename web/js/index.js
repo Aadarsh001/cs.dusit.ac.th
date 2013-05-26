@@ -123,9 +123,8 @@ function event(){
                 image = data.data[i].image.split(',');
                 title = data.data[i].title.substr(0, 86);
                 detail = data.data[i].detail.substr(0, 314);
-                var detail_split;
-                for(i=0;i<image.length;i++){
-                    detail_split = detail.split('[IMG'+i+']');
+                for(k=0;k<image.length;k++){
+                    detail_split = detail.split('[IMG'+k+']');
                     detail = detail_split[0];
                     for(j=1;j<detail_split.length;j++){
                         detail += detail_split[j];

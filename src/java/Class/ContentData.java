@@ -12,12 +12,12 @@ public class ContentData {
 
     public enum Content {
 
-        slideshow, news, event, knowledge, link, calendar, user, personnel, student, course, academic, research, project, qassurance, groupdownload, download;
+        slideshow, news, event, knowledge, link, calendar, user, personnel, student, course, academic, research, project, qassurance, groupdownload, download, session;
     }
 
     public enum Option {
 
-        show, all, some, pin, login, check, add, edit, remove;
+        show, all, some, pin, login, check, add, edit, remove, set, get;
     }
 
     public static String getData(String content, String option, String detail) {

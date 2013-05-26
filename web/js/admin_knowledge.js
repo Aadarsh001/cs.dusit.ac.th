@@ -12,6 +12,7 @@ IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
 IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
 IncludeJavaScript('js/jquery.wysiwyg.js');
+IncludeJavaScript('js/wysiwyg.link.js');
 IncludeJavaScript('js/columnRight.js');
 IncludeJavaScript('js/flexigrid.js');
 
@@ -29,12 +30,19 @@ var page = "knowledge";
 var img_no = 0;
 
 window.onload = function onload(){
-    link();
     $('.datepicker').nDatepicker();
     $('textarea').wysiwyg({
         controls: {
-            insertImage : {
-                visible : false
+            insertImage : {visible : false},
+            h4 : { visible : true && !( $.browser.mozilla ), className : 'h4', command : 'formatBlock', arguments : ['<H4>'], tags : ['h4'], tooltip : "Header 4" },
+            h5 : { visible : true && !( $.browser.mozilla ), className : 'h5', command : 'formatBlock', arguments : ['<H5>'], tags : ['h5'], tooltip : "Header 5" },
+            h6 : { visible : true && !( $.browser.mozilla ), className : 'h6', command : 'formatBlock', arguments : ['<H6>'], tags : ['h6'], tooltip : "Header 6" },
+            insertYoutube : {
+                exec: function() {
+                    $('textarea').wysiwyg('insertHtml',prompt('Embed', ''));
+                    return true;
+                },
+                visible: true
             }
         }
     });

@@ -90,14 +90,14 @@
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
-.link a:link , .link a:visited{
+.link a:link , .link a:visited ,.frmemail a:link ,.frmemail a:visited{
     text-decoration: none;
     font-size: 14px;
     text-shadow: initial;
     font-weight: bold;
     color: #194b7e;
 }
-.link a:hover{
+.link a:hover ,.frmemail a:hover{
     font-weight: bolder;
     color: #FF8109;
 }
