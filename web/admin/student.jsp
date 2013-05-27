@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="text/javascript" src="js/admin_knowledge.js"></script>
+        <script type="text/javascript" src="js/admin_student.js"></script>
     </head>
     <body>
         <div data-role="page">
@@ -21,27 +21,28 @@
                     <div class="ui-block-a column">
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
-                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มสาระน่ารู้</a></li>
-                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบสาระน่ารู้</a></li>
+                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มข้อมูลนักศึกษา</a></li>
+                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบข้อมูลนักศึกษา</a></li>
                             </ul>
                         </div>
                         <div id="page_add">
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
-                                            type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
+                                        <label for="foo" class="ui-input-text">รหัสนักศึกษา : </label> <input
+                                            type="text" id="id_stu" data-mini="true" maxlength="1000" placeholder="รหัสนักศึกษา">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่เริ่มต้น : </label> <input
-                                            type="text" id="startdate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
+                                        <label for="foo" class="ui-input-text">ชื่อ : </label> <input
+                                            type="text" id="name" data-mini="true" maxlength="1000" placeholder="ชื่อ">
                                     </div>
                                 </div>
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหา : </label>
+                                        <label for="foo" class="ui-input-text">อีเมล : </label> <input
+                                            type="text" id="detail" data-mini="true" maxlength="1000" placeholder="อีเมล">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -54,23 +55,6 @@
                                             <label for="0">ซ่อน</label>
                                         </fieldset>
                                     </div>
-                                </div>
-                            </fieldset>
-                            <textarea id="detail"  maxlength="10000"></textarea>
-                            <fieldset class="ui-grid-a default" >
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">รูปภาพ : </label>
-                                        <input type="file" id="image_file" accept="image/jpeg,image/png" data-mini="true">
-                                    </div>
-
-                                </div>
-                                <div class="ui-block-b" id="add_images"style="text-align: left;margin-top: 12px;">
-                                    <input type="button" value="เพิ่มรูปภาพ" data-mini="true" data-inline="true" id="btn_add_images">
-                                </div>
-                                <div class="ui-block-a">
-                                    <div class="image_frm"><img src="images/640x480.png" id="image" class="image"/></div>
-                                    <div class="image_name">[IMG0]</div>
                                 </div>
                             </fieldset>
 
@@ -90,9 +74,10 @@
                             <table id="showAll">
                                 <thead>
                                     <tr>
-                                        <th width="500">ชื่อเรื่อง</th>
-                                        <th width="80">วันที่เริ่ม</th>
-                                        <th width="70">สถานะ</th>
+                                        <th width="120">รหัสนักศึกษา</th>
+                                        <th width="220">ชื่อ</th>
+                                        <th width="220">อีเมล</th>
+                                        <th width="80">สถานะ</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -101,21 +86,21 @@
 
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="_id_kno" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
-                                            type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
+                                        <label for="foo" class="ui-input-text">รหัสนักศึกษา : </label> <input
+                                            type="text" id="_id_stu" readonly data-mini="true" maxlength="1000" placeholder="รหัสนักศึกษา">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่เริ่มต้น : </label> <input
-                                            type="text" id="_startdate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
+                                        <label for="foo" class="ui-input-text">ชื่อ : </label> <input
+                                            type="text" id="_name" data-mini="true" maxlength="1000" placeholder="ชื่อ">
                                     </div>
                                 </div>
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหา : </label>
+                                        <label for="foo" class="ui-input-text">อีเมล : </label> <input
+                                            type="text" id="_detail" data-mini="true" maxlength="1000" placeholder="อีเมล">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -130,7 +115,6 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <textarea id="_detail" data-role="none"></textarea>
                             <fieldset class="ui-grid-d">
                                 <div class="ui-block-a"></div>
                                 <div class="ui-block-b">

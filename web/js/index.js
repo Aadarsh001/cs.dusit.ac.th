@@ -38,7 +38,7 @@ function slideshow(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             for(i=0;i<data.data.length;i++){
@@ -59,7 +59,7 @@ function news(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             for(var i=0;i<data.data.length;i++){
@@ -77,7 +77,7 @@ function news(){
                 dataType : 'json',
                 type : 'get',
                 error : function(XMLHttpRequest, textStatus, errorThrown){
-                    alert('Error');
+//                    alert('Error');
                 },
                 success : function (data){
                     for(var i=0;i<data.data.length;i++){
@@ -103,7 +103,7 @@ function event(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             var heading = 0;
@@ -132,7 +132,7 @@ function event(){
                 }
                 $('.subevent.ui-grid-a').append('<div class="ui-block-a"><a href="showcontent?content=event&id='+data.data[i].id_eve+'" rel="external" target="_blank"><img src="'+image[0]+'" class="image"/></a></div><div class="ui-block-b"><p class="title"><a href="showcontent?content=event&id='+data.data[i].id_eve+'"title="'+data.data[i].title+'" rel="external" target="_blank">'+title+'</a></p><p class="detail">'+detail+'</p></div>');
             }
-            $('.subevent.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=event&option=all" rel="external"><div class="ui-block-b more">รวมกิจกรรม></div></a>');
+            $('.subevent.ui-grid-a').append('<div class="ui-block-a more"></div><a href="allcontent?content=event&option=all" rel="external" target="_blank"><div class="ui-block-b more">รวมกิจกรรม></div></a>');
         }
     });
 }
@@ -148,7 +148,7 @@ function knowledge(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             for(var i=0;i<data.data.length;i++){

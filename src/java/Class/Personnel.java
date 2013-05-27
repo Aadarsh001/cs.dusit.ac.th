@@ -54,7 +54,7 @@ public class Personnel {
             con.connect();
             String select = "SELECT * FROM personnel "
                     + "WHERE status = '1' "
-                    + "ORDER BY id_per ASC";
+                    + "ORDER BY sequence ASC,id_per ASC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
@@ -62,6 +62,7 @@ public class Personnel {
                 jchil.put("name", con.getString("name"));
                 jchil.put("position", con.getString("position"));
                 jchil.put("detail", con.getString("detail"));
+                jchil.put("sequence", con.getString("sequence"));
                 jchil.put("image", con.getString("image"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
@@ -82,7 +83,7 @@ public class Personnel {
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM personnel "
-                    + "ORDER BY id_per DESC";
+                    + "ORDER BY sequence ASC,id_per ASC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
@@ -90,6 +91,7 @@ public class Personnel {
                 jchil.put("name", con.getString("name"));
                 jchil.put("position", con.getString("position"));
                 jchil.put("detail", con.getString("detail"));
+                jchil.put("sequence", con.getString("sequence"));
                 jchil.put("image", con.getString("image"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
@@ -116,6 +118,7 @@ public class Personnel {
                 json.put("id_per", con.getString("id_per"));
                 json.put("name", con.getString("name"));
                 json.put("position", con.getString("position"));
+                json.put("sequence", con.getString("sequence"));
                 json.put("detail", con.getString("detail"));
                 json.put("image", con.getString("image"));
                 json.put("status", con.getString("status"));
@@ -148,6 +151,7 @@ public class Personnel {
                     + json.get("position") + "','"
                     + json.get("detail") + "','"
                     + json.get("image") + "','"
+                    + json.get("sequence") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -169,7 +173,8 @@ public class Personnel {
                     + "position = '" + json.get("position") + "',"
                     + "detail = '" + json.get("detail") + "',"
                     + "image = '" + json.get("image") + "',"
-                    + "status = '" + json.get("status") + "' "
+                    + "status = '" + json.get("status") + "',"
+                    + "sequence = '" + json.get("sequence") + "' "
                     + "WHERE id_per = '" + json.get("id_per") + "'";
             if (con.update(update) > 0) {
                 return true;

@@ -144,7 +144,7 @@ public class content extends HttpServlet {
                 if (Option.show.toString().equals(option)) {
                     data.put("year", request.getParameter("year"));
                 } else if (Option.some.toString().equals(option)) {
-                    data.put("id_per", request.getParameter("id_per"));
+                    data.put("id_stu", request.getParameter("id_stu"));
                 }
                 break;
             case course:
@@ -431,9 +431,13 @@ public class content extends HttpServlet {
                 }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     String image = request.getParameter("image");
-                    String filename = "";
+                    String filename = request.getParameter("filename");
                     if (image != null) {
                         if (!"".equals(image)) {
+                            if (filename != null) {
+                                File file = new File(getServletContext().getRealPath("/") + filename);
+                                file.delete();
+                            }
                             String[] datas = image.split("[,]");
                             String[] filetype = datas[0].split("[/]");
                             filetype = filetype[1].split("[;]");
@@ -449,8 +453,10 @@ public class content extends HttpServlet {
                     data.put("name", request.getParameter("name"));
                     data.put("position", request.getParameter("position"));
                     data.put("detail", request.getParameter("detail"));
+                    data.put("sequence", request.getParameter("sequence"));
                     data.put("image", filename);
                     data.put("status", request.getParameter("status"));
+                    
                 }
                 break;
             case student:

@@ -34,7 +34,7 @@ function login(){
                 dataType : 'json',
                 type : 'get',
                 error : function(XMLHttpRequest, textStatus, errorThrown){
-                    alert('Error');
+//                    alert('Error');
                 },
                 success : function (data){
                     if(data.pname!=undefined){
@@ -52,7 +52,7 @@ function login(){
                             dataType : 'json',
                             type : 'post',
                             error : function(XMLHttpRequest, textStatus, errorThrown){
-                                alert('Error');
+//                                alert('Error');
                             },
                             success : function (data){
                                 check_login();
@@ -78,13 +78,17 @@ function check_login(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
-            var content = '<div class="ui-block-a login"></div><div class="ui-block-b login"><div class="frmemail">ยินดีต้อนรับ<br/><br/>\n\
+            var content = '<div class="ui-block-a login"></div><div class="ui-block-b login"><div class="frmemail">ยินดีต้อนรับ<br/>\n\
 คุณ '+data.fname+' '+data.lname+'<br/><br/>\n\
-<a href="account">แก้ไขข้อมูลส่วนตัว</a><br/><br/>\n\
-<a href="#" onclick="logout();">ออกจากระบบ</a></div></div><div class="ui-block-c login"></div>';
+<div class="user_menu"><a  href="account">- แก้ไขข้อมูลส่วนตัว</a><br/>';
+            if(data.status == "2"){
+                content += '<a href="admin" rel="external">- ระบบจัดการเนื้อหาเว็บ</a><br/>';
+            }
+            content += '<a href="#" onclick="logout();">- ออกจากระบบ</a><br/></div></div></div><div class="ui-block-c login"></div>';
+            
             $('.login.ui-grid-b').empty();
             $('.login.ui-grid-b').attr('style','text-align: center;');
             $('.login.ui-grid-b').append(content);
@@ -102,7 +106,7 @@ function logout(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             window.location.reload();
@@ -120,7 +124,7 @@ function calendar(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             var date = [];
@@ -145,7 +149,7 @@ function link(){
         dataType : 'json',
         type : 'get',
         error : function(XMLHttpRequest, textStatus, errorThrown){
-            alert('Error');
+//            alert('Error');
         },
         success : function (data){
             for(var i=0;i<data.data.length;i++){

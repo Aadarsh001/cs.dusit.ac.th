@@ -53,7 +53,7 @@
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">วันที่สิ้นสุด : </label> <input
-                                            type="text" id="enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
+                                            type="text" id="enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่สิ้นสุด">
                                     </div>
                                 </div>
                                 <div class="ui-block-a">
@@ -134,13 +134,13 @@
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">วันที่สิ้นสุด : </label> <input
-                                            type="text" id="_enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
+                                            type="text" id="_enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่สิ้นสุด">
                                     </div>
 
                                 </div>
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหาข่าว:</label>
+                                        <label for="foo" class="ui-input-text">เนื้อหา : </label>
                                     </div>
                                 </div>
                             </fieldset>

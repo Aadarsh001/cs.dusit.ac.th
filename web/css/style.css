@@ -6,7 +6,9 @@
 /* ColumnLeft END */
 
 /* ColumnRight START */
-
+.user_menu{
+    text-align: left;
+}
 #frmcalendar{
     height: 100%;
 }
@@ -47,7 +49,7 @@
 }
 .frmcolR{
     width: 229px;
-    height: 250px;
+    min-height: 250px;
     background-color: #F9F8FF;
     border: solid #E1E1E1 1px;
     border-radius: 7px;
@@ -90,14 +92,14 @@
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
-.link a:link , .link a:visited ,.frmemail a:link ,.frmemail a:visited{
+.link a:link , .link a:visited ,.frmemail a:link ,.frmemail a:visited ,.admin_btn:link ,.admin_btn:visited{
     text-decoration: none;
     font-size: 14px;
     text-shadow: initial;
     font-weight: bold;
     color: #194b7e;
 }
-.link a:hover ,.frmemail a:hover{
+.link a:hover ,.frmemail a:hover ,.admin_btn:hover{
     font-weight: bolder;
     color: #FF8109;
 }

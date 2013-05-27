@@ -12,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.catalina.Session;
 
 /**
  *
@@ -61,7 +63,16 @@ public class admin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession(true);
+        String page = "frmOfindex.jsp";
+        System.out.println(session.getAttribute("status"));
+        if(session.getAttribute("status")!=null){
+            if(session.getAttribute("status").equals("2")){
+                page = "admin/main.jsp";
+            }
+        }
+        RequestDispatcher view = request.getRequestDispatcher(page);
+        view.forward(request, response);
     }
 
     /**
