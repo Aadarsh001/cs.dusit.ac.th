@@ -12,7 +12,7 @@ body{
     /*    height: 98% !important;
         min-height: 98% !important;*/
     margin: 2% 0;
-    background: #FF9933 url('../images/bg.png') repeat-x;
+    background: #ffffff url('../images/bg.png') repeat-x;
 }
 [data-role=page]{
     background-image: none;
