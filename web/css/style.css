@@ -1,4 +1,3 @@
-
 /* ColumnLeft START */
 .column.ui-grid-a .ui-block-a .default.ui-grid-a .ui-block-a,.column.ui-grid-a .ui-block-a .default.ui-grid.a .ui-block-b{
     width:50%;
@@ -114,7 +113,7 @@
 [data-role=header]{
     background-repeat: no-repeat;
 }
-#cssmenu{margin-left: -1px; width: 980px;height:37px; display:block; padding:0;  border:1px solid; border-radius: 7px 7px 0 0;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+#cssmenu{width: 99.8%x;height:37px; display:block; padding:0;  border:1px solid; border-radius: 7px 7px 0 0;-moz-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
          -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.6);
          box-shadow: 0px 0px 5px rgba(0,0,0,.6);}
 #cssmenu > ul {list-style:inside none; padding:0; margin:0;}
@@ -132,14 +131,24 @@
 #cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
 #cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:rgb(255, 255, 255); text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); }
 #cssmenu, #cssmenu > ul > li > ul > li a:hover{ cursor: pointer;text-shadow:0px 0 1px white;color:#fff;
-                                                background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c /*{a-bar-background-start}*/), to( #111 /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
-                                                background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
-                                                background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
-                                                background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
-                                                background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
-                                                background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
+                                                background: rgb(255,183,107); /* Old browsers */
+                                                /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+                                                background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYjc2YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmYTczZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjdmMDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+                                                background: -moz-linear-gradient(top,  rgba(255,183,107,1) 0%, rgba(255,167,61,1) 50%, rgba(255,124,0,1) 51%, rgba(255,127,4,1) 100%); /* FF3.6+ */
+                                                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,183,107,1)), color-stop(50%,rgba(255,167,61,1)), color-stop(51%,rgba(255,124,0,1)), color-stop(100%,rgba(255,127,4,1))); /* Chrome,Safari4+ */
+                                                background: -webkit-linear-gradient(top,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 50%,rgba(255,124,0,1) 51%,rgba(255,127,4,1) 100%); /* Chrome10+,Safari5.1+ */
+                                                background: -o-linear-gradient(top,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 50%,rgba(255,124,0,1) 51%,rgba(255,127,4,1) 100%); /* Opera 11.10+ */
+                                                background: -ms-linear-gradient(top,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 50%,rgba(255,124,0,1) 51%,rgba(255,127,4,1) 100%); /* IE10+ */
+                                                background: linear-gradient(to bottom,  rgba(255,183,107,1) 0%,rgba(255,167,61,1) 50%,rgba(255,124,0,1) 51%,rgba(255,127,4,1) 100%); /* W3C */
+                                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#ff7f04',GradientType=0 ); /* IE6-8 */
+                                                /*                                                background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c {a-bar-background-start}), to( #111 {a-bar-background-end}));  Saf4+, Chrome 
+                                                                                                background-image: -webkit-linear-gradient( #3c3c3c {a-bar-background-start}, #111 {a-bar-background-end});  Chrome 10+, Saf5.1+ 
+                                                                                                background-image:    -moz-linear-gradient( #3c3c3c {a-bar-background-start}, #111 {a-bar-background-end});  FF3.6 
+                                                                                                background-image:     -ms-linear-gradient( #3c3c3c {a-bar-background-start}, #111 {a-bar-background-end});  IE10 
+                                                                                                background-image:      -o-linear-gradient( #3c3c3c {a-bar-background-start}, #111 {a-bar-background-end});  Opera 11.10+ 
+                                                                                                background-image:         linear-gradient( #3c3c3c {a-bar-background-start}, #111 {a-bar-background-end});*/
 }
-#cssmenu{border-color:rgb(0, 0, 0);}
+#cssmenu{border-color:rgba(255,127,4,1);}
 #cssmenu > ul > li > a{/*border-right:1px solid rgb(109, 109, 109);*/ color:rgb(255, 255, 255);}
 #cssmenu > ul > li > a:after{border-color:#444;}
 #cssmenu > ul > li > a:hover{cursor: pointer;/*text-shadow:0px 0 1px white;*/color:#fff;background:rgb(40, 40, 40);}
