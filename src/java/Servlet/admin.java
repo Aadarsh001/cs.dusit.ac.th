@@ -65,7 +65,6 @@ public class admin extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         String page = "frmOfindex.jsp";
-        System.out.println(session.getAttribute("status"));
         if(session.getAttribute("status")!=null){
             if(session.getAttribute("status").equals("2")){
                 page = "admin/main.jsp";
