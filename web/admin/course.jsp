@@ -11,32 +11,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="text/javascript" src="js/admin_event.js"></script>
+        <script type="text/javascript" src="js/admin_course.js"></script>
     </head>
     <body>
         <div data-role="page">
             <jsp:include page="../jsp/header.jsp"/>
-            <div data-role="content">
+            <div data-role="content">          
                 <div class="ui-grid-a column">
                     <div class="ui-block-a column">
                         <div class="headcontent"></div>
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
-                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มกิจกรรม</a></li>
-                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบกิจกรรม</a></li>
+                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มข่าว</a></li>
+                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบข่าว</a></li>
                             </ul>
                         </div>
                         <div id="page_add">
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label>
-                                        <input type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
+                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
+                                            type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">สถานะ : </label>
+                                        <label for="foo" class="ui-input-text">สถานะ : </label> 
                                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                                             <input type="radio" name="status" id="1"  value="1" checked/>
                                             <label for="1">แสดง</label>
@@ -47,40 +47,12 @@
                                 </div>
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่เริ่มต้น : </label> <input
-                                            type="text" id="startdate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
+                                        <label for="foo" class="ui-input-text">เอกสาร : </label>
+                                        <input type="file" id="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
                                     </div>
                                 </div>
-                                <div class="ui-block-b">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่สิ้นสุด : </label> <input
-                                            type="text" id="enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่สิ้นสุด">
-                                    </div>
-                                </div>
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหา : </label>
-                                    </div>
-                                </div>
+                                <div class="ui-block-b"></div>
                             </fieldset>
-                            <textarea name="textarea" id="detail" maxlength="10000"></textarea>
-                            <fieldset class="ui-grid-a default" >
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">รูปภาพ : </label>
-                                        <input type="file" id="image_file" accept="image/jpeg,image/png" data-mini="true">
-                                    </div>
-
-                                </div>
-                                <div class="ui-block-b" id="add_images"style="text-align: left;margin-top: 12px;">
-                                    <input type="button" value="เพิ่มรูปภาพ" data-mini="true" data-inline="true" id="btn_add_images">
-                                </div>
-                                <div class="ui-block-a">
-                                    <div class="image_frm"><img src="images/640x480.png" id="image" class="image"/></div>
-                                    <div class="image_name">[IMG0]</div>
-                                </div>
-                            </fieldset>
-
                             <fieldset class="ui-grid-d">
                                 <div class="ui-block-a"></div>
                                 <div class="ui-block-b">
@@ -97,10 +69,8 @@
                             <table id="showAll">
                                 <thead>
                                     <tr>
-                                        <th width="400">ชื่อเรื่อง</th>
-                                        <th width="80">วันที่เริ่ม</th>
-                                        <th width="80">วันที่สิ้นสุด</th>
-                                        <th width="80">สถานะ</th>
+                                        <th width="580">ชื่อเรื่อง</th>
+                                        <th width="70">สถานะ</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -109,7 +79,7 @@
 
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="_id_eve" class="hidden" data-role="none">
+                                    <input type="text" id="_id_cou" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
                                             type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
@@ -126,26 +96,7 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่เริ่มต้น : </label> <input
-                                            type="text" id="_startdate" data-mini="true" class="datepicker" readonly placeholder="วันที่เริ่มต้น">
-                                    </div>
-                                </div>
-                                <div class="ui-block-b">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">วันที่สิ้นสุด : </label> <input
-                                            type="text" id="_enddate" data-mini="true" class="datepicker" readonly placeholder="วันที่สิ้นสุด">
-                                    </div>
-
-                                </div>
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหา : </label>
-                                    </div>
-                                </div>
                             </fieldset>
-                            <textarea name="textarea" id="_detail"></textarea>
                             <fieldset class="ui-grid-d">
                                 <div class="ui-block-a"></div>
                                 <div class="ui-block-b">

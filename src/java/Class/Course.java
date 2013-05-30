@@ -157,7 +157,6 @@ public class Course {
             con.connect();
             String update = "UPDATE course SET "
                     + "title = '" + json.get("title") + "',"
-                    + "file = '" + json.get("file") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_cou = '" + json.get("id_cou") + "'";
             if (con.update(update) > 0) {

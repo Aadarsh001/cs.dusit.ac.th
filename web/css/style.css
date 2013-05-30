@@ -87,7 +87,7 @@
 }
 .headlink{
     width: 100%;
-    background-image: url('../images/link.png');
+    background-image: url('../images/headlink.png');
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
@@ -123,10 +123,10 @@
 #cssmenu > ul > li > a:after{ content:''; position:absolute; top:-1px; bottom:-1px; right:-2px; z-index:99; }
 #cssmenu ul li.has-sub:hover > a:after{top:0; bottom:0;}
 #cssmenu > ul > li.has-sub:hover > a:before{top:19px;}
-#cssmenu ul li.has-sub:hover > a{ background:rgb(40, 40, 40); border-color:rgb(40, 40, 40); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; }
+#cssmenu ul li.has-sub:hover > a{ background:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.5); padding-bottom:13px; padding-top:13px; top:-1px; z-index:999; }
 #cssmenu ul li.has-sub:hover > ul, #cssmenu ul li.has-sub:hover > div{display:block;}
-#cssmenu ul li.has-sub > a:hover{background:rgb(40, 40, 40); border-color:rgb(40, 40, 40);}
-#cssmenu ul li > ul, #cssmenu ul li > div{ display:none; width:auto; position:absolute; top:38px; padding:10px 0; background:rgb(40, 40, 40); border-radius:0 0 5px 5px; z-index:999; }
+#cssmenu ul li.has-sub > a:hover{background:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.5);}
+#cssmenu ul li > ul, #cssmenu ul li > div{ display:none; width:auto; position:absolute; top:38px; padding:10px 0; background:rgba(254,189,128,.8); border-radius:0 0 5px 5px; z-index:999; }
 #cssmenu ul li > ul{width:200px;}
 #cssmenu ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
 #cssmenu ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:8px 20px; font:10pt Arial, Helvetica, sans-serif; color:rgb(255, 255, 255); text-decoration:none; text-shadow:1px 1px 0 rgba(0,0,0, 0.5); }
@@ -151,6 +151,6 @@
 #cssmenu{border-color:rgba(255,127,4,1);}
 #cssmenu > ul > li > a{/*border-right:1px solid rgb(109, 109, 109);*/ color:rgb(255, 255, 255);}
 #cssmenu > ul > li > a:after{border-color:#444;}
-#cssmenu > ul > li > a:hover{cursor: pointer;/*text-shadow:0px 0 1px white;*/color:#fff;background:rgb(40, 40, 40);}
+#cssmenu > ul > li > a:hover{cursor: pointer;/*text-shadow:0px 0 1px white;*/color:#fff;background:rgba(255,255,255,0.5);}
 
 /* HEADER END */

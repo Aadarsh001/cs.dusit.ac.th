@@ -26,6 +26,7 @@ IncludeCSS('css/admin.css');
 var page = "slideshow";
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     tab_btn();
     $('.datepicker').nDatepicker();
     $('#image_file').nPreview('#image',720,300,"images/720x300.png");

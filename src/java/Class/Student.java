@@ -51,7 +51,7 @@ public class Student {
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM student "
-                    + "WHERE id_stu like '%" + data.get("year") + "' and status = '1' "
+                    + "WHERE id_stu like '" + data.get("year") + "%' and status = '1' "
                     + "ORDER BY id_stu ASC";
             con.query(select);
             while (con.next()) {

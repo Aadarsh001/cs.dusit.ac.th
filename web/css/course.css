@@ -1,0 +1,16 @@
+.frmcontent{
+    width: 100%;
+    height: auto;
+}
+
+.headcontent{
+    width: 100%;
+    /*    background-image: url('../images/headnews.png');*/
+    height: 50px;
+    border-bottom: solid #E1E1E1 1px;
+    background-repeat: no-repeat;
+}
+
+.showcontent{
+    margin: 15px 10px;
+}

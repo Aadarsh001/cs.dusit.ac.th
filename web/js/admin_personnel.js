@@ -28,6 +28,7 @@ IncludeCSS('css/admin.css');
 var page = "personnel";
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     $('.datepicker').nDatepicker();
     $('textarea').wysiwyg({
         controls: {

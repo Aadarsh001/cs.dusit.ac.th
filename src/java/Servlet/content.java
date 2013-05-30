@@ -269,7 +269,6 @@ public class content extends HttpServlet {
                 break;
             case news:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
-                    System.out.println(request.getParameter("id_new"));
                     data.put("id_new", request.getParameter("id_new"));
                 }
                 if (Option.remove.toString().equals(option)) {
@@ -474,16 +473,22 @@ public class content extends HttpServlet {
                 if (Option.remove.toString().equals(option)) {
                     data.put("path", getServletContext().getRealPath("/"));
                 }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
-                    String filename = "";
+                    String filename = request.getParameter("filename");
                     if (file != null) {
                         if (!"".equals(file)) {
+                            String path = "file/course/" + UUID.randomUUID() + "/";
+                            String[] filename_temp = filename.split("[\\\\]");
+                            filename = filename_temp[filename_temp.length - 1];
                             String[] datas = file.split("[,]");
-                            String[] filetype = datas[0].split("[/]");
-                            filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            filename = "file/course/" + UUID.randomUUID() + "." + filetype[0];
+                            if (new File(getServletContext().getRealPath("/") + path).mkdirs()) {
+                                System.out.println("true");
+                            } else {
+                                System.out.println("false");
+                            }
+                            filename = path + filename;
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -491,8 +496,10 @@ public class content extends HttpServlet {
                             fo.close();
                         }
                     }
-                    data.put("title", request.getParameter("title"));
                     data.put("file", filename);
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
                     data.put("status", request.getParameter("status"));
                 }
                 break;

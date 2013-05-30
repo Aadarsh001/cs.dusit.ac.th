@@ -28,6 +28,7 @@ IncludeCSS('css/admin.css');
 var page = "link";
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     tab_btn();
     links.start();
 }

@@ -30,6 +30,7 @@ var page = "knowledge";
 var img_no = 0;
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     $('.datepicker').nDatepicker();
     $('textarea').wysiwyg({
         controls: {

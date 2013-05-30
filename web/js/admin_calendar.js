@@ -28,6 +28,7 @@ IncludeCSS('css/admin.css');
 var page = "calendar";
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     $('textarea').wysiwyg({
         controls: {
             insertImage : {visible : false},

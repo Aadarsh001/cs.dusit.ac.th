@@ -28,6 +28,7 @@ IncludeCSS('css/admin.css');
 var page = "student";
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     tab_btn();
     student.start();
 }

@@ -28,6 +28,7 @@
                         <a href="#" class="admin_btn" id="calendar">- เพิ่ม/แก้ไข ปฏิทินกิจกรรม</a><br/>
                         <a href="#" class="admin_btn" id="personnel">- เพิ่ม/แก้ไข ข้อมูลบุคลากร</a><br/>
                         <a href="#" class="admin_btn" id="student">- เพิ่ม/แก้ไข ข้อมูลนักศึกษา</a><br/>
+                        <a href="#" class="admin_btn" id="course">- เพิ่ม/แก้ไข โครงสร้างหลักสูตร</a><br/>
                     </div>
                     <div class="ui-block-b column">
                         <jsp:include page="../jsp/columnRight.jsp" />

@@ -22,6 +22,7 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/admin.css');
 
 window.onload = function onload(){
+    $('.headcontent').attr('style', 'background-image: url(images/headadmin.png);');
     $('.admin_btn').click(function(){
         PageAdmin($(this).attr('id'));
     });      

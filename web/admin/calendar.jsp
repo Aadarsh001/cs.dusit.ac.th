@@ -19,6 +19,7 @@
             <div data-role="content">
                 <div class="ui-grid-a column">
                     <div class="ui-block-a column">
+                        <div class="headcontent"></div>
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
                                 <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มปฏิทินกิจกรรม</a></li>
