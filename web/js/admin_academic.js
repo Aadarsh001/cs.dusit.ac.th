@@ -25,35 +25,37 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
 
-var page = "course";
+var page = "academic";
 
 window.onload = function onload() {
-    $('.headcontent').attr('style', 'background-image: url(images/head' + page + '.png);');
+    $('.headcontent').attr('style', 'background-image: url(images/headacademic_' + page + '.png);');
     tab_btn();
     $('#file').nUpload();
     $('_file').nUpload();
-    course.start();
+    academic.start();
 };
 
-var course = {
+var academic = {
     start: function() {
-        course.all();
+        academic.all();
         $('#submit_add').click(function() {
             if (($('#title').val() !== "")
-                    && ($('#file').val() !== "")) {
+                    && ($('#file').val() !== "")
+                    && ($('#owner').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')) {
                     $.mobile.loading('show');
-                    course.add();
+                    academic.add();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
             }
         });
         $('#submit_edit').click(function() {
-            if ($('#_title').val() !== "") {
+            if (($('#_title').val() !== "")
+                    && ($('#_owner').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')) {
                     $.mobile.loading('show');
-                    course.edit();
+                    academic.edit();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -83,16 +85,17 @@ var course = {
                     } else {
                         status = "ซ่อน";
                     }
-                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_cou + "><td>"
+                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_aca + "><td>"
                             + data.data[i].title + "</td><td>"
+                            + data.data[i].owner + "</td><td>"
                             + status + "</td></tr>");
                 }
                 $('#showAll tr').click(function() {
-                    course.some($(this).attr("id"));
+                    academic.some($(this).attr("id"));
                 });
                 $('#showAll tr').dblclick(function() {
                     if (confirm('กด “ตกลง” เพื่อยืนยันการลบข้อมูล!')) {
-                        course.remove($(this).attr("id"));
+                        academic.remove($(this).attr("id"));
                     }
                 });
                 $('#showAll').flexigrid({
@@ -110,7 +113,7 @@ var course = {
             data: {
                 'content': page,
                 'option': 'some',
-                'id_cou': id
+                'id_aca': id
             },
             dataType: 'json',
             type: 'get',
@@ -118,8 +121,10 @@ var course = {
                 alert("Error : 0x01");
             },
             success: function(data) {
-                $('#_id_cou').val(data.id_cou);
-                $('#_title').val(data.title);$('#_status-0').removeAttr("checked").checkboxradio("refresh");
+                $('#_id_aca').val(data.id_aca);
+                $('#_title').val(data.title);
+                $('#_owner').val(data.owner);
+                $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");
                 if (data.status === "1") {
                     $('#_status-1').attr("checked", true).checkboxradio("refresh");
@@ -136,8 +141,10 @@ var course = {
                 'content': page,
                 'option': 'add',
                 'title': $('#title').val(),
+                'owner': $('#owner').val(),
                 'file': $('#file').attr('data'),
-                'filename': $('#file').val(),'status': $('input[name="status"]:checked').val()
+                'filename': $('#file').val(),
+                'status': $('input[name="status"]:checked').val()
             },
             dataType: 'json',
             type: 'post',
@@ -161,8 +168,9 @@ var course = {
             data: {
                 'content': page,
                 'option': 'edit',
-                'id_cou': $('#_id_cou').val(),
+                'id_aca': $('#_id_aca').val(),
                 'title': $('#_title').val(),
+                'owner': $('#_owner').val(),
                 'status': $('input[name="_status"]:checked').val()
             },
             dataType: 'json',
@@ -187,7 +195,7 @@ var course = {
             data: {
                 'content': page,
                 'option': 'remove',
-                'id_cou': id
+                'id_aca': id
             },
             dataType: 'json',
             type: 'post',

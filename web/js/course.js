@@ -28,9 +28,6 @@ window.onload = function() {
 
 var course = {
     start: function() {
-        course.show();
-    },
-    show: function() {
         $.ajax({
             url: 'content',
             data: {
@@ -44,8 +41,8 @@ var course = {
             },
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('.showcontent').append('<h4>'+data.data[i].title+'</h4>\n\
-                                        <dd>- ดาวโหลดเอกสาร <a rel="external" target="_blank" href="'+data.data[i].file+'">คลิกที่นี่</a>');
+                    $('.showcontent').append('<h4>' + data.data[i].title + '</h4>\n\
+                                        <dd>- ดาวโหลดเอกสาร <a rel="external" target="_blank" href="' + data.data[i].file + '">คลิกที่นี่</a>');
                 }
             }
         });

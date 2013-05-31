@@ -58,6 +58,7 @@ public class Project {
                 JSONObject jchil = new JSONObject();
                 jchil.put("id_pro", con.getString("id_pro"));
                 jchil.put("owner", con.getString("owner"));
+                jchil.put("adviser", con.getString("adviser"));
                 jchil.put("title", con.getString("title"));
                 jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
@@ -84,8 +85,9 @@ public class Project {
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
                 jchil.put("id_pro", con.getString("id_pro"));
-                jchil.put("owner", con.getString("owner"));
                 jchil.put("title", con.getString("title"));
+                jchil.put("owner", con.getString("owner"));
+                jchil.put("adviser", con.getString("adviser"));
                 jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
                 jarray.add(jchil);
@@ -110,8 +112,9 @@ public class Project {
             con.query(select);
             while (con.next()) {
                 json.put("id_pro", con.getString("id_pro"));
-                json.put("owner", con.getString("owner"));
                 json.put("title", con.getString("title"));
+                json.put("owner", con.getString("owner"));
+                json.put("adviser", con.getString("adviser"));
                 json.put("link", con.getString("link"));
                 json.put("status", con.getString("status"));
             }
@@ -140,6 +143,7 @@ public class Project {
             String insert = "insert into project values('"
                     + id_pro + "','"
                     + json.get("owner") + "','"
+                    + json.get("adviser") + "','"
                     + json.get("title") + "','"
                     + json.get("link") + "','"
                     + json.get("status") + "')";
@@ -160,6 +164,7 @@ public class Project {
             con.connect();
             String update = "UPDATE project SET "
                     + "owner = '" + json.get("owner") + "',"
+                    + "adviser = '" + json.get("adviser") + "',"
                     + "title = '" + json.get("title") + "',"
                     + "link = '" + json.get("link") + "',"
                     + "status = '" + json.get("status") + "' "

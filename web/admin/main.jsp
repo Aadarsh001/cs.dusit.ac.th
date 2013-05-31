@@ -29,6 +29,11 @@
                         <a href="#" class="admin_btn" id="personnel">- เพิ่ม/แก้ไข ข้อมูลบุคลากร</a><br/>
                         <a href="#" class="admin_btn" id="student">- เพิ่ม/แก้ไข ข้อมูลนักศึกษา</a><br/>
                         <a href="#" class="admin_btn" id="course">- เพิ่ม/แก้ไข โครงสร้างหลักสูตร</a><br/>
+                        <a href="#" class="admin_btn" id="academic">- เพิ่ม/แก้ไข ผลงานวิชาการ</a><br/>
+                        <a href="#" class="admin_btn" id="research">- เพิ่ม/แก้ไข ผลงานวิจัย</a><br/>
+                        <a href="#" class="admin_btn" id="project">- เพิ่ม/แก้ไข ผลงานนักศึกษา</a><br/>
+                        <a href="#" class="admin_btn" id="qassurance">- เพิ่ม/แก้ไข ประกันคุณภาพ</a><br/>
+                        <a href="#" class="admin_btn" id="download">- เพิ่ม/แก้ไข เอกสารดาวน์โหลด</a><br/>
                     </div>
                     <div class="ui-block-b column">
                         <jsp:include page="../jsp/columnRight.jsp" />

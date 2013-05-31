@@ -162,7 +162,6 @@ public class Research {
             String update = "UPDATE research SET "
                     + "owner = '" + json.get("owner") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "file = '" + json.get("file") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_res = '" + json.get("id_res") + "'";
             if (con.update(update) > 0) {
@@ -187,6 +186,14 @@ public class Research {
                 String filename = con.getString("file");
                 if (!"".equals(filename)) {
                     File file = new File(json.get("path") + filename);
+                    file.delete();
+                    String[] path = filename.split("[/]");
+                    int no_path = path.length;
+                    filename = "";
+                    for (int i = 0; i < (no_path - 1); i++) {
+                        filename += path[i] + "/";
+                    }
+                    file = new File(json.get("path") + filename);
                     file.delete();
                 }
             }

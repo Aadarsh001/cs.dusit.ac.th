@@ -188,7 +188,7 @@ public class content extends HttpServlet {
                 break;
             case session:
                 HttpSession session = request.getSession(true);
-                if (option.equals("get")&&session.getAttribute("email")!=null) {
+                if (option.equals("get") && session.getAttribute("email") != null) {
                     JSONObject result = new JSONObject();
                     result.put("email", session.getAttribute("email"));
                     result.put("pname", session.getAttribute("pname"));
@@ -455,7 +455,7 @@ public class content extends HttpServlet {
                     data.put("sequence", request.getParameter("sequence"));
                     data.put("image", filename);
                     data.put("status", request.getParameter("status"));
-                    
+
                 }
                 break;
             case student:
@@ -510,16 +510,22 @@ public class content extends HttpServlet {
                 if (Option.remove.toString().equals(option)) {
                     data.put("path", getServletContext().getRealPath("/"));
                 }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
-                    String filename = "";
+                    String filename = request.getParameter("filename");
                     if (file != null) {
                         if (!"".equals(file)) {
+                            String path = "file/academic/" + UUID.randomUUID() + "/";
+                            String[] filename_temp = filename.split("[\\\\]");
+                            filename = filename_temp[filename_temp.length - 1];
                             String[] datas = file.split("[,]");
-                            String[] filetype = datas[0].split("[/]");
-                            filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            filename = "file/academic/" + UUID.randomUUID() + "." + filetype[0];
+                            if (new File(getServletContext().getRealPath("/") + path).mkdirs()) {
+                                System.out.println("true");
+                            } else {
+                                System.out.println("false");
+                            }
+                            filename = path + filename;
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -527,9 +533,12 @@ public class content extends HttpServlet {
                             fo.close();
                         }
                     }
-                    data.put("owner", request.getParameter("owner"));
-                    data.put("title", request.getParameter("title"));
                     data.put("file", filename);
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+
+                    data.put("title", request.getParameter("title"));
+                    data.put("owner", request.getParameter("owner"));
                     data.put("status", request.getParameter("status"));
                 }
                 break;
@@ -540,16 +549,22 @@ public class content extends HttpServlet {
                 if (Option.remove.toString().equals(option)) {
                     data.put("path", getServletContext().getRealPath("/"));
                 }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
-                    String filename = "";
+                    String filename = request.getParameter("filename");
                     if (file != null) {
                         if (!"".equals(file)) {
+                            String path = "file/research/" + UUID.randomUUID() + "/";
+                            String[] filename_temp = filename.split("[\\\\]");
+                            filename = filename_temp[filename_temp.length - 1];
                             String[] datas = file.split("[,]");
-                            String[] filetype = datas[0].split("[/]");
-                            filetype = filetype[1].split("[;]");
                             BASE64Decoder decoder = new BASE64Decoder();
-                            filename = "file/research/" + UUID.randomUUID() + "." + filetype[0];
+                            if (new File(getServletContext().getRealPath("/") + path).mkdirs()) {
+                                System.out.println("true");
+                            } else {
+                                System.out.println("false");
+                            }
+                            filename = path + filename;
                             String base64 = datas[1];
                             byte[] normal = decoder.decodeBuffer(base64);
                             FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
@@ -557,9 +572,11 @@ public class content extends HttpServlet {
                             fo.close();
                         }
                     }
-                    data.put("owner", request.getParameter("owner"));
-                    data.put("title", request.getParameter("title"));
                     data.put("file", filename);
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("owner", request.getParameter("owner"));
                     data.put("status", request.getParameter("status"));
                 }
                 break;
@@ -568,8 +585,9 @@ public class content extends HttpServlet {
                     data.put("id_pro", request.getParameter("id_pro"));
                 }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
-                    data.put("owner", request.getParameter("owner"));
                     data.put("title", request.getParameter("title"));
+                    data.put("owner", request.getParameter("owner"));
+                    data.put("adviser", request.getParameter("adviser"));
                     data.put("link", request.getParameter("link"));
                     data.put("status", request.getParameter("status"));
                 }
