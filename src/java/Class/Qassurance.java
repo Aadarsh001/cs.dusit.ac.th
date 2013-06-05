@@ -161,9 +161,8 @@ public class Qassurance {
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
             String update = "UPDATE qassurance SET "
-                    + "owner = '" + json.get("category") + "',"
+                    + "category = '" + json.get("category") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "file = '" + json.get("file") + "',"
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_qas = '" + json.get("id_qas") + "'";
             if (con.update(update) > 0) {

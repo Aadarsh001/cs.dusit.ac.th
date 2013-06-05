@@ -187,14 +187,6 @@ public class Research {
                 if (!"".equals(filename)) {
                     File file = new File(json.get("path") + filename);
                     file.delete();
-                    String[] path = filename.split("[/]");
-                    int no_path = path.length;
-                    filename = "";
-                    for (int i = 0; i < (no_path - 1); i++) {
-                        filename += path[i] + "/";
-                    }
-                    file = new File(json.get("path") + filename);
-                    file.delete();
                 }
             }
             String delete = "delete from research "

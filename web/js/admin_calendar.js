@@ -46,32 +46,31 @@ window.onload = function onload(){
     });
     tab_btn();
     $('.datepicker').nDatepicker();
-    $('#file').nUpload();
-    calendar.start();
-}
+    calendars.start();
+};
 
-var calendar = {
+var calendars = {
     start : function(){
-        calendar.all();
+        calendars.all();
         $('#submit_add').click(function(){
-            if(($('#title').val() != "")
-                &&($('#detail').val() != "")
-                &&($('#startdate').val() != "")){
+            if(($('#title').val() !== "")
+                &&($('#detail').val() !== "")
+                &&($('#startdate').val() !== "")){
                 if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
                     $.mobile.loading( 'show');
-                    calendar.add();
+                    calendars.add();
                 }
             }else{
                 alert('กรุณาระบุข้อมูลทั้งหมด');
             }
         });
         $('#submit_edit').click(function(){
-            if(($('#_title').val() != "")
-                &&($('#_detail').val() != "")
-                &&($('#_startdate').val() != "")){
+            if(($('#_title').val() !== "")
+                &&($('#_detail').val() !== "")
+                &&($('#_startdate').val() !== "")){
                 if(confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')){
                     $.mobile.loading( 'show');
-                    calendar.edit();
+                    calendars.edit();
                 }
             }else{
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -96,7 +95,7 @@ var calendar = {
             success : function (data){
                 for(var i =0;i<data.data.length;i++){
                     var status;
-                    if(data.data[i].status=="1"){
+                    if(data.data[i].status==="1"){
                         status = "แสดง";
                     }else{
                         status = "ซ่อน";
@@ -107,11 +106,11 @@ var calendar = {
                         +status+"</td></tr>");
                 }
                 $('#showAll tr').click(function(){
-                    calendar.some($(this).attr("id"));
+                    calendars.some($(this).attr("id"));
                 });
                 $('#showAll tr').dblclick(function(){
                     if(confirm('กด “ตกลง” เพื่อยืนยันการลบข้อมูล!')){
-                        calendar.remove($(this).attr("id"));
+                        calendars.remove($(this).attr("id"));
                     }
                 });
                 $('#showAll').flexigrid({
@@ -143,7 +142,7 @@ var calendar = {
                 $('#_startdate').val(data.date.substr(6, 2)+"/"+data.date.substr(4, 2)+"/"+data.date.substr(0, 4));
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");
-                if (data.status == "1") {
+                if (data.status === "1") {
                     $('#_status-1').attr("checked", true).checkboxradio("refresh");
                 } else {
                     $('#_status-0').attr("checked", true).checkboxradio("refresh");
@@ -169,7 +168,7 @@ var calendar = {
                 $.mobile.loading( 'hide');
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page);
                 }else{
                     alert("Error : 0101");
@@ -197,7 +196,7 @@ var calendar = {
                 $.mobile.loading( 'hide');
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page,"?tab=edit");
                 }else{
                     alert("Error : 0102");
@@ -220,7 +219,7 @@ var calendar = {
                 alert("Error : 0113");
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page,"?tab=edit");
                 }else{
                     alert("Error : 0103");
@@ -228,4 +227,4 @@ var calendar = {
             }
         });
     }
-}
+};

@@ -7,6 +7,7 @@ package Class;
 import Class.ContentData.Option;
 import Servlet.index;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import sun.misc.BASE64Decoder;
 
 /**
  *
@@ -184,11 +186,26 @@ public class News {
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_new = decimal_format.format(Integer.parseInt(id_new) + 1);
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String path = "file/news/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "news_" + id_new + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                fo.write(normal);
+                fo.close();
+            }
             String insert = "insert into news values('"
                     + id_new + "','"
                     + json.get("title") + "','"
                     + json.get("detail") + "','"
-                    + json.get("file") + "','"
+                    + filename + "','"
                     + json.get("startdate") + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
@@ -206,13 +223,37 @@ public class News {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String select = "select file from news "
+                        + "WHERE id_new = '" + json.get("id_new") + "'";
+                con.query(select);
+                if (con.next()) {
+                    if (!"".equals(filename)) {
+                        new File(json.get("path") + con.getString("file")).delete();
+                    }
+                }
+                String path = "file/news/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "news_" + json.get("id_new") + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                filename = "file = '" + filename + "',";
+                fo.write(normal);
+                fo.close();
+            }
             String update = "UPDATE news SET "
                     + "title = '" + json.get("title") + "',"
                     + "detail = '" + json.get("detail") + "',"
                     + "startdate = '" + json.get("startdate") + "',"
+                    + filename
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_new = '" + json.get("id_new") + "'";
-            System.out.println(update);
             if (con.update(update) > 0) {
                 return true;
             }
@@ -235,14 +276,6 @@ public class News {
                 String filename = con.getString("file");
                 if (!"".equals(filename)) {
                     File file = new File(json.get("path") + filename);
-                    file.delete();
-                    String[] path = filename.split("[/]");
-                    int no_path = path.length;
-                    filename = "";
-                    for (int i = 0; i < (no_path - 1); i++) {
-                        filename += path[i] + "/";
-                    }
-                    file = new File(json.get("path") + filename);
                     file.delete();
                 }
             }

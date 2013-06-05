@@ -8,12 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" type="image/x-icon" href="">
-        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <link rel="shortcut icon" href="images/icon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
-        <script type="text/javascript" src="js/index.js"></script>
-        <link rel="stylesheet" href="css/about.css" type="text/css" media="all"/>
+        <script type="text/javascript" src="js/about.js"></script>
     </head>
     <body>
         <div data-role="page">

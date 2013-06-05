@@ -89,7 +89,7 @@ var project = {
             },
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    if(data.data[i].adviser!=""){
+                    if(data.data[i].adviser!==""){
                         $('#contentproject').append('<a target="_blank" href="' + data.data[i].link + '">- ' + data.data[i].title + '</a><br/>\n\
                                             <dd>โดย ' + data.data[i].owner + ' (อาจารย์ที่ปรึกษา : '+data.data[i].adviser+')</dd><br/>');
                     }else{

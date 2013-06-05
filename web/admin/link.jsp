@@ -8,9 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <link rel="shortcut icon" href="images/icon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>ระบบจัดการเนื้อหาเว็บ</title>
         <script type="text/javascript" src="js/admin_link.js"></script>
     </head>
     <body>

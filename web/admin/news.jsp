@@ -8,9 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <link rel="shortcut icon" href="images/icon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>ระบบจัดการเนื้อหาเว็บ</title>
         <script type="text/javascript" src="js/admin_news.js"></script>
     </head>
     <body>
@@ -43,7 +44,7 @@
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">เอกสาร : </label>
-                                        <input type="file" id="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
+                                        <input type="file" id="file" class="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -107,7 +108,8 @@
                                 </div>
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เนื้อหาข่าว:</label>
+                                        <label for="foo" class="ui-input-text">เอกสาร : </label>
+                                        <input type="file" id="_file" class="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -121,6 +123,11 @@
                                             <input type="radio" name="_status" id="_status-0" value="0" />
                                             <label for="_status-0">ซ่อน</label>
                                         </fieldset>
+                                    </div>
+                                </div>
+                                <div class="ui-block-a">
+                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                                        <label for="foo" class="ui-input-text">เนื้อหาข่าว:</label>
                                     </div>
                                 </div>
                             </fieldset>
