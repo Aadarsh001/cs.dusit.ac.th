@@ -60,6 +60,10 @@
         <servlet-name>timetable</servlet-name>
         <servlet-class>Servlet.timetable</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>schedule</servlet-name>
+        <servlet-class>Servlet.schedule</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>timetable</servlet-name>
         <url-pattern>/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>schedule</servlet-name>
+        <url-pattern>/schedule</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

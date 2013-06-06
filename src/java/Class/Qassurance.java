@@ -6,12 +6,14 @@ package Class;
 
 import Servlet.index;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import sun.misc.BASE64Decoder;
 
 /**
  *
@@ -139,11 +141,26 @@ public class Qassurance {
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_qas = decimal_format.format(Integer.parseInt(id_qas) + 1);
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String path = "file/qassurance/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "qas_" + id_qas + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                fo.write(normal);
+                fo.close();
+            }
             String insert = "insert into qassurance values('"
                     + id_qas + "','"
                     + json.get("category") + "','"
                     + json.get("title") + "','"
-                    + json.get("file") + "','"
+                    + filename + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -160,9 +177,34 @@ public class Qassurance {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String select = "select file from qassurance "
+                        + "WHERE id_qas = '" + json.get("id_qas") + "'";
+                con.query(select);
+                if (con.next()) {
+                    if (!"".equals(filename)) {
+                        new File(json.get("path") + con.getString("file")).delete();
+                    }
+                }
+                String path = "file/qassurance/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "qas_" + json.get("id_qas") + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                filename = "file = '" + filename + "',";
+                fo.write(normal);
+                fo.close();
+            }
             String update = "UPDATE qassurance SET "
                     + "category = '" + json.get("category") + "',"
                     + "title = '" + json.get("title") + "',"
+                    + filename
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_qas = '" + json.get("id_qas") + "'";
             if (con.update(update) > 0) {
@@ -186,8 +228,7 @@ public class Qassurance {
             if (con.next()) {
                 String filename = con.getString("file");
                 if (!"".equals(filename)) {
-                    File file = new File(json.get("path") + filename);
-                    file.delete();
+                    new File(json.get("path") + filename).delete();
                 }
             }
             String delete = "delete from qassurance "

@@ -25,24 +25,24 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
 
-var page = "download";
+var page = "groupdownload";
 
 window.onload = function onload() {
-    $('.headcontent').attr('style', 'background-image: url(images/head' + page + '.png);');
+    $('.headcontent').attr('style', 'background-image: url(images/headdownload.png);');
     tab_btn();
     $('.file').nUpload();
-    download.start();
+    groupdownload.start();
 };
 
-var download = {
+var groupdownload = {
     start: function() {
-        download.all();
+        groupdownload.all();
         $('#submit_add').click(function() {
             if (($('#title').val() !== "")
                     && ($('#file').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')) {
                     $.mobile.loading('show');
-                    download.add();
+                    groupdownload.add();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -52,7 +52,7 @@ var download = {
             if ($('#_title').val() !== "") {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')) {
                     $.mobile.loading('show');
-                    download.edit();
+                    groupdownload.edit();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -63,21 +63,6 @@ var download = {
         });
     },
     all: function() {
-        $.ajax({
-            url: 'content',
-            data: {
-                'content': 'groupdownload',
-                'option': 'show'
-            },
-            dataType: 'json',
-            type: 'get',
-            success: function(data) {
-                for (var i = 0; i < data.data.length; i++) {
-                    $('#id_gro').append('<option value="'+data.data[i].id_gro+'">'+data.data[i].title+'</option>').selectmenu( "refresh" );
-                    $('#_id_gro').append('<option value="'+data.data[i].id_gro+'">'+data.data[i].title+'</option>').selectmenu( "refresh" );
-                }
-            }
-        });
         $.ajax({
             url: 'content',
             data: {
@@ -97,17 +82,20 @@ var download = {
                     } else {
                         status = "ซ่อน";
                     }
-                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_dow + "><td>"
+                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_gro + "><td>"
                             + data.data[i].title + "</td><td>"
-                            + data.data[i].id_gro_title + "</td><td>"
                             + status + "</td></tr>");
                 }
                 $('#showAll tr').click(function() {
-                    download.some($(this).attr("id"));
+                    groupdownload.some($(this).attr("id"));
                 });
                 $('#showAll tr').dblclick(function() {
-                    if (confirm('กด “ตกลง” เพื่อยืนยันการลบข้อมูล!')) {
-                        download.remove($(this).attr("id"));
+                    if($(this).attr("id") !== "000001"){
+                        if (confirm('ข้อมูลในหมวดหมู่ทั้งหมดจะถูกลบ กด “ตกลง” เพื่อยืนยันการลบข้อมูล! ')) {
+                        groupdownload.remove($(this).attr("id"));
+                    }
+                    }else{
+                        alert("ไม่สามารถลบหมวดหมู่นี้ได้");
                     }
                 });
                 $('#showAll').flexigrid({
@@ -125,7 +113,7 @@ var download = {
             data: {
                 'content': page,
                 'option': 'some',
-                'id_dow': id
+                'id_gro': id
             },
             dataType: 'json',
             type: 'get',
@@ -133,9 +121,15 @@ var download = {
                 alert("Error : 0x01");
             },
             success: function(data) {
-                $('#_id_dow').val(data.id_dow);
+                $('#_id_gro').val(data.id_gro);
                 $('#_title').val(data.title);
-                $('#_id_gro').val(data.id_gro).selectmenu( "refresh" );
+                $('#_category-0').removeAttr("checked").checkboxradio("refresh");
+                $('#_category-1').removeAttr("checked").checkboxradio("refresh");
+                if (data.category === "1") {
+                    $('#_category-1').attr("checked", true).checkboxradio("refresh");
+                } else {
+                    $('#_category-0').attr("checked", true).checkboxradio("refresh");
+                }
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");
                 if (data.status === "1") {
@@ -153,7 +147,7 @@ var download = {
                 'content': page,
                 'option': 'add',
                 'title': $('#title').val(),
-                'id_gro': $('#id_gro option:selected').val(),
+                'category': $('input[name="category"]:checked').val(),
                 'file': $('#file').attr('data'),
                 'filename': $('#file').val(),
                 'status': $('input[name="status"]:checked').val()
@@ -186,9 +180,9 @@ var download = {
             data: {
                 'content': page,
                 'option': 'edit',
-                'id_dow': $('#_id_dow').val(),
+                'id_gro': $('#_id_gro').val(),
                 'title': $('#_title').val(),
-                'id_gro': $('#_id_gro option:selected').val(),
+                'category': $('input[name="_category"]:checked').val(),
                 'file': $('#_file').attr('data'),
                 'filename': $('#_file').val(),
                 'status': $('input[name="_status"]:checked').val()
@@ -221,7 +215,7 @@ var download = {
             data: {
                 'content': page,
                 'option': 'remove',
-                'id_dow': id
+                'id_gro': id
             },
             dataType: 'json',
             type: 'post',

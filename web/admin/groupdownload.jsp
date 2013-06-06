@@ -1,6 +1,6 @@
 <%-- 
-    Document   : news
-    Created on : May 23, 2013, 2:05:51 PM
+    Document   : knowledge
+    Created on : May 24, 2013, 12:09:56 AM
     Author     : NewSuppamit
 --%>
 
@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ระบบจัดการเนื้อหาเว็บ</title>
-        <script type="text/javascript" src="js/admin_download.js"></script>
+        <script type="text/javascript" src="js/admin_groupdownload.js"></script>
     </head>
     <body>
         <div data-role="page">
@@ -23,28 +23,16 @@
                         <div class="headcontent"></div>
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
-                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มเอกสารดาวน์โหลด</a></li>
-                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบเอกสารดาวน์โหลด</a></li>
+                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มหมวดหมู่เอกสารดาวน์โหลด</a></li>
+                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบหมวดหมู่เอกสารดาวน์โหลด</a></li>
                             </ul>
                         </div>
                         <div id="page_add">
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
-                                            type="text" id="title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
-                                    </div>
-                                </div>
-                                <div class="ui-block-b">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> 
-                                        <select id="id_gro" data-mini="true"></select>
-                                    </div>
-                                </div>
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เอกสาร : </label>
-                                        <input type="file" class="file" id="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
+                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> <input
+                                            type="text" id="title" data-mini="true" maxlength="1000" placeholder="หมวดหมู่">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -58,8 +46,8 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <div class="ui-block-b"></div>
                             </fieldset>
+
                             <fieldset class="ui-grid-d">
                                 <div class="ui-block-a"></div>
                                 <div class="ui-block-b">
@@ -76,9 +64,8 @@
                             <table id="showAll">
                                 <thead>
                                     <tr>
-                                        <th width="380">ชื่อเรื่อง</th>
-                                        <th width="200">ประเภท</th>
-                                        <th width="70">สถานะ</th>
+                                        <th width="590">หมวดหมู่</th>
+                                        <th width="80">สถานะ</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -87,22 +74,10 @@
 
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="_id_dow" class="hidden" data-role="none">
+                                    <input type="text" id="_id_gro" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
-                                            type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
-                                    </div>
-                                </div>
-                                <div class="ui-block-b">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> 
-                                        <select id="_id_gro" data-mini="true"></select>
-                                    </div>
-                                </div>
-                                <div class="ui-block-a">
-                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">เอกสาร : </label>
-                                        <input type="file" class="file" id="_file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
+                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> <input
+                                            type="text" id="_title" data-mini="true" maxlength="1000" placeholder="หมวดหมู่">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">

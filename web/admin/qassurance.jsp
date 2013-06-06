@@ -49,7 +49,7 @@
                                 <div class="ui-block-a">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">เอกสาร : </label>
-                                        <input type="file" id="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
+                                        <input type="file" class="file" id="file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
                                     </div>
                                 </div>
                                 <div class="ui-block-b">
@@ -109,7 +109,12 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <div class="ui-block-a"></div>
+                                <div class="ui-block-a">
+                                    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                                        <label for="foo" class="ui-input-text">เอกสาร : </label>
+                                        <input type="file" class="file" id="_file" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" data-mini="true">
+                                    </div>
+                                </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">สถานะ : </label> 

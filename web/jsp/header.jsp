@@ -11,14 +11,14 @@
         </li>
         <li class='has-sub'><a href="" id="" rel="external"><div>ตารางเวลา</div></a>
             <ul>
-                <li><a href="#" rel="external"><div>ตารางเรียน</div></a></li>
-                <li><a href="#" rel="external"><div>ปฏิทินการศึกษา</div></a></li>
+                <li><a href="schedule?id=table" rel="external"><div>ตารางเรียน</div></a></li>
+                <li><a href="schedule?id=calendar" rel="external"><div>ปฏิทินการศึกษา</div></a></li>
             </ul>
         </li>
         <li><a href="course" rel="external"><div>โครงสร้างหลักสูตร</div></a></li>
         <li><a href="academic" rel="external"><div>วิจัยและบริการวิชาการ</div></a></li>
-        <li><a href="#" rel="external"><div>ประกันคุณภาพ</div></a></li>
-        <li><a href="#" rel="external"><div>เอกสารดาวน์โหลด</div></a></li>
+        <li><a href="qassurance" rel="external"><div>ประกันคุณภาพ</div></a></li>
+        <li><a href="download" rel="external"><div>เอกสารดาวน์โหลด</div></a></li>
         <li><a href="contact" target="" rel="external"><div>ติดต่อ</div></a></li>
     </ul>
 </div>

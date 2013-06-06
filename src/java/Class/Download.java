@@ -6,19 +6,21 @@ package Class;
 
 import Servlet.index;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import sun.misc.BASE64Decoder;
 
 /**
  *
  * @author NewSuppamit
  */
 public class Download {
-    
+
     public static String getData(String option, String detail) {
         switch (ContentData.Option.valueOf(option)) {
             case show:
@@ -31,7 +33,7 @@ public class Download {
                 return null;
         }
     }
-    
+
     public static boolean setData(String option, String data) {
         switch (ContentData.Option.valueOf(option)) {
             case add:
@@ -44,7 +46,7 @@ public class Download {
                 return false;
         }
     }
-    
+
     private static String showDB(String detail) {
         try {
             JSONObject data = (JSONObject) JSONValue.parse(detail);
@@ -73,23 +75,25 @@ public class Download {
         }
         return null;
     }
-    
+
     private static String showAllDB() {
         try {
             JSONObject json = new JSONObject();
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM download "
+            String select = "SELECT * FROM download,groupdownload "
+                    + "where download.id_gro = groupdownload.id_gro "
                     + "ORDER BY id_dow DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_dow", con.getString("id_dow"));
-                jchil.put("id_gro", con.getString("id_gro"));
-                jchil.put("title", con.getString("title"));
-                jchil.put("file", con.getString("file"));
-                jchil.put("status", con.getString("status"));
+                jchil.put("id_dow", con.getString("download.id_dow"));
+                jchil.put("id_gro", con.getString("download.id_gro"));
+                jchil.put("id_gro_title", con.getString("groupdownload.title"));
+                jchil.put("title", con.getString("download.title"));
+                jchil.put("file", con.getString("download.file"));
+                jchil.put("status", con.getString("download.status"));
                 jarray.add(jchil);
             }
             json.put("data", jarray);
@@ -100,7 +104,7 @@ public class Download {
         }
         return null;
     }
-    
+
     private static String showSomeDB(String detail) {
         try {
             JSONObject data = (JSONObject) JSONValue.parse(detail);
@@ -124,7 +128,7 @@ public class Download {
         }
         return null;
     }
-    
+
     private static boolean addDB(String data) {
         try {
             Connect con = new Connect();
@@ -139,11 +143,26 @@ public class Download {
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
             id_dow = decimal_format.format(Integer.parseInt(id_dow) + 1);
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String path = "file/download/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "dow_" + id_dow + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                fo.write(normal);
+                fo.close();
+            }
             String insert = "insert into download values('"
                     + id_dow + "','"
                     + json.get("id_gro") + "','"
                     + json.get("title") + "','"
-                    + json.get("file") + "','"
+                    + filename + "','"
                     + json.get("status") + "')";
             if (con.insert(insert) > 0) {
                 return true;
@@ -154,16 +173,40 @@ public class Download {
         }
         return false;
     }
-    
+
     private static boolean editDB(String data) {
         try {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
+            String file = (String) json.get("file");
+            String filename = (String) json.get("filename");
+            if (file != null) {
+                String select = "select file from download "
+                        + "WHERE id_dow = '" + json.get("id_dow") + "'";
+                con.query(select);
+                if (con.next()) {
+                    if (!"".equals(filename)) {
+                        new File(json.get("path") + con.getString("file")).delete();
+                    }
+                }
+                String path = "file/download/";
+                String[] filename_temp = filename.split("[.]");
+                filename = filename_temp[filename_temp.length - 1];
+                String[] datas = file.split("[,]");
+                BASE64Decoder decoder = new BASE64Decoder();
+                filename = path + "dow_" + json.get("id_dow") + "." + filename;
+                String base64 = datas[1];
+                byte[] normal = decoder.decodeBuffer(base64);
+                FileOutputStream fo = new FileOutputStream(json.get("path") + filename);
+                filename = "file = '" + filename + "',";
+                fo.write(normal);
+                fo.close();
+            }
             String update = "UPDATE download SET "
                     + "id_gro = '" + json.get("id_gro") + "',"
                     + "title = '" + json.get("title") + "',"
-                    + "file = '" + json.get("file") + "',"
+                    + filename
                     + "status = '" + json.get("status") + "' "
                     + "WHERE id_dow = '" + json.get("id_dow") + "'";
             if (con.update(update) > 0) {
@@ -175,7 +218,7 @@ public class Download {
         }
         return false;
     }
-    
+
     private static boolean removeDB(String data) {
         try {
             Connect con = new Connect();

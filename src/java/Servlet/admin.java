@@ -65,8 +65,8 @@ public class admin extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         String page = "frmOfindex.jsp";
-        if(session.getAttribute("status")!=null){
-            if(session.getAttribute("status").equals("2")){
+        if (session.getAttribute("status") != null) {
+            if (session.getAttribute("status").equals("2")) {
                 page = "admin/main.jsp";
             }
         }
@@ -116,6 +116,9 @@ public class admin extends HttpServlet {
                     break;
                 case student:
                     page = "admin/student.jsp";
+                    break;
+                case schedule:
+                    page = "admin/schedule.jsp";
                     break;
                 case course:
                     page = "admin/course.jsp";

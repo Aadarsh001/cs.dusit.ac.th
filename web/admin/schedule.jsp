@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ระบบจัดการเนื้อหาเว็บ</title>
-        <script type="text/javascript" src="js/admin_download.js"></script>
+        <script type="text/javascript" src="js/admin_schedule.js"></script>
     </head>
     <body>
         <div data-role="page">
@@ -23,8 +23,8 @@
                         <div class="headcontent"></div>
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
-                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มเอกสารดาวน์โหลด</a></li>
-                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบเอกสารดาวน์โหลด</a></li>
+                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มตารางเวลา</a></li>
+                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบตารางเวลา</a></li>
                             </ul>
                         </div>
                         <div id="page_add">
@@ -37,8 +37,13 @@
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> 
-                                        <select id="id_gro" data-mini="true"></select>
+                                        <label for="foo" class="ui-input-text">ประเภท : </label> 
+                                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                            <input type="radio" name="category" id="1"  value="1" checked/>
+                                            <label for="1">ตารางเรียน</label>
+                                            <input type="radio" name="category" id="0" value="0" />
+                                            <label for="0">ปฏิทินกา...</label>
+                                        </fieldset>
                                     </div>
                                 </div>
                                 <div class="ui-block-a">
@@ -87,7 +92,7 @@
 
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="_id_dow" class="hidden" data-role="none">
+                                    <input type="text" id="_id_sch" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
                                             type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
@@ -95,8 +100,13 @@
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">หมวดหมู่ : </label> 
-                                        <select id="_id_gro" data-mini="true"></select>
+                                        <label for="foo" class="ui-input-text">ประเภท : </label> 
+                                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                            <input type="radio" name="_category" id="_category-1"  value="1"/>
+                                            <label for="_category-1">ตารางเรียน</label>
+                                            <input type="radio" name="_category" id="_category-0" value="0" />
+                                            <label for="_category-0">ปฏิทินกา...</label>
+                                        </fieldset>
                                     </div>
                                 </div>
                                 <div class="ui-block-a">

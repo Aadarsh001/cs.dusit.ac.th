@@ -30,8 +30,7 @@ var page = "qassurance";
 window.onload = function onload() {
     $('.headcontent').attr('style', 'background-image: url(images/head' + page + '.png);');
     tab_btn();
-    $('#file').nUpload();
-    $('_file').nUpload();
+    $('.file').nUpload();
     qassurance.start();
 };
 
@@ -169,6 +168,12 @@ var qassurance = {
                     alert("Error : 0101");
                     $.mobile.loading('hide');
                 }
+            },
+            progress: function(e) {
+                if (e.lengthComputable) {
+                    var pct = (e.loaded / e.total) * 100;
+                    $.mobile.showPageLoadingMsg("a", "กำลังโหลด " + parseInt(pct) + "%", false);
+                }
             }
         });
     },
@@ -181,6 +186,8 @@ var qassurance = {
                 'id_qas': $('#_id_qas').val(),
                 'title': $('#_title').val(),
                 'category': $('input[name="_category"]:checked').val(),
+                'file': $('#_file').attr('data'),
+                'filename': $('#_file').val(),
                 'status': $('input[name="_status"]:checked').val()
             },
             dataType: 'json',
@@ -195,6 +202,12 @@ var qassurance = {
                 } else {
                     alert("Error : 0102");
                     $.mobile.loading('hide');
+                }
+            },
+            progress: function(e) {
+                if (e.lengthComputable) {
+                    var pct = (e.loaded / e.total) * 100;
+                    $.mobile.showPageLoadingMsg("a", "กำลังโหลด " + parseInt(pct) + "%", false);
                 }
             }
         });

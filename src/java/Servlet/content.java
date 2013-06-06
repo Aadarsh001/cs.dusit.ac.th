@@ -146,6 +146,13 @@ public class content extends HttpServlet {
                     data.put("id_stu", request.getParameter("id_stu"));
                 }
                 break;
+            case schedule:
+                if (Option.show.toString().equals(option)) {
+                    data.put("category", request.getParameter("category"));
+                } else if (Option.some.toString().equals(option)) {
+                    data.put("id_sch", request.getParameter("id_sch"));
+                }
+                break;
             case course:
                 if (Option.some.toString().equals(option)) {
                     data.put("id_cou", request.getParameter("id_cou"));
@@ -228,13 +235,11 @@ public class content extends HttpServlet {
         JSONObject data = new JSONObject();
         String content = request.getParameter("content");
         String option = request.getParameter("option");
+        data.put("path", getServletContext().getRealPath("/"));
         switch (Content.valueOf(content)) {
             case slideshow:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_sli", request.getParameter("id_sli"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     String image = request.getParameter("image");
@@ -267,30 +272,9 @@ public class content extends HttpServlet {
                 }
                 break;
             case news:
-                data.put("path", getServletContext().getRealPath("/"));
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_new", request.getParameter("id_new"));
                 }
-//                if (Option.add.toString().equals(option)) {
-//                    String file = request.getParameter("file");
-//                    String filename = request.getParameter("filename");
-//                    if (file != null) {
-//                        if (!"".equals(file)) {
-//                            String path = "file/news/" + UUID.randomUUID();
-//                            String[] filename_temp = filename.split("[.]");
-//                            filename = filename_temp[filename_temp.length - 1];
-//                            String[] datas = file.split("[,]");
-//                            BASE64Decoder decoder = new BASE64Decoder();
-//                            filename = path + "." + filename;
-//                            String base64 = datas[1];
-//                            byte[] normal = decoder.decodeBuffer(base64);
-//                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
-//                            fo.write(normal);
-//                            fo.close();
-//                        }
-//                    }
-//                    data.put("file", filename);
-//                }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     data.put("title", request.getParameter("title"));
                     data.put("file", request.getParameter("file"));
@@ -303,9 +287,6 @@ public class content extends HttpServlet {
             case event:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_eve", request.getParameter("id_eve"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.add.toString().equals(option)) {
                     String[] image = request.getParameterValues("image[]");
@@ -346,9 +327,6 @@ public class content extends HttpServlet {
             case knowledge:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_kno", request.getParameter("id_kno"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.add.toString().equals(option)) {
                     String[] image = request.getParameterValues("image[]");
@@ -419,9 +397,6 @@ public class content extends HttpServlet {
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_per", request.getParameter("id_per"));
                 }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
-                }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     String image = request.getParameter("image");
                     String filename = request.getParameter("filename");
@@ -460,12 +435,21 @@ public class content extends HttpServlet {
                     data.put("status", request.getParameter("status"));
                 }
                 break;
+            case schedule:
+                if (Option.add.toString().equals(option) || Option.edit.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("category", request.getParameter("category"));
+                    data.put("file", request.getParameter("file"));
+                    data.put("filename", request.getParameter("filename"));
+                    data.put("status", request.getParameter("status"));
+                }
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_sch", request.getParameter("id_sch"));
+                }
+                break;
             case course:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_cou", request.getParameter("id_cou"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
@@ -495,9 +479,6 @@ public class content extends HttpServlet {
             case academic:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_aca", request.getParameter("id_aca"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
@@ -529,9 +510,6 @@ public class content extends HttpServlet {
             case research:
                 if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
                     data.put("id_res", request.getParameter("id_res"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
                 }
                 if (Option.add.toString().equals(option)) {
                     String file = request.getParameter("file");
@@ -572,36 +550,15 @@ public class content extends HttpServlet {
                 }
                 break;
             case qassurance:
-                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
-                    data.put("id_qas", request.getParameter("id_qas"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
-                }
-                if (Option.add.toString().equals(option)) {
-                    String file = request.getParameter("file");
-                    String filename = request.getParameter("filename");
-                    if (file != null) {
-                        if (!"".equals(file)) {
-                            String path = "file/qassurance/" + UUID.randomUUID();
-                            String[] filename_temp = filename.split("[.]");
-                            filename = filename_temp[filename_temp.length - 1];
-                            String[] datas = file.split("[,]");
-                            BASE64Decoder decoder = new BASE64Decoder();
-                            filename = path + "." + filename;
-                            String base64 = datas[1];
-                            byte[] normal = decoder.decodeBuffer(base64);
-                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
-                            fo.write(normal);
-                            fo.close();
-                        }
-                    }
-                    data.put("file", filename);
-                }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                if (Option.add.toString().equals(option) || Option.edit.toString().equals(option)) {
                     data.put("title", request.getParameter("title"));
                     data.put("category", request.getParameter("category"));
+                    data.put("file", request.getParameter("file"));
+                    data.put("filename", request.getParameter("filename"));
                     data.put("status", request.getParameter("status"));
+                }
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_qas", request.getParameter("id_qas"));
                 }
                 break;
             case groupdownload:
@@ -612,38 +569,17 @@ public class content extends HttpServlet {
                     data.put("title", request.getParameter("title"));
                     data.put("status", request.getParameter("status"));
                 }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
-                }
                 break;
             case download:
-                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
-                    data.put("id_dow", request.getParameter("id_dow"));
-                }
-                if (Option.remove.toString().equals(option)) {
-                    data.put("path", getServletContext().getRealPath("/"));
-                }
-                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
-                    String file = request.getParameter("file");
-                    String filename = "";
-                    if (file != null) {
-                        if (!"".equals(file)) {
-                            String[] datas = file.split("[,]");
-                            String[] filetype = datas[0].split("[/]");
-                            filetype = filetype[1].split("[;]");
-                            BASE64Decoder decoder = new BASE64Decoder();
-                            filename = "file/download/" + UUID.randomUUID() + "." + filetype[0];
-                            String base64 = datas[1];
-                            byte[] normal = decoder.decodeBuffer(base64);
-                            FileOutputStream fo = new FileOutputStream(getServletContext().getRealPath("/") + filename);
-                            fo.write(normal);
-                            fo.close();
-                        }
-                    }
+                if (Option.add.toString().equals(option) || Option.edit.toString().equals(option)) {
                     data.put("id_gro", request.getParameter("id_gro"));
                     data.put("title", request.getParameter("title"));
-                    data.put("file", filename);
+                    data.put("file", request.getParameter("file"));
+                    data.put("filename", request.getParameter("filename"));
                     data.put("status", request.getParameter("status"));
+                }
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_dow", request.getParameter("id_dow"));
                 }
                 break;
             case session:

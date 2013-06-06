@@ -57,7 +57,6 @@ var news = {
             if (($('#title').val() !== "")
                     && ($('#startdate').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')) {
-                    $.mobile.loading('show');
                     news.add();
                 }
             } else {
@@ -68,7 +67,6 @@ var news = {
             if (($('#_title').val() !== "")
                     && ($('#_startdate').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')) {
-                    $.mobile.loading('show');
                     news.edit();
                 }
             } else {
@@ -184,7 +182,6 @@ var news = {
                 if (e.lengthComputable) {
                     var pct = (e.loaded / e.total) * 100;
                     $.mobile.showPageLoadingMsg("a", "กำลังโหลด " + parseInt(pct) + "%", false);
-                    console.log(pct);
                 }
             }
         });
@@ -221,7 +218,6 @@ var news = {
                 if (e.lengthComputable) {
                     var pct = (e.loaded / e.total) * 100;
                     $.mobile.showPageLoadingMsg("a", "กำลังโหลด " + parseInt(pct) + "%", false);
-                    console.log(pct);
                 }
             }
         });

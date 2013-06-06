@@ -19,11 +19,4 @@ IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
 IncludeCSS('css/jquery.nplugins-0.0.1.css');
 IncludeCSS('css/style.css');
-IncludeCSS('css/admin.css');
-
-window.onload = function onload(){
-    $('.headcontent').attr('style', 'background-image: url(images/headadmin.png);');
-    $('.admin_btn').click(function(){
-        PageAdmin($(this).attr('id'));
-    });      
-};
+IncludeCSS('css/about.css');
