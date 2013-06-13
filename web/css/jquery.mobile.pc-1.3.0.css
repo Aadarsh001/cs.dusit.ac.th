@@ -13,7 +13,7 @@ body{
         min-height: 98% !important;*/
     font-size: 87.5%;
     margin: 2% 0;
-    background: #f8e3b7 url('../images/bg.png') repeat-x;
+    background: #f8e3b7 url('../images/bg.png') fixed repeat-x;
 }
 [data-role=page]{
     background-image: none;

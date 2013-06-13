@@ -68,7 +68,7 @@ window.onload = function onload(){
             }
         }
     });
-    $('#detail').wysiwyg('setContent','<b>&nbsp;&nbsp;วุฒิการศึกษา :&nbsp;</b><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; อีเมล :&nbsp;</b></div><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เบอร์โทร :&nbsp;</b></div><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เว็บไซต์ :&nbsp;</b></div>');
+    $('#detail').wysiwyg('setContent','<b>&nbsp;&nbsp;วุฒิการศึกษา&nbsp;&nbsp;:&nbsp;</b><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; อีเมล :&nbsp;</b></div><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เบอร์โทร :&nbsp;</b></div><div><b><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เว็บไซต์ :&nbsp;</b></div>');
     tab_btn();
     $('#image_file').nPreview('#image',240,320,'images/320x240.png');
     $('#_image_file').nPreview('#_image',240,320,'images/320x240.png');
