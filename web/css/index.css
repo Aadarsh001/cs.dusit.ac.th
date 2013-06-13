@@ -45,12 +45,12 @@
 .titlenews.ui-grid-b .ui-block-b{
     margin: 5px 0;
     width: 10%;
-    font-size: 14px;
+    font-size: 1em;
 }
 .titlenews.ui-grid-b .ui-block-c{
     margin: 5px 0;
     width: 85%;
-    font-size: 14px;
+    font-size: 1em;
     white-space: nowrap;
 }
 .titlenews.ui-grid-b .more.ui-block-b{
@@ -106,11 +106,11 @@
     height: 180px;
     margin: 15px 0 15px 0px;
     overflow: hidden; 
-    font-size: 12px;
+    font-size: 1em;
 }
 .firstevent{
     font-weight: bolder;
-    font-size: 14px; 
+    font-size: 1.2em; 
     white-space: nowrap;
     overflow: hidden;
     margin: 10px auto;
@@ -134,8 +134,8 @@
     width: 575px;
     height: 80px;
     margin: 0px 0px 15px 0px;
-    overflow: hidden; 
-    font-size: 12px;
+    overflow: hidden;
+    font-size: 1em;
 }
 .title{
     width: 550px;
