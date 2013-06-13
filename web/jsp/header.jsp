@@ -18,7 +18,7 @@
         <li><a href="course" rel="external"><div>โครงสร้างหลักสูตร</div></a></li>
         <li><a href="academic" rel="external"><div>วิจัยและบริการวิชาการ</div></a></li>
         <li><a href="qassurance" rel="external"><div>ประกันคุณภาพ</div></a></li>
-        <li><a href="download" rel="external"><div>เอกสารดาวน์โหลด</div></a></li>
+        <li><a href="download" rel="external"><div>ดาวน์โหลดเอกสาร</div></a></li>
         <li><a href="contact" target="" rel="external"><div>ติดต่อ</div></a></li>
     </ul>
 </div>

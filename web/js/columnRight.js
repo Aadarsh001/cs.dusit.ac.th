@@ -83,7 +83,7 @@ function check_login(){
         success : function (data){
             var content = '<div class="ui-block-a login"></div><div class="ui-block-b login"><div class="frmemail">ยินดีต้อนรับ<br/>\n\
 คุณ '+data.fname+' '+data.lname+'<br/><br/>\n\
-<div class="user_menu"><a  href="account">- แก้ไขข้อมูลส่วนตัว</a><br/>';
+<div class="user_menu"><a  href="#">- แก้ไขข้อมูลส่วนตัว</a><br/>';
             if(data.status == "2"){
                 content += '<a href="admin" rel="external">- ระบบจัดการเนื้อหาเว็บ</a><br/>';
             }

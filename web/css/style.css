@@ -57,7 +57,7 @@
 .headlogin{
     width: 100%;
     background-image: url('../images/login.png');
-    height: 60px;
+    height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .login.ui-grid-b .login.ui-block-a , .login.ui-grid-b .login.ui-block-c{
@@ -82,7 +82,7 @@
 .headcalendar{
     width: 100%;
     background-image: url('../images/calendar.png');
-    height: 60px;
+    height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headlink{
