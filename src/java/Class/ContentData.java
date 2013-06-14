@@ -12,7 +12,7 @@ public class ContentData {
 
     public enum Content {
 
-        slideshow, news, event, knowledge, link, calendar, user, personnel, student, schedule, course, academic, research, project, qassurance, groupdownload, download, session;
+        slideshow, news, event, knowledge, link, calendar, user, personnel, student, schedule, service, course, academic, research, project, qassurance, groupdownload, download, session;
     }
 
     public enum Option {

@@ -34,6 +34,7 @@
                         <a href="#" class="admin_btn" id="academic">- เพิ่ม/แก้ไข ผลงานวิชาการ</a><br/>
                         <a href="#" class="admin_btn" id="research">- เพิ่ม/แก้ไข ผลงานวิจัย</a><br/>
                         <a href="#" class="admin_btn" id="project">- เพิ่ม/แก้ไข ผลงานนักศึกษา</a><br/>
+                        <a href="#" class="admin_btn" id="service">- เพิ่ม/แก้ไข บริการวิชาการ</a><br/>
                         <a href="#" class="admin_btn" id="qassurance">- เพิ่ม/แก้ไข ประกันคุณภาพ</a><br/>
                         <a href="#" class="admin_btn" id="download">- เพิ่ม/แก้ไข เอกสารดาวน์โหลด</a><br/>
                         <a href="#" class="admin_btn" id="groupdownload">- เพิ่ม/แก้ไข หมวดหมู่เอกสารดาวน์โหลด</a><br/>

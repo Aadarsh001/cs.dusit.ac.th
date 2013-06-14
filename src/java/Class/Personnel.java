@@ -53,7 +53,7 @@ public class Personnel {
             Connect con = new Connect();
             con.connect();
             String select = "SELECT * FROM personnel "
-                    + "WHERE status = '1' "
+                    + "WHERE status != '0' "
                     + "ORDER BY sequence ASC,id_per ASC";
             con.query(select);
             while (con.next()) {

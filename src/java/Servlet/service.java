@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author NewSuppamit
  */
-public class schedule extends HttpServlet {
+public class service extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -37,13 +37,13 @@ public class schedule extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet schedule</title>");            
+            out.println("<title>Servlet service</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet schedule at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet service at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        } finally {            
+        } finally {
             out.close();
         }
     }
@@ -61,7 +61,7 @@ public class schedule extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String page = "frmOfschedule.jsp";
+        String page = "frmOfservice.jsp";
         RequestDispatcher view = request.getRequestDispatcher(page);
         view.forward(request, response);
     }

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : frmOfacademic
-    Created on : May 23, 2013, 2:20:59 PM
-    Author     : Note
+    Document   : frmOfservice
+    Created on : Jun 14, 2013, 12:29:34 PM
+    Author     : NewSuppamit
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,12 +12,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>หลักสูตรวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏสวนดุสิต ศูนย์การเรียนรางน้ำ</title>
-        <script type="text/javascript" src="js/download.js"></script>
+        <script type="text/javascript" src="js/service.js"></script>
     </head>
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">
+            <div data-role="content">          
                 <div class="ui-grid-a column">
                     <div class="ui-block-a column">
                         <div class="headcontent"></div>

@@ -72,7 +72,7 @@ function news() {
                 data: {
                     'content': 'news',
                     'option': 'show',
-                    'rp': '8'
+                    'rp': '5'
                 },
                 dataType: 'json',
                 type: 'get',
@@ -98,7 +98,7 @@ function event() {
         data: {
             'content': 'event',
             'option': 'show',
-            'rp': '5'
+            'rp': '3'
         },
         dataType: 'json',
         type: 'get',
@@ -143,7 +143,7 @@ function knowledge() {
         data: {
             'content': 'knowledge',
             'option': 'show',
-            'rp': '5'
+            'rp': '3'
         },
         dataType: 'json',
         type: 'get',

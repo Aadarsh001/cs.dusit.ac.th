@@ -64,6 +64,10 @@
         <servlet-name>schedule</servlet-name>
         <servlet-class>Servlet.schedule</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>service</servlet-name>
+        <servlet-class>Servlet.service</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>schedule</servlet-name>
         <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>service</servlet-name>
+        <url-pattern>/service</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
