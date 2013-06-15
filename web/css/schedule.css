@@ -25,13 +25,19 @@
 
 .headtable{
     width: 100%;
-    background-image: url('../images/headschedule_table.png');
+    background: url('../images/headschedule_table.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
-.headcalendar{
+.headcalendar_teacher{
     width: 100%;
-    background-image: url('../images/headschedule_calendar.png');
+    background: url('../images/headschedule_teacher.png') no-repeat;
+    height: 50px;
+    border-bottom: solid #E1E1E1 1px;
+}
+.headcalendar_student{
+    width: 100%;
+    background: url('../images/headschedule_student.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }

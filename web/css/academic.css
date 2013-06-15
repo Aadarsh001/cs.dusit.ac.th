@@ -25,19 +25,19 @@
 
 .headacademic{
     width: 100%;
-    background-image: url('../images/headacademic_academic.png');
+    background: url('../images/headacademic_academic.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headresearch{
     width: 100%;
-    background-image: url('../images/headacademic_research.png');
+    background: url('../images/headacademic_research.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headproject{
     width: 100%;
-    background-image: url('../images/headacademic_project.png');
+    background: url('../images/headacademic_project.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }

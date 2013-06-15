@@ -5,6 +5,18 @@
 /* ColumnLeft END */
 
 /* ColumnRight START */
+#cisco{
+    min-height: 100px;
+    background-image: url('../images/cisco.png');
+}
+#oracle{
+    min-height: 100px;
+    background-image: url('../images/oracle.png');
+}
+#microsoft{
+    min-height: 100px;
+    background-image: url('../images/microsoft.png');
+}
 .user_menu{
     text-align: left;
 }

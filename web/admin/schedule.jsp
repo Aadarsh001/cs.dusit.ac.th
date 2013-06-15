@@ -38,11 +38,13 @@
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ประเภท : </label> 
-                                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                        <fieldset data-role="controlgroup" data-mini="true">
                                             <input type="radio" name="category" id="1"  value="1" checked/>
                                             <label for="1">ตารางเรียน</label>
                                             <input type="radio" name="category" id="0" value="0" />
-                                            <label for="0">ปฏิทินกา...</label>
+                                            <label for="0">ปฏิทินการศึกษา(อาจารย์)</label>
+                                            <input type="radio" name="category" id="2" value="2" />
+                                            <label for="2">ปฏิทินการศึกษา(นักศึกษา)</label>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -101,11 +103,13 @@
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ประเภท : </label> 
-                                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                        <fieldset data-role="controlgroup" data-mini="true">
                                             <input type="radio" name="_category" id="_category-1"  value="1"/>
                                             <label for="_category-1">ตารางเรียน</label>
                                             <input type="radio" name="_category" id="_category-0" value="0" />
-                                            <label for="_category-0">ปฏิทินกา...</label>
+                                            <label for="_category-0">ปฏิทินการศึกษา(อาจารย์)</label>
+                                            <input type="radio" name="_category" id="_category-2" value="2" />
+                                            <label for="_category-2">ปฏิทินการศึกษา(นักศึกษา)</label>
                                         </fieldset>
                                     </div>
                                 </div>

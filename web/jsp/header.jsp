@@ -11,7 +11,7 @@
         </li>
         <li class='has-sub'><a href="" id="" rel="external"><div>ตารางเวลา</div></a>
             <ul>
-                <li><a href="schedule?id=table" rel="external"><div>ตารางเรียน</div></a></li>
+                <li><a href="schedule" rel="external"><div>ตารางเรียน</div></a></li>
                 <li><a href="schedule?id=calendar" rel="external"><div>ปฏิทินการศึกษา</div></a></li>
             </ul>
         </li>

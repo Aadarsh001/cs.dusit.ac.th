@@ -85,8 +85,10 @@ var schedule = {
                     }
                     if (data.data[i].category === "1") {
                         category = "ตารางเรียน";
+                    } else if (data.data[i].category === "2") {
+                        category = "ปฏิทินการศึกษา(นักศึกษา)";
                     } else {
-                        category = "ปฏิทินการศึกษา";
+                        category = "ปฏิทินการศึกษา(อาจารย์)";
                     }
                     $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_sch + "><td>"
                             + data.data[i].title + "</td><td>"
@@ -128,8 +130,11 @@ var schedule = {
                 $('#_title').val(data.title);
                 $('#_category-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_category-1').removeAttr("checked").checkboxradio("refresh");
+                $('#_category-2').removeAttr("checked").checkboxradio("refresh");
                 if (data.category === "1") {
                     $('#_category-1').attr("checked", true).checkboxradio("refresh");
+                } else if (data.category === "2") {
+                    $('#_category-2').attr("checked", true).checkboxradio("refresh");
                 } else {
                     $('#_category-0').attr("checked", true).checkboxradio("refresh");
                 }

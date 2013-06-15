@@ -26,14 +26,15 @@ window.onload = function() {
     var content = getUrlVars()["id"];
     if (content === "calendar") {
         setTimeout(function() {
-            $('.headcalendar')[0].scrollIntoView(true);
+            $('.headcalendar_teacher')[0].scrollIntoView(true);
         }, 100);
     }
-    sko.start();
-    sms.start();
+    table.start();
+    teacher.start();
+    student.start();
 };
 
-var sko = {
+var table = {
     start: function() {
         $.ajax({
             url: 'content',
@@ -53,7 +54,7 @@ var sko = {
     }
 };
 
-var sms = {
+var teacher = {
     start: function() {
         $.ajax({
             url: 'content',
@@ -66,7 +67,7 @@ var sms = {
             type: 'get',
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contentcalendar').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
+                    $('#contentteacher').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
                 }
             }
         });
@@ -80,3 +81,23 @@ function getUrlVars() {
     });
     return vars;
 }
+
+var student = {
+    start: function() {
+        $.ajax({
+            url: 'content',
+            data: {
+                'content': 'schedule',
+                'option': 'show',
+                'category': '2'
+            },
+            dataType: 'json',
+            type: 'get',
+            success: function(data) {
+                for (var i = 0; i < data.data.length; i++) {
+                    $('#contentstudent').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
+                }
+            }
+        });
+    }
+};

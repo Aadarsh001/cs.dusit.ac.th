@@ -29,3 +29,6 @@
         <ui id="frm_link"></ui>
     </div>   
 </div>
+<div id="cisco" class="frmcolR"></div>
+<div id="oracle" class="frmcolR"></div>
+<div id="microsoft" class="frmcolR"></div>

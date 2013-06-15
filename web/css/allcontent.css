@@ -16,9 +16,13 @@
 }
 .headcontent{
     width: 100%;
-/*    background-image: url('../images/headnews.png');*/
+    /*    background-image: url('../images/headnews.png');*/
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
+}
+
+.allcontent.ui-grid-a{
+    min-height: 400px;    
 }
 
 .allcontent.ui-grid-a .ui-block-a{

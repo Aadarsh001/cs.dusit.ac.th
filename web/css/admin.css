@@ -1,3 +1,7 @@
+.ui-field-contain .ui-controlgroup-controls{
+    width: 100%;
+}
+
 .ui-navbar.ui-mini{
     margin: 10px auto;
 }

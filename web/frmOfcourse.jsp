@@ -17,16 +17,18 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">          
-                <div class="ui-grid-a column">
-                    <div class="ui-block-a column">
-                        <div class="headcontent"></div>
-                        <div class="showcontent"></div>
-                    </div>
-                    <div class="ui-block-b column">
-                        <jsp:include page="jsp/columnRight.jsp" />
-                    </div>
-                </div>
+            <div data-role="content">      
+                <div class="headcontent"></div>
+                <div class="showcontent"></div>
+                <!--                <div class="ui-grid-a column">
+                                    <div class="ui-block-a column">
+                                        <div class="headcontent"></div>
+                                        <div class="showcontent"></div>
+                                    </div>
+                                    <div class="ui-block-b column">
+                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
+            </div>
+        </div>-->
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

@@ -13,4 +13,5 @@
 
 .showcontent{
     margin: 15px 10px;
+    min-height: 400px;
 }

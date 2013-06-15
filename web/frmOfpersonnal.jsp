@@ -17,29 +17,42 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">          
-                <div class="ui-grid-a column">
-                    <div class="ui-block-a column">
-                        <!--<div class="headcontent"></div>-->
-                        <div data-role="collapsible-set" id="results">
-                            <div data-role="collapsible" data-mini="true" data-collapsed="false" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-                                <h2><img src="images/manager.png" /></h4>
-                                    <div class="showcontent" id="manager"></div>
-                            </div>
-                            <div data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-                                <h2><img src="images/teacher.png" /></h2>
-                                <div class="showcontent" id="teacher"></div>
-                            </div>
-                            <div data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-                                <h2><img src="images/officer.png" /></h2>
-                                <div class="showcontent" id="officer"></div>
-                            </div>
-                        </div>
+            <div data-role="content">    
+                <div data-role="collapsible-set" id="results" style="min-height: 400px;">
+                    <div class="manager" data-role="collapsible" data-mini="true" data-collapsed="false" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                        <h2><img src="images/manager.png" /></h4>
+                            <div class="showcontent" id="manager"></div>
                     </div>
-                    <div class="ui-block-b column">
-                        <jsp:include page="jsp/columnRight.jsp" />
+                    <div class="teacher" data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                        <h2><img src="images/teacher.png" /></h2>
+                        <div class="showcontent" id="teacher"></div>
+                    </div>
+                    <div class="officer" data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                        <h2><img src="images/officer.png" /></h2>
+                        <div class="showcontent" id="officer"></div>
                     </div>
                 </div>
+                <!--                <div class="ui-grid-a column">
+                                    <div class="ui-block-a column">
+                                        <div data-role="collapsible-set" id="results">
+                                            <div data-role="collapsible" data-mini="true" data-collapsed="false" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                                                <h2><img src="images/manager.png" /></h4>
+                                                    <div class="showcontent" id="manager"></div>
+                                            </div>
+                                            <div data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                                                <h2><img src="images/teacher.png" /></h2>
+                                                <div class="showcontent" id="teacher"></div>
+                                            </div>
+                                            <div data-role="collapsible" data-mini="true" data-collapsed="true" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                                                <h2><img src="images/officer.png" /></h2>
+                                                <div class="showcontent" id="officer"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-block-b column">
+                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
+            </div>
+        </div>-->
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

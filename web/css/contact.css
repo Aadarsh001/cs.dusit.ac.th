@@ -1,9 +1,16 @@
 .headcontact{
     width: 100%;
-    background-image: url('../images/headcontact.png');
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
     background-repeat: no-repeat;
+}
+
+#detail{
+    background-image: url('../images/headcontact.png');
+}
+
+#map{
+    background-image: url('../images/headmap.png'); 
 }
 
 .cont{
@@ -11,8 +18,15 @@
     margin-left: 30px;
     line-height: 40px;
     font-weight: bold;
-    font-size: 18px;
-    color : slategrey;
+    font-size: 1em;
+}
+
+.contB{
+    width: 90%;
+    margin-left: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .map{

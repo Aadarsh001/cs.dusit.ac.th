@@ -17,25 +17,39 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">          
-                <div class="ui-grid-a column">
-                    <div class="ui-block-a column">
-                        <div class="headcontact"></div>
-                        <div class="detailcontact">
-                            <span class="cont" >หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
-                            <span class="cont">ที่ตั้ง : 107 ถนนรางน้ำ แขวงพญาไท เขตราชเทวี กรุงเทพมหานคร 10400</span><br/>
-                            <span class="cont">โทรศัพท์ : 02-6425596 ต่อ 6295</span><br/>
-                            <span class="cont">โทรสาร : 02-6425596</span><br/>
-                            <span class="cont">เว็บไซต์ : <a href="" >http://cs.dusit.ac.th</a></span><br/>
-                            <span class="cont">Facebook : <a href="http://www.facebook.com/groups/comsci.rangnam/" target="_blank">http://www.facebook.com/groups/comsci.rangnam</a></span><br/>
-                            <span class="cont">แผนที่ </span>
-                            <div class="map"></div>
-                        </div>
-                    </div>
-                    <div class="ui-block-b column">
-                        <jsp:include page="jsp/columnRight.jsp" />
-                    </div>
+            <div data-role="content">     
+                <div class="headcontact" id="detail"></div>
+                <div class="detailcontact">
+                    <span class="contB">หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
+                    <span class="cont">ที่ตั้ง : 107 ถนนรางน้ำ แขวงพญาไท เขตราชเทวี กรุงเทพมหานคร 10400</span><br/>
+                    <span class="cont">โทรศัพท์ : 02-6425596 ต่อ 6295</span><br/>
+                    <span class="cont">โทรสาร : 02-6425596</span><br/>
+                    <span class="cont">เว็บไซต์ : <a href="" >http://cs.dusit.ac.th</a></span><br/>
+                    <span class="cont">Facebook : <a href="http://www.facebook.com/groups/comsci.rangnam/" target="_blank">http://www.facebook.com/groups/comsci.rangnam</a></span><br/>
+                    <br/>
                 </div>
+                <div class="headcontact" id="map"></div>
+                <div class="detailcontact">
+                    <div class="map"></div>
+                </div>
+                <!--                <div class="ui-grid-a column">
+                                    <div class="ui-block-a column">
+                                        <div class="headcontact"></div>
+                                        <div class="detailcontact">
+                                            <span class="cont" >หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
+                                            <span class="cont">ที่ตั้ง : 107 ถนนรางน้ำ แขวงพญาไท เขตราชเทวี กรุงเทพมหานคร 10400</span><br/>
+                                            <span class="cont">โทรศัพท์ : 02-6425596 ต่อ 6295</span><br/>
+                                            <span class="cont">โทรสาร : 02-6425596</span><br/>
+                                            <span class="cont">เว็บไซต์ : <a href="" >http://cs.dusit.ac.th</a></span><br/>
+                                            <span class="cont">Facebook : <a href="http://www.facebook.com/groups/comsci.rangnam/" target="_blank">http://www.facebook.com/groups/comsci.rangnam</a></span><br/>
+                                            <span class="cont">แผนที่ </span>
+                                            <div class="map"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-block-b column">
+                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
+            </div>
+        </div>-->
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

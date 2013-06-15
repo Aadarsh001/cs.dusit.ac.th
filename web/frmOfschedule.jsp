@@ -17,25 +17,40 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">          
-                <div class="ui-grid-a column">
-                    <div class="ui-block-a column">
-                        <div class="headcontent"></div>
-                        <div class="showcontent">
-                            <div id="frm" class="frmcontent">
-                                <div class="headtable"></div>
-                                <div id="contenttable" class="content"></div>
-                            </div>
-                            <div id="frm" class="frmcontent">
-                                <div class="headcalendar"></div>
-                                <div id="contentcalendar" class="content"></div>
-                            </div>
-                        </div>
+            <div data-role="content">      
+                <div class="headcontent"></div>
+                <div class="showcontent">
+                    <div id="frm" class="frmcontent">
+                        <div class="headtable"></div>
+                        <div id="contenttable" class="content"></div>
                     </div>
-                    <div class="ui-block-b column">
-                        <jsp:include page="jsp/columnRight.jsp" />
+                    <div id="frm" class="frmcontent">
+                        <div class="headcalendar_teacher"></div>
+                        <div id="contentteacher" class="content"></div>
+                    </div>
+                    <div id="frm" class="frmcontent">
+                        <div class="headcalendar_student"></div>
+                        <div id="contentstudent" class="content"></div>
                     </div>
                 </div>
+                <!--                <div class="ui-grid-a column">
+                                    <div class="ui-block-a column">
+                                        <div class="headcontent"></div>
+                                        <div class="showcontent">
+                                            <div id="frm" class="frmcontent">
+                                                <div class="headtable"></div>
+                                                <div id="contenttable" class="content"></div>
+                                            </div>
+                                            <div id="frm" class="frmcontent">
+                                                <div class="headcalendar"></div>
+                                                <div id="contentcalendar" class="content"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-block-b column">
+                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
+            </div>
+        </div>-->
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

@@ -100,7 +100,7 @@ function showevent(id){
                 }
             }
             $('.headcontent').css('background-image', 'url("images/headevent.png")');
-            var title = data.title.substr(0,68);
+            var title = data.title;
             var date = data.startdate.substr(6, 2)+"/"+data.startdate.substr(4, 2)+"/"+data.startdate.substr(2, 2);
             $('.showcontent').append('<div class="date">วันที่ : '+date+'</div><div class="title">'+title+'</div><div class="detail">'+detail+'</div>'); 
             

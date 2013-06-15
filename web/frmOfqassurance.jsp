@@ -17,25 +17,36 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">          
-                <div class="ui-grid-a column">
-                    <div class="ui-block-a column">
-                        <div class="headcontent"></div>
-                        <div class="showcontent">
-                            <div id="frm" class="frmcontent">
-                                <div class="headsko"></div>
-                                <div id="contentsko" class="content"></div>
-                            </div>
-                            <div id="frm" class="frmcontent">
-                                <div class="headsms"></div>
-                                <div id="contentsms" class="content"></div>
-                            </div>
-                        </div>
+            <div data-role="content">    
+                <div class="headcontent"></div>
+                <div class="showcontent">
+                    <div id="frm" class="frmcontent">
+                        <div class="headsko"></div>
+                        <div id="contentsko" class="content"></div>
                     </div>
-                    <div class="ui-block-b column">
-                        <jsp:include page="jsp/columnRight.jsp" />
+                    <div id="frm" class="frmcontent">
+                        <div class="headsms"></div>
+                        <div id="contentsms" class="content"></div>
                     </div>
                 </div>
+                <!--                <div class="ui-grid-a column">
+                                    <div class="ui-block-a column">
+                                        <div class="headcontent"></div>
+                                        <div class="showcontent">
+                                            <div id="frm" class="frmcontent">
+                                                <div class="headsko"></div>
+                                                <div id="contentsko" class="content"></div>
+                                            </div>
+                                            <div id="frm" class="frmcontent">
+                                                <div class="headsms"></div>
+                                                <div id="contentsms" class="content"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-block-b column">
+                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
+            </div>
+        </div>-->
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

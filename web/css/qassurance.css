@@ -25,13 +25,13 @@
 
 .headsko{
     width: 100%;
-    background-image: url('../images/headqassurance_sko.png');
+    background: url('../images/headqassurance_sko.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headsms{
     width: 100%;
-    background-image: url('../images/headqassurance_sms.png');
+    background: url('../images/headqassurance_sms.png') no-repeat;
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }

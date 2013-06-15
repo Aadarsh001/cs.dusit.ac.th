@@ -20,6 +20,7 @@
 
 .showcontent{
     margin: 15px 10px;
+    min-height: 400px;
 }
 .date{
     font-size: 1em;
