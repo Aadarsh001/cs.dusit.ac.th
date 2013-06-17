@@ -25,34 +25,34 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
 
-var page = "link";
+var page = "service";
 
 window.onload = function onload(){
     $('.headcontent').attr('style', 'background-image: url(images/head'+page+'.png);');
     tab_btn();
-    links.start();
-}
+    service.start();
+};
 
-var links = {
+var service = {
     start : function(){
-        links.all();
+        service.all();
         $('#submit_add').click(function(){
-            if(($('#title').val() != "")
-                &&($('#link').val() != "")){
+            if(($('#title').val() !== "")
+                &&($('#link').val() !== "")){
                 if(confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')){
                     $.mobile.loading( 'show');
-                    links.add();
+                    service.add();
                 }
             }else{
                 alert('กรุณาระบุข้อมูลทั้งหมด');
             }
         });
         $('#submit_edit').click(function(){
-            if(($('#_title').val() != "")
-                &&($('#_link').val() != "")){
+            if(($('#_title').val() !== "")
+                &&($('#_link').val() !== "")){
                 if(confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')){
                     $.mobile.loading( 'show');
-                    links.edit();
+                    service.edit();
                 }
             }else{
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -77,23 +77,22 @@ var links = {
             success : function (data){
                 for(var i =0;i<data.data.length;i++){
                     var status;
-                    if(data.data[i].status=="1"){
+                    if(data.data[i].status==="1"){
                         status = "แสดง";
                     }else{
                         status = "ซ่อน";
                     }
-                    $('#showAll').children("tbody").append("<tr id="+data.data[i].id_lin+"><td>"
+                    $('#showAll').children("tbody").append("<tr id="+data.data[i].id_ser+"><td>"
                         +data.data[i].title+"</td><td>"
                         +data.data[i].link+"</td><td>"
-                        +data.data[i].sequence+"</td><td>"
                         +status+"</td></tr>");
                 }
                 $('#showAll tr').click(function(){
-                    links.some($(this).attr("id"));
+                    service.some($(this).attr("id"));
                 });
                 $('#showAll tr').dblclick(function(){
                     if(confirm('กด “ตกลง” เพื่อยืนยันการลบข้อมูล!')){
-                        links.remove($(this).attr("id"));
+                        service.remove($(this).attr("id"));
                     }
                 });
                 $('#showAll').flexigrid({
@@ -111,7 +110,7 @@ var links = {
             data : {
                 'content' : page,
                 'option' : 'some',
-                'id_lin' : id
+                'id_ser' : id
             },
             dataType : 'json',
             type : 'get',
@@ -119,13 +118,12 @@ var links = {
                 alert("Error : 0x01");
             },
             success : function (data){
-                $('#_id_lin').val(data.id_lin);
+                $('#_id_ser').val(data.id_ser);
                 $('#_title').val(data.title);
                 $('#_link').val(data.link);
-                $('#_sequence').val(data.sequence).slider( "refresh" );
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");
-                if (data.status == "1") {
+                if (data.status === "1") {
                     $('#_status-1').attr("checked", true).checkboxradio("refresh");
                 } else {
                     $('#_status-0').attr("checked", true).checkboxradio("refresh");
@@ -141,7 +139,6 @@ var links = {
                 'option' : 'add',
                 'title' : $('#title').val(),
                 'link' : $('#link').val(),
-                'sequence' : $('#sequence').val(),
                 'status' : $('input[name="status"]:checked').val()
             },
             dataType : 'json',
@@ -151,7 +148,7 @@ var links = {
                 $.mobile.loading( 'hide');
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page);
                 }else{
                     alert("Error : 0101");
@@ -166,10 +163,9 @@ var links = {
             data : {
                 'content' : page,
                 'option' : 'edit',
-                'id_lin' : $('#_id_lin').val(),
+                'id_ser' : $('#_id_ser').val(),
                 'title' : $('#_title').val(),
                 'link' : $('#_link').val(),
-                'sequence' : $('#_sequence').val(),
                 'status' : $('input[name="_status"]:checked').val()
             },
             dataType : 'json',
@@ -179,7 +175,7 @@ var links = {
                 $.mobile.loading( 'hide');
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page,"?tab=edit");
                 }else{
                     alert("Error : 0102");
@@ -194,7 +190,7 @@ var links = {
             data : {
                 'content' : page,
                 'option' : 'remove',
-                'id_lin' : id
+                'id_ser' : id
             },
             dataType : 'json',
             type : 'post',
@@ -202,7 +198,7 @@ var links = {
                 alert("Error : 0113");
             },
             success : function (data){
-                if(data.result != "fail"){
+                if(data.result !== "fail"){
                     PageAdmin(page,"?tab=edit");
                 }else{
                     alert("Error : 0103");
@@ -210,4 +206,4 @@ var links = {
             }
         });
     }
-}
+};

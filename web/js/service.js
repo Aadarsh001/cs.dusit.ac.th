@@ -23,4 +23,24 @@ IncludeCSS('css/service.css');
 
 window.onload = function() {
     $('.headcontent').attr('style', 'background-image: url(images/headservice.png);');
+    service.start();
+};
+
+var service = {
+    start : function (){
+        $.ajax({
+            url: 'content',
+            data: {
+                'content': 'service',
+                'option': 'show'
+            },
+            dataType: 'json',
+            type: 'get',
+            success: function(data) {
+                for (var i = 0; i < data.data.length; i++) {
+                    $('.showcontent').append('<a rel="external" href="' + data.data[i].link + '">- ' + data.data[i].title + '</a><br/>');
+                }
+            }
+        });
+    }
 };

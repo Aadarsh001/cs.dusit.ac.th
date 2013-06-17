@@ -173,6 +173,11 @@ public class content extends HttpServlet {
                     data.put("id_pro", request.getParameter("id_pro"));
                 }
                 break;
+            case service:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_ser", request.getParameter("id_ser"));
+                }
+                break;
             case qassurance:
                 if (Option.show.toString().equals(option)) {
                     data.put("category", request.getParameter("category"));
@@ -545,6 +550,16 @@ public class content extends HttpServlet {
                     data.put("title", request.getParameter("title"));
                     data.put("owner", request.getParameter("owner"));
                     data.put("adviser", request.getParameter("adviser"));
+                    data.put("link", request.getParameter("link"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case service:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_ser", request.getParameter("id_ser"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
                     data.put("link", request.getParameter("link"));
                     data.put("status", request.getParameter("status"));
                 }

@@ -1,3 +1,17 @@
+.showcontent a{
+    line-height: 2em;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.showcontent a:link,.showcontent a:visited{
+    color: #3C3C3F;
+}
+
+.showcontent a:hover{
+    color: #FF9938;
+}
+
 .frmcontent{
     width: 100%;
     height: auto;

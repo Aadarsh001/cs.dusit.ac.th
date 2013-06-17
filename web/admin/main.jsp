@@ -25,8 +25,8 @@
                         <a href="#" class="admin_btn" id="news">- เพิ่ม/แก้ไข ข่าวประชาสัมพันธ์</a><br/>
                         <a href="#" class="admin_btn" id="event">- เพิ่ม/แก้ไข กิจกรรมที่น่าสนใจ</a><br/>
                         <a href="#" class="admin_btn" id="knowledge">- เพิ่ม/แก้ไข สาระน่ารู้</a><br/>
-                        <a href="#" class="admin_btn" id="link">- เพิ่ม/แก้ไข เว็บไซต์ที่เกี่ยวข้อง</a><br/>
                         <a href="#" class="admin_btn" id="calendar">- เพิ่ม/แก้ไข ปฏิทินกิจกรรม</a><br/>
+                        <a href="#" class="admin_btn" id="link">- เพิ่ม/แก้ไข เว็บไซต์ที่เกี่ยวข้อง</a><br/>
                         <a href="#" class="admin_btn" id="personnel">- เพิ่ม/แก้ไข ข้อมูลบุคลากร</a><br/>
                         <a href="#" class="admin_btn" id="student">- เพิ่ม/แก้ไข ข้อมูลนักศึกษา</a><br/>
                         <a href="#" class="admin_btn" id="schedule">- เพิ่ม/แก้ไข ตารางเวลา</a><br/>

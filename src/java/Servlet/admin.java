@@ -117,6 +117,9 @@ public class admin extends HttpServlet {
                 case student:
                     page = "admin/student.jsp";
                     break;
+                case service:
+                    page = "admin/service.jsp";
+                    break;
                 case schedule:
                     page = "admin/schedule.jsp";
                     break;

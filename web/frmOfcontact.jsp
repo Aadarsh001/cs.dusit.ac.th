@@ -20,7 +20,7 @@
             <div data-role="content">     
                 <div class="headcontact" id="detail"></div>
                 <div class="detailcontact">
-                    <span class="contB">หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
+                    <span class="cont">หลักสูตรวิทยาการคอมพิวเตอร์</span><br/>
                     <span class="cont">ที่ตั้ง : 107 ถนนรางน้ำ แขวงพญาไท เขตราชเทวี กรุงเทพมหานคร 10400</span><br/>
                     <span class="cont">โทรศัพท์ : 02-6425596 ต่อ 6295</span><br/>
                     <span class="cont">โทรสาร : 02-6425596</span><br/>
