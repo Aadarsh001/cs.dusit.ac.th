@@ -47,7 +47,7 @@ var table = {
             type: 'get',
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contenttable').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
+                    $('#contenttable').append('<li><a target="_blank" href="' + data.data[i].file + '">' + data.data[i].title + '</a></li>');
                 }
             }
         });
@@ -67,7 +67,7 @@ var teacher = {
             type: 'get',
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contentteacher').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
+                    $('#contentteacher').append('<li><a target="_blank" href="' + data.data[i].file + '">' + data.data[i].title + '</a></li>');
                 }
             }
         });
@@ -95,7 +95,7 @@ var student = {
             type: 'get',
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contentstudent').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>');
+                    $('#contentstudent').append('<li><a target="_blank" href="' + data.data[i].file + '">' + data.data[i].title + '</a></li>');
                 }
             }
         });

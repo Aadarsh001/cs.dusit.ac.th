@@ -11,6 +11,7 @@ import static Class.ContentData.Option.remove;
 import static Class.ContentData.Option.show;
 import static Class.ContentData.Option.some;
 import Servlet.index;
+import java.io.File;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ import org.json.simple.JSONValue;
  *
  * @author NewSuppamit
  */
-public class Service {
+public class Lab {
 
     public static String getData(String option, String detail) {
         switch (ContentData.Option.valueOf(option)) {
@@ -56,13 +57,13 @@ public class Service {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM service "
+            String select = "SELECT * FROM lab "
                     + "WHERE status != '0' "
-                    + "ORDER BY id_ser ASC";
+                    + "ORDER BY id_lab DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_ser", con.getString("id_ser"));
+                jchil.put("id_lab", con.getString("id_lab"));
                 jchil.put("title", con.getString("title"));
                 jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
@@ -83,12 +84,12 @@ public class Service {
             JSONArray jarray = new JSONArray();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM service "
-                    + "ORDER BY status DESC,id_ser DESC";
+            String select = "SELECT * FROM lab "
+                    + "ORDER BY id_lab DESC";
             con.query(select);
             while (con.next()) {
                 JSONObject jchil = new JSONObject();
-                jchil.put("id_ser", con.getString("id_ser"));
+                jchil.put("id_lab", con.getString("id_lab"));
                 jchil.put("title", con.getString("title"));
                 jchil.put("link", con.getString("link"));
                 jchil.put("status", con.getString("status"));
@@ -109,11 +110,11 @@ public class Service {
             JSONObject json = new JSONObject();
             Connect con = new Connect();
             con.connect();
-            String select = "SELECT * FROM service "
-                    + "WHERE id_ser = '" + data.get("id_ser") + "'";
+            String select = "SELECT * FROM lab "
+                    + "WHERE id_lab = '" + data.get("id_lab") + "'";
             con.query(select);
             while (con.next()) {
-                json.put("id_ser", con.getString("id_ser"));
+                json.put("id_lab", con.getString("id_lab"));
                 json.put("title", con.getString("title"));
                 json.put("link", con.getString("link"));
                 json.put("status", con.getString("status"));
@@ -131,20 +132,21 @@ public class Service {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String select = "select max(id_ser) as id_ser from service";
+            String select = "select max(id_lab) as id_lab from lab";
             con.query(select);
             con.next();
-            String id_ser = con.getString("id_ser");
-            if (id_ser == null) {
-                id_ser = "0";
+            String id_lab = con.getString("id_lab");
+            if (id_lab == null) {
+                id_lab = "0";
             }
             DecimalFormat decimal_format = new DecimalFormat("000000");
-            id_ser = decimal_format.format(Integer.parseInt(id_ser) + 1);
-            String insert = "insert into service values('"
-                    + id_ser + "','"
+            id_lab = decimal_format.format(Integer.parseInt(id_lab) + 1);
+            String insert = "insert into lab values('"
+                    + id_lab + "','"
                     + json.get("title") + "','"
                     + json.get("link") + "','"
                     + json.get("status") + "')";
+            System.err.println(insert);
             if (con.insert(insert) > 0) {
                 return true;
             }
@@ -160,11 +162,11 @@ public class Service {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String update = "UPDATE service SET "
+            String update = "UPDATE lab SET "
                     + "title = '" + json.get("title") + "',"
                     + "link = '" + json.get("link") + "',"
                     + "status = '" + json.get("status") + "' "
-                    + "WHERE id_ser = '" + json.get("id_ser") + "'";
+                    + "WHERE id_lab = '" + json.get("id_lab") + "'";
             if (con.update(update) > 0) {
                 return true;
             }
@@ -180,8 +182,8 @@ public class Service {
             Connect con = new Connect();
             JSONObject json = (JSONObject) JSONValue.parse(data);
             con.connect();
-            String delete = "delete from service "
-                    + "WHERE id_ser = '" + json.get("id_ser") + "'";
+            String delete = "delete from lab "
+                    + "WHERE id_lab = '" + json.get("id_lab") + "'";
             if (con.delete(delete) > 0) {
                 return true;
             }

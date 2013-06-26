@@ -11,6 +11,7 @@ IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
 IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
+IncludeJavaScript('js/fancybox.js');
 IncludeJavaScript('js/columnRight.js');
 
 IncludeCSS('css/jquery.mobile-1.3.0.css');
@@ -18,6 +19,7 @@ IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
 IncludeCSS('css/jquery.nplugins-0.0.1.css');
+IncludeCSS('css/fancybox.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/index.css');
 
@@ -26,6 +28,16 @@ window.onload = function() {
     news();
     event();
     knowledge();
+    $.fancybox({
+        width: 724,
+        height: 412,
+        padding: 0,
+        fitToView: false,
+        autoSize: false,
+        type: 'iframe',
+        href: 'frmOfwelcome.jsp',
+        closeEffect: 'elastic'
+    });
 };
 
 function slideshow() {
@@ -44,7 +56,7 @@ function slideshow() {
             for (i = 0; i < data.data.length; i++) {
                 $('#slideshow').append('<a href="' + data.data[i].link + '" title="' + data.data[i].title + '" rel="external"  ><img src="' + data.data[i].image + '" /></a>');
             }
-            $('#slideshow').nSlide(720,300);
+            $('#slideshow').nSlide(720, 300);
         }
     });
 }

@@ -17,18 +17,20 @@
     <body>
         <div data-role="page">
             <jsp:include page="jsp/header.jsp"/>
-            <div data-role="content">   
-                <div class="headcontent"></div>
-                <div class="showcontent"></div>
-                <!--                <div class="ui-grid-a column">
-                                    <div class="ui-block-a column">
-                                        <div class="headcontent"></div>
-                                        <div class="showcontent"></div>
-                                    </div>
-                                    <div class="ui-block-b column">
-                <%--<jsp:include page="jsp/columnRight.jsp" />--%>
-            </div>
-        </div>-->
+            <div data-role="content">
+                <div class="headcontent" id="headtraining"></div>
+                <div class="frm"><p>หลักสูตรวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยราชภัฏสวนดุสิต 
+                        ได้จัดโครงการหลักสูตรอบรมทางวิชาการโดยมีความร่วมมือกับบริษัทชั้นนำทาง ด้านเทคโนโลยีสารสนเทศ 
+                        ให้คำแนะนำและถ่ายทอดเทคโนโลยีเฉพาะด้านอันทันสมัย แก่นักศึกษา 
+                        ศิษย์เก่าของคณะเทคโนโลยีสารสนเทศและผู้สนใจทั่วไป ปัจจุบันมีหลักสูตรที่เปิดอบรมดังนี้</p>
+                    <ul class="showcontent" id="contenttraining"></ul>
+                </div>
+                <div class="headcontent" id="headcooperation"></div>
+                <div class="frm"><p>ปัจจุบันหลักสูตรวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยราชภัฏสวนดุสิต 
+                        ได้มีความร่วมมือกับหน่วยงานภายนอกทั้งภาครัฐและเอกชน ดังต่อไปนี้</p>
+                    <ul class="showcontent" id="contentcooperation" style="list-style: none;margin-left: -20px;"></ul>
+                </div>
+
             </div>
             <jsp:include page="jsp/footer.jsp" />
         </div>

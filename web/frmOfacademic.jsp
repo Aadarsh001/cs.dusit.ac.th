@@ -20,16 +20,28 @@
             <div data-role="content">
                 <div class="showcontent">
                     <div id="frm" class="frmcontent">
+                        <div class="headlab"></div>
+                        <div  class="content">
+                            <ul id="contentlab"></ul>
+                        </div>
+                    </div>
+                    <div id="frm" class="frmcontent">
                         <div class="headacademic"></div>
-                        <div id="contentacademic" class="content"></div>
+                        <div class="content">
+                            <ul id="contentacademic"></ul>
+                        </div>
                     </div>
                     <div id="frm" class="frmcontent">
                         <div class="headresearch"></div>
-                        <div id="contentresearch" class="content"></div>
+                        <div class="content">
+                            <ul id="contentresearch"></ul>
+                        </div>
                     </div>
                     <div id="frm" class="frmcontent">
                         <div class="headproject"></div>
-                        <div id="contentproject" class="content"></div>
+                        <div class="content">
+                            <ul id="contentproject"></ul>
+                        </div>
                     </div>
                 </div>
                 <!--                <div class="ui-grid-a column">

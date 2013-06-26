@@ -34,33 +34,30 @@
         },
         run: function() {
             nslide.slide = setInterval(function() {
-                if (nslide.sequence !== max_slide) {
-                    $('#nslide' + nslide.sequence).fadeOut('400', function() {
-                        $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
-                        nslide.sequence++;
-                        $('#nslide' + (nslide.sequence)).fadeIn('100');
-                        $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
-                    });
+                if (parseInt(nslide.sequence) !== parseInt(max_slide)) {
+                    $('#nslide' + nslide.sequence).fadeOut(1500);
+                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
+                    nslide.sequence++;
+                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
+                    $('#nslide' + nslide.sequence).fadeIn(1500);
                 } else {
-                    $('#nslide' + nslide.sequence).fadeOut('400', function() {
-                        $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
-                        nslide.sequence = 1;
-                        $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
-                        $('#nslide' + nslide.sequence).fadeIn('100');
-                    });
+                    $('#nslide' + nslide.sequence).fadeOut(1500);
+                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
+                    nslide.sequence = 1;
+                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
+                    $('#nslide' + nslide.sequence).fadeIn(1500);
                 }
             }, 10000);
         },
         move: function(num) {
-            if (num !== nslide.sequence) {
+            if (parseInt(num) !== nslide.sequence) {
                 clearInterval(nslide.slide);
-                $('#nslide' + nslide.sequence).fadeOut('400', function() {
-                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
-                    nslide.sequence = num;
-                    $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
-                    nslide.run();
-                    $('#nslide' + nslide.sequence).fadeIn('100');
-                });
+                $('#nslide' + nslide.sequence).fadeOut(1500);
+                $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;");
+                nslide.sequence = num;
+                $('#nslide_btn' + nslide.sequence).attr("style", "margin-top:" + m_t + "px;opacity: .99;");
+                $('#nslide' + nslide.sequence).fadeIn(1500);
+                nslide.run();
             }
         }
     };
@@ -262,14 +259,52 @@
     var oldXHR = $.ajaxSettings.xhr;
     $.ajaxSettings.xhr = function() {
         var xhr = oldXHR();
-        if(xhr instanceof window.XMLHttpRequest) {
+        if (xhr instanceof window.XMLHttpRequest) {
             xhr.addEventListener('progress', this.progress, false);
         }
-        
-        if(xhr.upload) {
+
+        if (xhr.upload) {
             xhr.upload.addEventListener('progress', this.progress, false);
         }
-        
+
         return xhr;
     };
 })(jQuery, window);
+
+function nChartInit() {
+    google.load("visualization", "1", {packages: ["corechart"]});
+}
+
+(function($) {
+    $.fn.nChart = function(type, datas, w, h) {
+        if (w === undefined) {
+            w = 640;
+        }
+        if (h === undefined) {
+            h = 480;
+        }
+        var data = [];
+        for (var i = 0; i < datas.length; i++) {
+            data.push(datas[i]);
+        }
+
+        var _data = new google.visualization.arrayToDataTable(data);
+
+        var options = {'title': 'How Much Pizza I Ate Last Night',
+            'width': w,
+            'height': h};
+
+        var chart;
+        if (type === 'pie') {
+            chart = new google.visualization.PieChart(document.getElementById($(this).attr('id')));
+        } else if (type === 'column') {
+            chart = new google.visualization.ColumnChart(document.getElementById($(this).attr('id')));
+        } else if (type === 'bar') {
+            chart = new google.visualization.BarChart(document.getElementById($(this).attr('id')));
+        } else if (type === 'line') {
+            chart = new google.visualization.LineChart(document.getElementById($(this).attr('id')));
+        }
+
+        chart.draw(_data, options);
+    };
+})(jQuery);

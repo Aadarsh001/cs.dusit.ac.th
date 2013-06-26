@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <a href="index">Hello World!</a>
+    <body style="margin:2px 0 0 2px;">
+        <img src="images/welcome.jpg?var=21/6/2556" />
     </body>
 </html>

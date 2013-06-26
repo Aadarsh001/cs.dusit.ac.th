@@ -22,12 +22,13 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/service.css');
 
 window.onload = function() {
-    $('.headcontent').attr('style', 'background-image: url(images/headservice.png);');
+    $('#headtraining').attr('style', 'background-image: url(images/headtraining.png);');
+    $('#headcooperation').attr('style', 'background-image: url(images/headcooperation.png);');
     service.start();
 };
 
 var service = {
-    start : function (){
+    start: function() {
         $.ajax({
             url: 'content',
             data: {
@@ -38,7 +39,11 @@ var service = {
             type: 'get',
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('.showcontent').append('<a rel="external" href="' + data.data[i].link + '">- ' + data.data[i].title + '</a><br/>');
+                    if (data.data[i].status === "1") {
+                        $('#contenttraining').append('<li><a rel="external" href="' + data.data[i].link + '">' + data.data[i].title + '</a></li>');
+                    } else {
+                        $('#contentcooperation').append('<li><a rel="external" href="' + data.data[i].link + '">' + data.data[i].title + '</a></li>');
+                    }
                 }
             }
         });

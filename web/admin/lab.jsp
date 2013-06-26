@@ -1,6 +1,6 @@
 <%-- 
-    Document   : knowledge
-    Created on : May 24, 2013, 12:09:56 AM
+    Document   : news
+    Created on : May 23, 2013, 2:05:51 PM
     Author     : NewSuppamit
 --%>
 
@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ระบบจัดการเนื้อหาเว็บ</title>
-        <script type="text/javascript" src="js/admin_service.js"></script>
+        <script type="text/javascript" src="js/admin_lab.js"></script>
     </head>
     <body>
         <div data-role="page">
@@ -23,8 +23,8 @@
                         <div class="headcontent"></div>
                         <div data-role="navbar" data-iconpos="left" >
                             <ul>
-                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มบริการวิชาการ</a></li>
-                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบบริการวิชาการ</a></li>
+                                <li><a href="#" id="tab_add" data-icon="plus"  class="ui-btn-active">เพิ่มผลงานวิชาการ</a></li>
+                                <li><a href="#" id="tab_edit" data-icon="gear">แก้ไข/ลบผลงานวิชาการ</a></li>
                             </ul>
                         </div>
                         <div id="page_add">
@@ -37,26 +37,25 @@
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ลิงก์ : </label> <input
-                                            type="text" id="link" data-mini="true" maxlength="1000" placeholder="ลิงก์">
+                                        <label for="foo" class="ui-input-text">ลิงค์ : </label> <input
+                                            type="text" id="link" data-mini="true" maxlength="1000" placeholder="ลิงค์">
                                     </div>
                                 </div>
-                                <div class="ui-block-a"></div>
+                                <div class="ui-block-a">
+                                </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">สถานะ : </label> 
                                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                                             <input type="radio" name="status" id="1"  value="1" checked/>
-                                            <label for="1">อบรม</label>
-                                            <input type="radio" name="status" id="2"  value="2"/>
-                                            <label for="2">ความร่วมมือ</label>
+                                            <label for="1">แสดง</label>
                                             <input type="radio" name="status" id="0" value="0" />
                                             <label for="0">ซ่อน</label>
                                         </fieldset>
                                     </div>
                                 </div>
+                                <div class="ui-block-b"></div>
                             </fieldset>
-
                             <fieldset class="ui-grid-d">
                                 <div class="ui-block-a"></div>
                                 <div class="ui-block-b">
@@ -73,9 +72,9 @@
                             <table id="showAll">
                                 <thead>
                                     <tr>
-                                        <th width="280">ชื่อเรื่อง</th>
-                                        <th width="230">ลิงค์</th>
-                                        <th width="130">สถานะ</th>
+                                        <th width="380">ชื่อเรื่อง</th>
+                                        <th width="200">ลิงค์</th>
+                                        <th width="70">สถานะ</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -84,7 +83,7 @@
 
                             <fieldset class="ui-grid-a default">
                                 <div class="ui-block-a">
-                                    <input type="text" id="_id_ser" class="hidden" data-role="none">
+                                    <input type="text" id="_id_lab" class="hidden" data-role="none">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
                                         <label for="foo" class="ui-input-text">ชื่อเรื่อง : </label> <input
                                             type="text" id="_title" data-mini="true" maxlength="1000" placeholder="ชื่อเรื่อง">
@@ -92,8 +91,8 @@
                                 </div>
                                 <div class="ui-block-b">
                                     <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                                        <label for="foo" class="ui-input-text">ลิงก์ : </label> <input
-                                            type="text" id="_link" data-mini="true" maxlength="1000" placeholder="ลิงก์">
+                                        <label for="foo" class="ui-input-text">ลิงค์ : </label> <input
+                                            type="text" id="_link" data-mini="true" maxlength="1000" placeholder="ลิงค์">
                                     </div>
                                 </div>
                                 <div class="ui-block-a"></div>
@@ -102,9 +101,7 @@
                                         <label for="foo" class="ui-input-text">สถานะ : </label> 
                                         <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                                             <input type="radio" name="_status" id="_status-1"  value="1"/>
-                                            <label for="_status-1">อบรม</label>
-                                            <input type="radio" name="_status" id="_status-2"  value="2"/>
-                                            <label for="_status-2">ความร่วมมือ</label>
+                                            <label for="_status-1">แสดง</label>
                                             <input type="radio" name="_status" id="_status-0" value="0" />
                                             <label for="_status-0">ซ่อน</label>
                                         </fieldset>

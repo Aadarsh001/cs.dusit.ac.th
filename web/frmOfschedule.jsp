@@ -22,15 +22,21 @@
                 <div class="showcontent">
                     <div id="frm" class="frmcontent">
                         <div class="headtable"></div>
-                        <div id="contenttable" class="content"></div>
+                        <div class="content">
+                            <ul id="contenttable"></ul>
+                        </div>
                     </div>
                     <div id="frm" class="frmcontent">
                         <div class="headcalendar_teacher"></div>
-                        <div id="contentteacher" class="content"></div>
+                        <div class="content">
+                            <ul id="contentteacher"></ul>
+                        </div>
                     </div>
                     <div id="frm" class="frmcontent">
                         <div class="headcalendar_student"></div>
-                        <div id="contentstudent" class="content"></div>
+                        <div class="content">
+                            <ul id="contentstudent"></ul>
+                        </div>
                     </div>
                 </div>
                 <!--                <div class="ui-grid-a column">

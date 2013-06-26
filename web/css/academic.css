@@ -23,40 +23,41 @@
     border: solid #E1E1E1 1px;
 }
 
+.headlab{
+    width: 100%;
+    background: url('../images/headlab.png') no-repeat;
+    min-height: 50px;
+    border-bottom: solid #E1E1E1 1px;
+}
 .headacademic{
     width: 100%;
     background: url('../images/headacademic_academic.png') no-repeat;
-    height: 50px;
+    min-height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headresearch{
     width: 100%;
     background: url('../images/headacademic_research.png') no-repeat;
-    height: 50px;
+    min-height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 .headproject{
     width: 100%;
     background: url('../images/headacademic_project.png') no-repeat;
-    height: 50px;
+    min-height: 50px;
     border-bottom: solid #E1E1E1 1px;
 }
 
 .content{
-    text-decoration: none;
+    min-height: 50px;
     color: #3C3C3F;
-    padding: 20px;
-    min-height: 200px;
-    text-overflow: ellipsis;
     font-size: 1em;
     line-height: 20px;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .content a:hover,.content a:visited,.content a{
-    font-size: 1.2em;
+    line-height: 2em;
     font-weight: bolder;
     color: #3C3C3F;
     text-decoration: none;

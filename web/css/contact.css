@@ -31,8 +31,8 @@
 
 .map{
     width: 100%;
-    height: 430px;
-    background-image: url('../images/map.png');
+    height: 440px;
+    background-image: url('../images/map.png?ver=21/6/2556');
     background-repeat: no-repeat;
     margin: 20px auto;
 }

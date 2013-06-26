@@ -22,11 +22,34 @@ IncludeCSS('css/style.css');
 IncludeCSS('css/academic.css');
 
 window.onload = function() {
-    $('.headcontent').attr('style', 'background-image: url(images/headacademic.png);');
+    $('.headcontent').attr('style', 'background-image: url(images/headacademic.png?ver=26/6/2556);');
+    lab.start();
     academic.start();
     research.start();
     project.start();
 };
+
+var lab = {
+    start: function() {
+        $.ajax({
+            url: 'content',
+            data: {
+                'content': 'lab',
+                'option': 'show'
+            },
+            dataType: 'json',
+            type: 'get',
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //            alert('Error');
+            },
+            success: function(data) {
+                for (var i = 0; i < data.data.length; i++) {
+                    $('#contentlab').append('<li><a rel="external" href="' + data.data[i].link + '">' + data.data[i].title + '</a></li>');
+                }
+            }
+        });
+    }
+}
 
 var academic = {
     start: function() {
@@ -43,8 +66,8 @@ var academic = {
             },
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contentacademic').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>\n\
-                                            <dd>โดย ' + data.data[i].owner + '</dd><br/>');
+                    $('#contentacademic').append('<li><a target="_blank" href="' + data.data[i].file + '">' + data.data[i].title + '</a><br/>\n\
+                                            <dd>โดย ' + data.data[i].owner + '</dd></li>');
                 }
             }
         });
@@ -66,8 +89,8 @@ var research = {
             },
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#contentresearch').append('<a target="_blank" href="' + data.data[i].file + '">- ' + data.data[i].title + '</a><br/>\n\
-                                            <dd>โดย ' + data.data[i].owner + '</dd><br/>');
+                    $('#contentresearch').append('<li><a target="_blank" href="' + data.data[i].file + '">' + data.data[i].title + '</a><br/>\n\
+                                            <dd>โดย ' + data.data[i].owner + '</dd></li>');
                 }
             }
         });
@@ -89,14 +112,14 @@ var project = {
             },
             success: function(data) {
                 for (var i = 0; i < data.data.length; i++) {
-                    if(data.data[i].adviser!==""){
-                        $('#contentproject').append('<a target="_blank" href="' + data.data[i].link + '">- ' + data.data[i].title + '</a><br/>\n\
-                                            <dd>โดย ' + data.data[i].owner + ' (อาจารย์ที่ปรึกษา : '+data.data[i].adviser+')</dd><br/>');
-                    }else{
-                        $('#contentproject').append('<a target="_blank" href="' + data.data[i].link + '">- ' + data.data[i].title + '</a><br/>\n\
-                                            <dd>โดย ' + data.data[i].owner + '</dd><br/>');
+                    if (data.data[i].adviser !== "") {
+                        $('#contentproject').append('<li><a target="_blank" href="' + data.data[i].link + '">' + data.data[i].title + '</a><br/>\n\
+                                            <dd>โดย ' + data.data[i].owner + ' (อาจารย์ที่ปรึกษา : ' + data.data[i].adviser + ')</dd></li>');
+                    } else {
+                        $('#contentproject').append('<li><a target="_blank" href="' + data.data[i].link + '">' + data.data[i].title + '</a><br/>\n\
+                                            <dd>โดย ' + data.data[i].owner + '</dd></li>');
                     }
-                    
+
                 }
             }
         });

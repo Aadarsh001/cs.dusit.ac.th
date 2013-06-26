@@ -158,6 +158,11 @@ public class content extends HttpServlet {
                     data.put("id_cou", request.getParameter("id_cou"));
                 }
                 break;
+            case lab:
+                if (Option.some.toString().equals(option)) {
+                    data.put("id_lab", request.getParameter("id_lab"));
+                }
+                break;
             case academic:
                 if (Option.some.toString().equals(option)) {
                     data.put("id_aca", request.getParameter("id_aca"));
@@ -478,6 +483,16 @@ public class content extends HttpServlet {
                 }
                 if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
                     data.put("title", request.getParameter("title"));
+                    data.put("status", request.getParameter("status"));
+                }
+                break;
+            case lab:
+                if (Option.edit.toString().equals(option) || Option.remove.toString().equals(option)) {
+                    data.put("id_lab", request.getParameter("id_lab"));
+                }
+                if (Option.edit.toString().equals(option) || Option.add.toString().equals(option)) {
+                    data.put("title", request.getParameter("title"));
+                    data.put("link", request.getParameter("link"));
                     data.put("status", request.getParameter("status"));
                 }
                 break;

@@ -11,7 +11,6 @@ IncludeJavaScript('js/jquery.mobile-1.3.0.js');
 IncludeJavaScript('js/jquery.html5-placeholder.js');
 IncludeJavaScript('js/jquery-ui-1.8.10.offset.datepicker.min.js');
 IncludeJavaScript('js/jquery.nplugins-0.0.1.js');
-IncludeJavaScript('js/jquery.wysiwyg.js');
 IncludeJavaScript('js/columnRight.js');
 IncludeJavaScript('js/flexigrid.js');
 
@@ -20,28 +19,27 @@ IncludeCSS('css/jquery.mobile.pc-1.3.0.css');
 IncludeCSS('css/cs.dusit.css');
 IncludeCSS('css/jquery-ui-1.8.10.custom.css');
 IncludeCSS('css/jquery.nplugins-0.0.1.css');
-IncludeCSS('css/jquery.wysiwyg.css');
 IncludeCSS('css/style.css');
 IncludeCSS('css/flexigrid.css');
 IncludeCSS('css/admin.css');
 
-var page = "service";
+var page = "lab";
 
 window.onload = function onload() {
     $('.headcontent').attr('style', 'background-image: url(images/head' + page + '.png);');
     tab_btn();
-    service.start();
+    lab.start();
 };
 
-var service = {
+var lab = {
     start: function() {
-        service.all();
+        lab.all();
         $('#submit_add').click(function() {
             if (($('#title').val() !== "")
                     && ($('#link').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการเพิ่มข้อมูล!')) {
                     $.mobile.loading('show');
-                    service.add();
+                    lab.add();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -52,7 +50,7 @@ var service = {
                     && ($('#_link').val() !== "")) {
                 if (confirm('กด “ตกลง” เพื่อยืนยันการแก้ไขข้อมูล!')) {
                     $.mobile.loading('show');
-                    service.edit();
+                    lab.edit();
                 }
             } else {
                 alert('กรุณาระบุข้อมูลทั้งหมด');
@@ -78,23 +76,21 @@ var service = {
                 for (var i = 0; i < data.data.length; i++) {
                     var status;
                     if (data.data[i].status === "1") {
-                        status = "หลักสูตรอบรม";
-                    } else if (data.data[i].status === "2") {
-                        status = "ความร่วมมือ";
+                        status = "แสดง";
                     } else {
                         status = "ซ่อน";
                     }
-                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_ser + "><td>"
+                    $('#showAll').children("tbody").append("<tr id=" + data.data[i].id_lab + "><td>"
                             + data.data[i].title + "</td><td>"
                             + data.data[i].link + "</td><td>"
                             + status + "</td></tr>");
                 }
                 $('#showAll tr').click(function() {
-                    service.some($(this).attr("id"));
+                    lab.some($(this).attr("id"));
                 });
                 $('#showAll tr').dblclick(function() {
                     if (confirm('กด “ตกลง” เพื่อยืนยันการลบข้อมูล!')) {
-                        service.remove($(this).attr("id"));
+                        lab.remove($(this).attr("id"));
                     }
                 });
                 $('#showAll').flexigrid({
@@ -112,7 +108,7 @@ var service = {
             data: {
                 'content': page,
                 'option': 'some',
-                'id_ser': id
+                'id_lab': id
             },
             dataType: 'json',
             type: 'get',
@@ -120,16 +116,13 @@ var service = {
                 alert("Error : 0x01");
             },
             success: function(data) {
-                $('#_id_ser').val(data.id_ser);
+                $('#_id_lab').val(data.id_lab);
                 $('#_title').val(data.title);
                 $('#_link').val(data.link);
                 $('#_status-0').removeAttr("checked").checkboxradio("refresh");
                 $('#_status-1').removeAttr("checked").checkboxradio("refresh");
-                $('#_status-2').removeAttr("checked").checkboxradio("refresh");
                 if (data.status === "1") {
                     $('#_status-1').attr("checked", true).checkboxradio("refresh");
-                } else if (data.status === "2") {
-                    $('#_status-2').attr("checked", true).checkboxradio("refresh");
                 } else {
                     $('#_status-0').attr("checked", true).checkboxradio("refresh");
                 }
@@ -168,7 +161,7 @@ var service = {
             data: {
                 'content': page,
                 'option': 'edit',
-                'id_ser': $('#_id_ser').val(),
+                'id_lab': $('#_id_lab').val(),
                 'title': $('#_title').val(),
                 'link': $('#_link').val(),
                 'status': $('input[name="_status"]:checked').val()
@@ -195,7 +188,7 @@ var service = {
             data: {
                 'content': page,
                 'option': 'remove',
-                'id_ser': id
+                'id_lab': id
             },
             dataType: 'json',
             type: 'post',

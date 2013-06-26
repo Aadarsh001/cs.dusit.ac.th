@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="date"></div>
-<div id="social"><a href="http://facebook.com" target="blank"><img src="images/fblogo.png"></a></div>
+<div id="social"><a href="http://www.facebook.com/groups/comsci.rangnam" target="blank"><img src="images/fblogo.png"></a></div>
 <div id="frmlogin" class="frmcolR">
     <div class="headlogin"></div>
     <div class="ui-grid-b login">

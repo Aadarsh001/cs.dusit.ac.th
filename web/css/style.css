@@ -115,11 +115,12 @@
     color: #FF8109;
 }
 .link{
-    list-style-type: none;
-    margin: 10px auto 0 5px;
+    /*list-style-type: none;*/
+    margin: 8px auto 8px 3px;
+    white-space: nowrap;
 }
-/* ColumnRight END */
 
+/* ColumnRight END */
 /* HEADER STRAT */
 
 [data-role=header]{

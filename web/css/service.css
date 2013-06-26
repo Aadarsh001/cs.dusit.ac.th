@@ -1,7 +1,21 @@
+.frm{
+    width: 90%;
+    margin: 0 auto;
+}
+
+body p{
+    margin: 15px auto 0 auto;
+    text-align: justify;
+    width: 100%;
+    text-indent: 40px;
+    line-height: 30px;
+    font-size: 1.1em;
+}
+
 .showcontent a{
     line-height: 2em;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .showcontent a:link,.showcontent a:visited{
@@ -23,9 +37,4 @@
     height: 50px;
     border-bottom: solid #E1E1E1 1px;
     background-repeat: no-repeat;
-}
-
-.showcontent{
-    margin: 15px 10px;
-    min-height: 400px;
 }

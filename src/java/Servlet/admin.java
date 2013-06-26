@@ -126,6 +126,9 @@ public class admin extends HttpServlet {
                 case course:
                     page = "admin/course.jsp";
                     break;
+                case lab:
+                    page = "admin/lab.jsp";
+                    break;
                 case academic:
                     page = "admin/academic.jsp";
                     break;

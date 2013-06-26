@@ -18,7 +18,7 @@
         <li><a href="course" rel="external"><div>โครงสร้างหลักสูตร</div></a></li>
         <li class='has-sub'><a href="" id="" rel="external"><div>วิจัยและบริการวิชาการ</div></a>
             <ul>
-                <li><a href="academic" rel="external"><div>วิจัย</div></a></li>
+                <li><a href="academic" rel="external"><div>ศูนย์วิจัยและพัฒนา</div></a></li>
                 <li><a href="service" rel="external"><div>บริการวิชาการ</div></a></li>
             </ul>
         </li>

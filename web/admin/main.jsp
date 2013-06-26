@@ -31,6 +31,7 @@
                         <a href="#" class="admin_btn" id="student">- เพิ่ม/แก้ไข ข้อมูลนักศึกษา</a><br/>
                         <a href="#" class="admin_btn" id="schedule">- เพิ่ม/แก้ไข ตารางเวลา</a><br/>
                         <a href="#" class="admin_btn" id="course">- เพิ่ม/แก้ไข โครงสร้างหลักสูตร</a><br/>
+                        <a href="#" class="admin_btn" id="lab">- เพิ่ม/แก้ไข ศุนย์วิจัยและพัฒนา</a><br/>
                         <a href="#" class="admin_btn" id="academic">- เพิ่ม/แก้ไข ผลงานวิชาการ</a><br/>
                         <a href="#" class="admin_btn" id="research">- เพิ่ม/แก้ไข ผลงานวิจัย</a><br/>
                         <a href="#" class="admin_btn" id="project">- เพิ่ม/แก้ไข ผลงานนักศึกษา</a><br/>
